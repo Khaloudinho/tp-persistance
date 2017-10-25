@@ -2,11 +2,8 @@ package metier;
 
 import javax.persistence.*;
 import java.io.Serializable;
-<<<<<<< HEAD
 import java.util.Set;
-=======
 import java.sql.Date;
->>>>>>> f5c50704afe123a2eded894b221758dd4ceaaf2c
 
 import static javax.persistence.GenerationType.IDENTITY;
 

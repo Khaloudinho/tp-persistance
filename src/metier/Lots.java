@@ -2,11 +2,8 @@ package metier;
 
 import javax.persistence.*;
 import java.io.Serializable;
-<<<<<<< HEAD
 import java.util.Set;
-=======
 import java.sql.Date;
->>>>>>> f5c50704afe123a2eded894b221758dd4ceaaf2c
 
 import static javax.persistence.GenerationType.IDENTITY;
 
@@ -21,7 +18,6 @@ public class Lots implements Serializable {
 	private int dureeEstimee;
 	private int coutEstime;
 	private int avancement;
-<<<<<<< HEAD
 	private int coutReel;
 	private int dateFinReel;
 
@@ -36,15 +32,7 @@ public class Lots implements Serializable {
 
 	public Lots() {}
 
-	public Lots(int numero, int dateDebut, int dureeEstimee, int coutEstime, int avancement, int coutReel, int dateFinReel) {
-=======
-	private int coutRéel;
-	private Date dateFinRéel;
-
-	public Lots() {}
-
-	public Lots(int numero, Date dateDebut, int dureeEstimee, int coutEstime, int avancement, int coutRéel, Date dateFinRéel) {
->>>>>>> f5c50704afe123a2eded894b221758dd4ceaaf2c
+	public Lots(int numero, Date dateDebut, int dureeEstimee, int coutEstime, int avancement, int coutReel, int dateFinReel) {
 		this.numero = numero;
 		this.dateDebut = dateDebut;
 		this.dureeEstimee = dureeEstimee;
@@ -102,21 +90,12 @@ public class Lots implements Serializable {
 		this.coutReel = coutReel;
 	}
 
-<<<<<<< HEAD
 	public int getDateFinReel() {
 		return dateFinReel;
 	}
 
 	public void setDateFinReel(int dateFinReel) {
 		this.dateFinReel = dateFinReel;
-=======
-	public Date getDateFinRéel() {
-		return dateFinRéel;
-	}
-
-	public void setDateFinRéel(Date dateFinRéel) {
-		this.dateFinRéel = dateFinRéel;
->>>>>>> f5c50704afe123a2eded894b221758dd4ceaaf2c
 	}
 
 	public int getId() {
