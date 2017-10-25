@@ -29,4 +29,14 @@ public class Reseaux extends Lots implements Serializable {
 	public void setLongueur(int longueur) {
 		this.longueur = longueur;
 	}
+
+	@Override
+	public int getId() {
+		return id;
+	}
+
+	@Override
+	public void setId(int id) {
+		this.id = id;
+	}
 }

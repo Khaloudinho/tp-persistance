@@ -39,4 +39,14 @@ public class Platerie extends Lots implements Serializable {
 	public void setSurfaceMur(int surfaceMur) {
 		this.surfaceMur = surfaceMur;
 	}
+
+	@Override
+	public int getId() {
+		return id;
+	}
+
+	@Override
+	public void setId(int id) {
+		this.id = id;
+	}
 }

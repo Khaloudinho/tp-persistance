@@ -39,4 +39,12 @@ public class Maison extends Projet implements Serializable {
 	public void setNbNiveaux(int nbNiveaux) {
 		this.nbNiveaux = nbNiveaux;
 	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
 }

@@ -28,4 +28,14 @@ public class Peinture extends Lots implements Serializable {
 	public void setSurface(int surface) {
 		this.surface = surface;
 	}
+
+	@Override
+	public int getId() {
+		return id;
+	}
+
+	@Override
+	public void setId(int id) {
+		this.id = id;
+	}
 }

@@ -28,4 +28,12 @@ public class Terrassement extends Lots implements Serializable {
 	public void setVolumeTerre(int volumeTerre) {
 		this.volumeTerre = volumeTerre;
 	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
 }

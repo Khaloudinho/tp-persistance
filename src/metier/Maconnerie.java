@@ -38,4 +38,14 @@ public class Maconnerie extends Lots implements Serializable {
 	public void setNbPoteaux(int nbPoteaux) {
 		this.nbPoteaux = nbPoteaux;
 	}
+
+	@Override
+	public int getId() {
+		return id;
+	}
+
+	@Override
+	public void setId(int id) {
+		this.id = id;
+	}
 }

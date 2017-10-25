@@ -48,4 +48,12 @@ public class Menuiseries extends Lots implements Serializable {
 	public void setNbFenetreToit(int nbFenetreToit) {
 		this.nbFenetreToit = nbFenetreToit;
 	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
 }

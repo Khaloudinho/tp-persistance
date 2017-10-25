@@ -29,4 +29,12 @@ public class Lotissement extends Projet implements Serializable {
 	public void setNbMaisons(int nbMaisons) {
 		this.nbMaisons = nbMaisons;
 	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
 }

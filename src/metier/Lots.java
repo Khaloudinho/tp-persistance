@@ -88,4 +88,12 @@ public class Lots implements Serializable {
 	public void setDateFinRéel(int dateFinRéel) {
 		this.dateFinRéel = dateFinRéel;
 	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
 }

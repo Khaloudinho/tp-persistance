@@ -99,4 +99,12 @@ public class Projet implements Serializable {
 	public void setDateFinReelle(int dateFinReelle) {
 		this.dateFinReelle = dateFinReelle;
 	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
 }

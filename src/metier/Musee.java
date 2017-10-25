@@ -28,4 +28,12 @@ public class Musee extends BatimentPublic implements Serializable {
 	public void setNbSalles(int nbSalles) {
 		this.nbSalles = nbSalles;
 	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
 }
