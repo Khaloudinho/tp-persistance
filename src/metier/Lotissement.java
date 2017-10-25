@@ -1,7 +1,12 @@
+package metier;
+
 import java.io.Serializable;
 
 public class Lotissement extends Projet implements Serializable {
 
+	@Id
+	@GeneratedValue(strategy = IDENTITY)
+	private int id;
 	private int nbMaisons;
 
 	public Lotissement() {}

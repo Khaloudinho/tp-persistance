@@ -1,7 +1,12 @@
+package metier;
+
 import java.io.Serializable;
 
 public class Terrassement extends Lots implements Serializable {
 
+	@Id
+	@GeneratedValue(strategy = IDENTITY)
+	private int id;
 	private int volumeTerre;
 
 	public Terrassement() {}

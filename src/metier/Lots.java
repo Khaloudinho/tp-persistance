@@ -1,7 +1,12 @@
+package metier;
+
 import java.io.Serializable;
 
 public class Lots implements Serializable {
 
+	@Id
+	@GeneratedValue(strategy = IDENTITY)
+	private int id;
 	private int numero;
 	private int dateDebut;
 	private int dureeEstimee;

@@ -1,9 +1,7 @@
-public enum ETitre {
-	;
+package util;
 
-	private int Technicien;
-	private int Ingénieur;
-	private int Architecte;
-	private int Docteur;
+public enum ETitre {
+
+	Technicien, Ingenieur, Architecte, Docteur;
 
 }

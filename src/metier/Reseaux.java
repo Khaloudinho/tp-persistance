@@ -1,7 +1,12 @@
+package metier;
+
 import java.io.Serializable;
 
 public class Reseaux extends Lots implements Serializable {
 
+	@Id
+	@GeneratedValue(strategy = IDENTITY)
+	private int id;
 	private int longueur;
 
 	public Reseaux() {

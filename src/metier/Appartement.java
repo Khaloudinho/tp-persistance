@@ -1,3 +1,5 @@
+package metier;
+
 public class Appartement implements java.io.Serializable {
 
 	private int niveau;

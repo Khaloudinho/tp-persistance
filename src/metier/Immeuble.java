@@ -1,3 +1,5 @@
+package metier;
+
 public class Immeuble extends Projet implements java.io.Serializable {
 
 	private int nbNiveaux;

@@ -1,3 +1,5 @@
+package metier;
+
 public class Entreprise implements java.io.Serializable {
 
 	private int nom;

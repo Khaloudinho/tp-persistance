@@ -1,3 +1,5 @@
+package metier;
+
 public class Charpente extends Lots implements java.io.Serializable {
 
 	private ECharpente typeCharpente;

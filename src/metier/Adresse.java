@@ -1,3 +1,5 @@
+package metier;
+
 public class Adresse implements java.io.Serializable {
 
 	private int numero;

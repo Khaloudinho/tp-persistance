@@ -1,3 +1,5 @@
+package metier;
+
 public class Dallage extends Lots implements java.io.Serializable {
 
 	private int surfaceTotale;

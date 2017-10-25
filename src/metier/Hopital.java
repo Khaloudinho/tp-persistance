@@ -1,3 +1,5 @@
+package metier;
+
 public class Hopital extends BatimentPublic implements java.io.Serializable {
 
 	private int nbLits;

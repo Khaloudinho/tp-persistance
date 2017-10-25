@@ -1,11 +1,7 @@
-public enum EStatut {
-	;
+package util;
 
-	private int Directeur;
-	private int Responsable;
-	private int Ouvrier;
-	private int ChefEquipe;
-	private int BIMManager;
-	private int Employé;
+public enum EStatut {
+
+	Directeur, Responsable, Ouvrier, ChefEquipe, BIMManager, Employe;
 
 }

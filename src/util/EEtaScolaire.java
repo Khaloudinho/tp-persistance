@@ -1,9 +1,7 @@
-public enum EEtaScolaire {
-	;
+package util;
 
-	private int primaire;
-	private int collège;
-	private int lycée;
-	private int université;
+public enum EEtaScolaire {
+
+	primaire, college, lycee, universite;
 
 }

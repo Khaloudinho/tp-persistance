@@ -1,10 +1,7 @@
-public enum ETypeAppart {
-	;
+package util;
 
-	private int Studio;
-	private int T1;
-	private int T2;
-	private int T3;
-	private int T4;
+public enum ETypeAppart {
+
+	Studio, T1, T2, T3, T4;
 
 }

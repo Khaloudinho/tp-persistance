@@ -1,8 +1,12 @@
-import java.awt.*;
+package metier;
+
 import java.io.Serializable;
 
 public class Menuiseries extends Lots implements Serializable {
 
+	@Id
+	@GeneratedValue(strategy = IDENTITY)
+	private int id;
 	private int nbFenetres;
 	private int nbPortes;
 	private int nbFenetreToit;

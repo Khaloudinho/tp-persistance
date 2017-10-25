@@ -1,7 +1,12 @@
+package metier;
+
 import java.io.Serializable;
 
 public class Projet implements Serializable {
 
+	@Id
+	@GeneratedValue(strategy = IDENTITY)
+	private int id;
 	private int refProjet;
 	private int nom;
 	private int surfaceTotale;

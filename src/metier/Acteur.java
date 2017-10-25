@@ -1,3 +1,4 @@
+package metier;
 
 public class Acteur implements java.io.Serializable {
 

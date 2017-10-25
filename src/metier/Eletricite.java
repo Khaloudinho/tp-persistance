@@ -1,3 +1,5 @@
+package metier;
+
 public class Eletricite extends Lots implements java.io.Serializable {
 
 	private int nbTableau;

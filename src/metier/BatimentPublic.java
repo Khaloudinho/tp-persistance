@@ -1,3 +1,5 @@
+package metier;
+
 public class BatimentPublic extends Projet implements java.io.Serializable {
 
 	private int Ministère;

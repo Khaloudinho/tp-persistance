@@ -1,7 +1,12 @@
+package metier;
+
 import java.io.Serializable;
 
 public class Maison extends Projet implements Serializable {
 
+	@Id
+	@GeneratedValue(strategy = IDENTITY)
+	private int id;
 	private int nbPièces;
 	private int nbNiveaux;
 

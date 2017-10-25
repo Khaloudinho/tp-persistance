@@ -1,3 +1,5 @@
+package metier;
+
 public class Fondation extends Lots implements java.io.Serializable {
 
 	private int profondeur;
