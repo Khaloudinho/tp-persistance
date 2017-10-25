@@ -1,5 +1,8 @@
 package metier;
 
+import util.EStatut;
+import util.ETitre;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
