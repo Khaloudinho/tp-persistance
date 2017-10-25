@@ -3,7 +3,9 @@ package metier;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import java.io.Serializable;
+import java.util.Set;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
@@ -14,6 +16,9 @@ public class Lotissement extends Projet implements Serializable {
 	@GeneratedValue(strategy = IDENTITY)
 	private int id;
 	private int nbMaisons;
+
+	@OneToMany
+	private Set<Maison> maisons;
 
 	public Lotissement() {}
 
@@ -36,5 +41,13 @@ public class Lotissement extends Projet implements Serializable {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	public Set<Maison> getMaisons() {
+		return maisons;
+	}
+
+	public void setMaisons(Set<Maison> maisons) {
+		this.maisons = maisons;
 	}
 }

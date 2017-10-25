@@ -2,9 +2,7 @@ package metier;
 
 import util.ETypeAppart;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
@@ -18,6 +16,9 @@ public class Appartement implements java.io.Serializable {
 	private int niveau;
 	private int type;
 	private ETypeAppart surface;
+
+	@ManyToOne
+	private Immeuble immeuble;
 
 	public Appartement() {
 	}
@@ -52,11 +53,19 @@ public class Appartement implements java.io.Serializable {
 		this.surface = surface;
 	}
 
-	public int getID() {
+	public int getId() {
 		return id;
 	}
 
-	public void setID(int id) {
+	public void setId(int id) {
 		this.id = id;
+	}
+
+	public Immeuble getImmeuble() {
+		return immeuble;
+	}
+
+	public void setImmeuble(Immeuble immeuble) {
+		this.immeuble = immeuble;
 	}
 }

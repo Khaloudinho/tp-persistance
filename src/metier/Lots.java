@@ -1,9 +1,8 @@
 package metier;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Set;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
@@ -18,19 +17,28 @@ public class Lots implements Serializable {
 	private int dureeEstimee;
 	private int coutEstime;
 	private int avancement;
-	private int coutRéel;
-	private int dateFinRéel;
+	private int coutReel;
+	private int dateFinReel;
+
+	@ManyToOne
+	private Entreprise entrepriseResponsable;
+
+	@ManyToMany
+	private Set<Entreprise> entreprisesRealisatrices;
+
+	@ManyToOne
+	private Projet projet;
 
 	public Lots() {}
 
-	public Lots(int numero, int dateDebut, int dureeEstimee, int coutEstime, int avancement, int coutRéel, int dateFinRéel) {
+	public Lots(int numero, int dateDebut, int dureeEstimee, int coutEstime, int avancement, int coutReel, int dateFinReel) {
 		this.numero = numero;
 		this.dateDebut = dateDebut;
 		this.dureeEstimee = dureeEstimee;
 		this.coutEstime = coutEstime;
 		this.avancement = avancement;
-		this.coutRéel = coutRéel;
-		this.dateFinRéel = dateFinRéel;
+		this.coutReel = coutReel;
+		this.dateFinReel = dateFinReel;
 	}
 
 	public int getNumero() {
@@ -73,20 +81,20 @@ public class Lots implements Serializable {
 		this.avancement = avancement;
 	}
 
-	public int getCoutRéel() {
-		return coutRéel;
+	public int getCoutReel() {
+		return coutReel;
 	}
 
-	public void setCoutRéel(int coutRéel) {
-		this.coutRéel = coutRéel;
+	public void setCoutReel(int coutReel) {
+		this.coutReel = coutReel;
 	}
 
-	public int getDateFinRéel() {
-		return dateFinRéel;
+	public int getDateFinReel() {
+		return dateFinReel;
 	}
 
-	public void setDateFinRéel(int dateFinRéel) {
-		this.dateFinRéel = dateFinRéel;
+	public void setDateFinReel(int dateFinReel) {
+		this.dateFinReel = dateFinReel;
 	}
 
 	public int getId() {
@@ -95,5 +103,29 @@ public class Lots implements Serializable {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	public Entreprise getEntrepriseResponsable() {
+		return entrepriseResponsable;
+	}
+
+	public void setEntrepriseResponsable(Entreprise entrepriseResponsable) {
+		this.entrepriseResponsable = entrepriseResponsable;
+	}
+
+	public Set<Entreprise> getEntreprisesRealisatrices() {
+		return entreprisesRealisatrices;
+	}
+
+	public void setEntreprisesRealisatrices(Set<Entreprise> entreprisesRealisatrices) {
+		this.entreprisesRealisatrices = entreprisesRealisatrices;
+	}
+
+	public Projet getProjet() {
+		return projet;
+	}
+
+	public void setProjet(Projet projet) {
+		this.projet = projet;
 	}
 }

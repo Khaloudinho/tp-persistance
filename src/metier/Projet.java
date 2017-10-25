@@ -1,9 +1,8 @@
 package metier;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Set;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
@@ -21,6 +20,15 @@ public class Projet implements Serializable {
 	private int coutTotalEstime;
 	private boolean termine;
 	private int dateFinReelle;
+
+	@OneToOne
+	private Adresse adresse;
+
+	@ManyToMany
+	private Set<Acteur> acteurs;
+
+	@OneToMany
+	private Set<Lots> lots;
 
 	public Projet() {
 	}
@@ -106,5 +114,29 @@ public class Projet implements Serializable {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	public Adresse getAdresse() {
+		return adresse;
+	}
+
+	public void setAdresse(Adresse adresse) {
+		this.adresse = adresse;
+	}
+
+	public Set<Acteur> getActeurs() {
+		return acteurs;
+	}
+
+	public void setActeurs(Set<Acteur> acteurs) {
+		this.acteurs = acteurs;
+	}
+
+	public Set<Lots> getLots() {
+		return lots;
+	}
+
+	public void setLots(Set<Lots> lots) {
+		this.lots = lots;
 	}
 }

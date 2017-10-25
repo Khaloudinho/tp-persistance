@@ -3,6 +3,7 @@ package metier;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import java.io.Serializable;
 
 import static javax.persistence.GenerationType.IDENTITY;
@@ -15,6 +16,9 @@ public class Maison extends Projet implements Serializable {
 	private int id;
 	private int nbPièces;
 	private int nbNiveaux;
+
+	@ManyToOne
+	private Lotissement lotissement;
 
 	public Maison() {}
 
@@ -46,5 +50,13 @@ public class Maison extends Projet implements Serializable {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	public Lotissement getLotissement() {
+		return lotissement;
+	}
+
+	public void setLotissement(Lotissement lotissement) {
+		this.lotissement = lotissement;
 	}
 }

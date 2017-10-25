@@ -3,9 +3,10 @@ package metier;
 import util.EStatut;
 import util.ETitre;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+
+import java.util.Set;
+
 import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity
@@ -18,6 +19,12 @@ public class Acteur implements java.io.Serializable {
 	private int nom;
 	private ETitre titre;
 	private EStatut statut;
+
+	@ManyToOne
+	private Entreprise entreprise;
+
+	@ManyToMany
+	private Set<Projet> projet;
 
 	public Acteur() {
 
@@ -53,11 +60,27 @@ public class Acteur implements java.io.Serializable {
 		this.statut = statut;
 	}
 
-	public int getID() {
+	public int getId() {
 		return id;
 	}
 
-	public void setID(int id) {
+	public void setId(int id) {
 		this.id = id;
+	}
+
+	public Entreprise getEntreprise() {
+		return entreprise;
+	}
+
+	public void setEntreprise(Entreprise entreprise) {
+		this.entreprise = entreprise;
+	}
+
+	public Set<Projet> getProjet() {
+		return projet;
+	}
+
+	public void setProjet(Set<Projet> projet) {
+		this.projet = projet;
 	}
 }

@@ -2,9 +2,9 @@ package metier;
 
 import util.ECorpsMetier;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+
+import java.util.Set;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
@@ -18,6 +18,18 @@ public class Entreprise implements java.io.Serializable {
 	private int nom;
 	private ECorpsMetier corpsMetier;
 	private int numTel;
+
+	@OneToMany
+	private Set<Acteur> acteurs;
+
+	@OneToOne
+	private Adresse adresse;
+
+	@ManyToMany
+	private Set<Lots> lotsARealiser;
+
+	@OneToMany
+	private Set<Lots> lotsSousResponsabilite;
 
 	public Entreprise() {
 	}
@@ -52,11 +64,45 @@ public class Entreprise implements java.io.Serializable {
 		this.numTel = numTel;
 	}
 
-	public int getID() {
+	public int getId() {
 		return id;
 	}
 
-	public void setID(int ID) {
+	public void setId(int id) {
 		this.id = id;
 	}
+
+	public Adresse getAdresse() {
+		return adresse;
+	}
+
+	public void setAdresse(Adresse adresse) {
+		this.adresse = adresse;
+	}
+
+	public Set<Lots> getLotsARealiser() {
+		return lotsARealiser;
+	}
+
+	public void setLotsARealiser(Set<Lots> lotsARealiser) {
+		this.lotsARealiser = lotsARealiser;
+	}
+
+	public Set<Lots> getLotsSousResponsabilite() {
+		return lotsSousResponsabilite;
+	}
+
+	public void setLotsSousResponsabilite(Set<Lots> lotsSousResponsabilite) {
+		this.lotsSousResponsabilite = lotsSousResponsabilite;
+	}
+
+	public Set<Acteur> getActeurs() {
+		return acteurs;
+	}
+
+	public void setActeurs(Set<Acteur> acteurs) {
+		this.acteurs = acteurs;
+	}
+
+
 }
