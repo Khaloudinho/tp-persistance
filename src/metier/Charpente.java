@@ -1,4 +1,17 @@
+package metier;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+import static javax.persistence.GenerationType.IDENTITY;
+
+@Entity
 public class Charpente extends Lots implements java.io.Serializable {
+
+	@Id
+	@GeneratedValue(strategy = IDENTITY)
+	private int ID;
 
 	private ECharpente typeCharpente;
 
@@ -15,5 +28,13 @@ public class Charpente extends Lots implements java.io.Serializable {
 
 	public void setTypeCharpente(ECharpente typeCharpente) {
 		this.typeCharpente = typeCharpente;
+	}
+
+	public int getID() {
+		return ID;
+	}
+
+	public void setID(int ID) {
+		this.ID = ID;
 	}
 }

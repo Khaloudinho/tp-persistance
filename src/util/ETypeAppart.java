@@ -1,5 +1,6 @@
+package util;
+
 public enum ETypeAppart {
-	;
 
 	private int Studio;
 	private int T1;
