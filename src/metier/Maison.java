@@ -5,6 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import java.io.Serializable;
+import java.sql.Date;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
@@ -14,7 +15,7 @@ public class Maison extends Projet implements Serializable {
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
 	private int id;
-	private int nbPièces;
+	private int nbPieces;
 	private int nbNiveaux;
 
 	@ManyToOne
@@ -22,18 +23,18 @@ public class Maison extends Projet implements Serializable {
 
 	public Maison() {}
 
-	public Maison(int refProjet, int nom, int surfaceTotale, int avancement, int dateFinEstimee, int coutTotalEstime, boolean termine, int dateFinReelle, int nbPièces, int nbNiveaux) {
+	public Maison(String refProjet, String nom, int surfaceTotale, int avancement, Date dateFinEstimee, int coutTotalEstime, boolean termine, Date dateFinReelle, int nbPieces, int nbNiveaux) {
 		super(refProjet, nom, surfaceTotale, avancement, dateFinEstimee, coutTotalEstime, termine, dateFinReelle);
-		this.nbPièces = nbPièces;
+		this.nbPieces = nbPieces;
 		this.nbNiveaux = nbNiveaux;
 	}
 
 	public int getNbPièces() {
-		return nbPièces;
+		return nbPieces;
 	}
 
 	public void setNbPièces(int nbPièces) {
-		this.nbPièces = nbPièces;
+		this.nbPieces = nbPièces;
 	}
 
 	public int getNbNiveaux() {

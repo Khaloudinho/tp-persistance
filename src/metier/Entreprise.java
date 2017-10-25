@@ -15,7 +15,7 @@ public class Entreprise implements java.io.Serializable {
 	@GeneratedValue(strategy = IDENTITY)
 	private int id;
 
-	private int nom;
+	private String nom;
 	private ECorpsMetier corpsMetier;
 	private int numTel;
 
@@ -34,17 +34,17 @@ public class Entreprise implements java.io.Serializable {
 	public Entreprise() {
 	}
 
-	public Entreprise(int nom, ECorpsMetier corpsMetier, int numTel) {
+	public Entreprise(String nom, ECorpsMetier corpsMetier, int numTel) {
 		this.nom = nom;
 		this.corpsMetier = corpsMetier;
 		this.numTel = numTel;
 	}
 
-	public int getNom() {
+	public String getNom() {
 		return nom;
 	}
 
-	public void setNom(int nom) {
+	public void setNom(String nom) {
 		this.nom = nom;
 	}
 

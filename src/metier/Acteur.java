@@ -16,7 +16,7 @@ public class Acteur implements java.io.Serializable {
 	@GeneratedValue(strategy = IDENTITY)
 	private int id;
 
-	private int nom;
+	private String nom;
 	private ETitre titre;
 	private EStatut statut;
 
@@ -30,17 +30,17 @@ public class Acteur implements java.io.Serializable {
 
 	}
 
-	public Acteur(int nom, ETitre titre, EStatut statut) {
+	public Acteur(String nom, ETitre titre, EStatut statut) {
 		this.nom = nom;
 		this.titre = titre;
 		this.statut = statut;
 	}
 
-	public int getNom() {
+	public String getNom() {
 		return nom;
 	}
 
-	public void setNom(int nom) {
+	public void setNom(String nom) {
 		this.nom = nom;
 	}
 
