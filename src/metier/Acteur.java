@@ -4,4 +4,6 @@ public class Acteur {
 	private ETitre titre;
 	private EStatut statut;
 
+
+
 }
