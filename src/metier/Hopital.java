@@ -42,11 +42,11 @@ public class Hopital extends BatimentPublic implements java.io.Serializable {
 
 	@Override
 	public int getID() {
-		return ID;
+		return id;
 	}
 
 	@Override
-	public void setID(int ID) {
-		this.ID = ID;
+	public void setID(int id) {
+		this.id = id;
 	}
 }

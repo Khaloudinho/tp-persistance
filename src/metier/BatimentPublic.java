@@ -13,28 +13,28 @@ public class BatimentPublic extends Projet implements java.io.Serializable {
 	@GeneratedValue(strategy = IDENTITY)
 	private int id;
 
-	private int Ministere;
+	private int ministere;
 
 	public BatimentPublic() {
 	}
 
-	public BatimentPublic(int ministère) {
-		Ministère = ministère;
+	public BatimentPublic(int ministere) {
+		ministere = ministere;
 	}
 
 	public int getMinistère() {
-		return Ministère;
+		return ministere;
 	}
 
 	public void setMinistère(int ministère) {
-		Ministère = ministère;
+		ministere = ministère;
 	}
 
 	public int getID() {
-		return ID;
+		return id;
 	}
 
-	public void setID(int ID) {
-		this.ID = ID;
+	public void setID(int id) {
+		this.id = id;
 	}
 }

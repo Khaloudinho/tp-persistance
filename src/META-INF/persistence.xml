@@ -8,7 +8,7 @@
         <class>metier.BatimentPublic</class>
         <class>metier.Charpente</class>
         <class>metier.Dallage</class>
-        <class>metier.Eletricite</class>
+        <class>metier.Electricite</class>
         <class>metier.Entreprise</class>
         <class>metier.Fondation</class>
         <class>metier.Hopital</class>
