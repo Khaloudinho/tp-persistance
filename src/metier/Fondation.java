@@ -31,10 +31,10 @@ public class Fondation extends Lots implements java.io.Serializable {
 	}
 
 	public int getID() {
-		return ID;
+		return id;
 	}
 
-	public void setID(int ID) {
-		this.ID = ID;
+	public void setID(int id) {
+		this.id = id;
 	}
 }
