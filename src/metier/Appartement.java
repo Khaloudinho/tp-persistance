@@ -1,8 +1,11 @@
-public class Appartement {
+public class Appartement implements java.io.Serializable {
 
 	private int niveau;
 	private int type;
 	private ETypeAppart surface;
+
+	public Appartement() {
+	}
 
 	public Appartement(int niveau, int type, ETypeAppart surface) {
 		this.niveau = niveau;

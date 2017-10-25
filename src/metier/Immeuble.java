@@ -1,6 +1,9 @@
-public class Immeuble extends Projet {
+public class Immeuble extends Projet implements java.io.Serializable {
 
 	private int nbNiveaux;
+
+	public Immeuble() {
+	}
 
 	public Immeuble(int nbNiveaux) {
 		this.nbNiveaux = nbNiveaux;

@@ -1,8 +1,13 @@
-public class Acteur {
+
+public class Acteur implements java.io.Serializable {
 
 	private int nom;
 	private ETitre titre;
 	private EStatut statut;
+
+	public Acteur() {
+
+	}
 
 	public Acteur(int nom, ETitre titre, EStatut statut) {
 		this.nom = nom;

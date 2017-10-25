@@ -1,9 +1,12 @@
-public class Adresse {
+public class Adresse implements java.io.Serializable {
 
 	private int numero;
 	private int rue;
 	private int CP;
 	private int ville;
+
+	public Adresse() {
+	}
 
 	public Adresse(int numero, int rue, int CP, int ville) {
 		this.numero = numero;

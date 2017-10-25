@@ -1,8 +1,11 @@
-public class Entreprise {
+public class Entreprise implements java.io.Serializable {
 
 	private int nom;
 	private ECorpsMetier corpsMetier;
 	private int numTel;
+
+	public Entreprise() {
+	}
 
 	public Entreprise(int nom, ECorpsMetier corpsMetier, int numTel) {
 		this.nom = nom;

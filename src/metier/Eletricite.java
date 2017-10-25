@@ -1,7 +1,10 @@
-public class Eletricite extends Lots {
+public class Eletricite extends Lots implements java.io.Serializable {
 
 	private int nbTableau;
 	private int longueurTable;
+
+	public Eletricite() {
+	}
 
 	public Eletricite(int nbTableau, int longueurTable) {
 		this.nbTableau = nbTableau;

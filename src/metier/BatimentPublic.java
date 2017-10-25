@@ -1,6 +1,9 @@
-public class BatimentPublic extends Projet {
+public class BatimentPublic extends Projet implements java.io.Serializable {
 
 	private int Ministère;
+
+	public BatimentPublic() {
+	}
 
 	public BatimentPublic(int ministère) {
 		Ministère = ministère;

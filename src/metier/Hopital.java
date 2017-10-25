@@ -1,7 +1,10 @@
-public class Hopital extends BatimentPublic {
+public class Hopital extends BatimentPublic implements java.io.Serializable {
 
 	private int nbLits;
 	private int nbServices;
+
+	public Hopital() {
+	}
 
 	public Hopital(int nbLits, int nbServices) {
 		this.nbLits = nbLits;
