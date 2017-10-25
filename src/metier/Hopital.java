@@ -1,6 +1,17 @@
 package metier;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+import static javax.persistence.GenerationType.IDENTITY;
+
+@Entity
 public class Hopital extends BatimentPublic implements java.io.Serializable {
+
+	@Id
+	@GeneratedValue(strategy = IDENTITY)
+	private int ID;
 
 	private int nbLits;
 	private int nbServices;
@@ -27,5 +38,15 @@ public class Hopital extends BatimentPublic implements java.io.Serializable {
 
 	public void setNbServices(int nbServices) {
 		this.nbServices = nbServices;
+	}
+
+	@Override
+	public int getID() {
+		return ID;
+	}
+
+	@Override
+	public void setID(int ID) {
+		this.ID = ID;
 	}
 }

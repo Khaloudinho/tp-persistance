@@ -1,6 +1,17 @@
 package metier;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+import static javax.persistence.GenerationType.IDENTITY;
+
+@Entity
 public class Adresse implements java.io.Serializable {
+
+	@Id
+	@GeneratedValue(strategy = IDENTITY)
+	private int ID;
 
 	private int numero;
 	private int rue;
@@ -47,5 +58,13 @@ public class Adresse implements java.io.Serializable {
 
 	public void setVille(int ville) {
 		this.ville = ville;
+	}
+
+	public int getID() {
+		return ID;
+	}
+
+	public void setID(int ID) {
+		this.ID = ID;
 	}
 }
