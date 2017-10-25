@@ -14,12 +14,12 @@ public class Electricite extends Lots implements java.io.Serializable {
 	private int id;
 
 	private int nbTableau;
-	private int longueurTable;
+	private float longueurTable;
 
 	public Electricite() {
 	}
 
-	public Electricite(int nbTableau, int longueurTable) {
+	public Electricite(int nbTableau, float longueurTable) {
 		this.nbTableau = nbTableau;
 		this.longueurTable = longueurTable;
 	}
@@ -32,11 +32,11 @@ public class Electricite extends Lots implements java.io.Serializable {
 		this.nbTableau = nbTableau;
 	}
 
-	public int getLongueurTable() {
+	public float getLongueurTable() {
 		return longueurTable;
 	}
 
-	public void setLongueurTable(int longueurTable) {
+	public void setLongueurTable(float longueurTable) {
 		this.longueurTable = longueurTable;
 	}
 

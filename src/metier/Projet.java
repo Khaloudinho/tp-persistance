@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.io.Serializable;
+import java.sql.Date;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
@@ -13,19 +14,19 @@ public class Projet implements Serializable {
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
 	private int id;
-	private int refProjet;
-	private int nom;
+	private String refProjet;
+	private String nom;
 	private int surfaceTotale;
 	private int avancement;
-	private int dateFinEstimee;
+	private Date dateFinEstimee;
 	private int coutTotalEstime;
 	private boolean termine;
-	private int dateFinReelle;
+	private Date dateFinReelle;
 
 	public Projet() {
 	}
 
-	public Projet(int refProjet, int nom, int surfaceTotale, int avancement, int dateFinEstimee, int coutTotalEstime, boolean termine, int dateFinReelle) {
+	public Projet(String refProjet, String nom, int surfaceTotale, int avancement, Date dateFinEstimee, int coutTotalEstime, boolean termine, Date dateFinReelle) {
 		this.refProjet = refProjet;
 		this.nom = nom;
 		this.surfaceTotale = surfaceTotale;
@@ -36,19 +37,19 @@ public class Projet implements Serializable {
 		this.dateFinReelle = dateFinReelle;
 	}
 
-	public int getRefProjet() {
+	public String getRefProjet() {
 		return refProjet;
 	}
 
-	public void setRefProjet(int refProjet) {
+	public void setRefProjet(String refProjet) {
 		this.refProjet = refProjet;
 	}
 
-	public int getNom() {
+	public String getNom() {
 		return nom;
 	}
 
-	public void setNom(int nom) {
+	public void setNom(String nom) {
 		this.nom = nom;
 	}
 
@@ -68,11 +69,11 @@ public class Projet implements Serializable {
 		this.avancement = avancement;
 	}
 
-	public int getDateFinEstimee() {
+	public Date getDateFinEstimee() {
 		return dateFinEstimee;
 	}
 
-	public void setDateFinEstimee(int dateFinEstimee) {
+	public void setDateFinEstimee(Date dateFinEstimee) {
 		this.dateFinEstimee = dateFinEstimee;
 	}
 
@@ -92,11 +93,11 @@ public class Projet implements Serializable {
 		this.termine = termine;
 	}
 
-	public int getDateFinReelle() {
+	public Date getDateFinReelle() {
 		return dateFinReelle;
 	}
 
-	public void setDateFinReelle(int dateFinReelle) {
+	public void setDateFinReelle(Date dateFinReelle) {
 		this.dateFinReelle = dateFinReelle;
 	}
 

@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.io.Serializable;
+import java.sql.Date;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
@@ -14,16 +15,16 @@ public class Lots implements Serializable {
 	@GeneratedValue(strategy = IDENTITY)
 	private int id;
 	private int numero;
-	private int dateDebut;
+	private Date dateDebut;
 	private int dureeEstimee;
 	private int coutEstime;
 	private int avancement;
 	private int coutRéel;
-	private int dateFinRéel;
+	private Date dateFinRéel;
 
 	public Lots() {}
 
-	public Lots(int numero, int dateDebut, int dureeEstimee, int coutEstime, int avancement, int coutRéel, int dateFinRéel) {
+	public Lots(int numero, Date dateDebut, int dureeEstimee, int coutEstime, int avancement, int coutRéel, Date dateFinRéel) {
 		this.numero = numero;
 		this.dateDebut = dateDebut;
 		this.dureeEstimee = dureeEstimee;
@@ -41,11 +42,11 @@ public class Lots implements Serializable {
 		this.numero = numero;
 	}
 
-	public int getDateDebut() {
+	public Date getDateDebut() {
 		return dateDebut;
 	}
 
-	public void setDateDebut(int dateDebut) {
+	public void setDateDebut(Date dateDebut) {
 		this.dateDebut = dateDebut;
 	}
 
@@ -81,11 +82,11 @@ public class Lots implements Serializable {
 		this.coutRéel = coutRéel;
 	}
 
-	public int getDateFinRéel() {
+	public Date getDateFinRéel() {
 		return dateFinRéel;
 	}
 
-	public void setDateFinRéel(int dateFinRéel) {
+	public void setDateFinRéel(Date dateFinRéel) {
 		this.dateFinRéel = dateFinRéel;
 	}
 

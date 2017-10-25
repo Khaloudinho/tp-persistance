@@ -16,13 +16,13 @@ public class Appartement implements java.io.Serializable {
 	private int id;
 
 	private int niveau;
-	private int type;
-	private ETypeAppart surface;
+	private ETypeAppart type;
+	private int surface;
 
 	public Appartement() {
 	}
 
-	public Appartement(int niveau, int type, ETypeAppart surface) {
+	public Appartement(int niveau, ETypeAppart type, int surface) {
 		this.niveau = niveau;
 		this.type = type;
 		this.surface = surface;
@@ -36,19 +36,19 @@ public class Appartement implements java.io.Serializable {
 		this.niveau = niveau;
 	}
 
-	public int getType() {
+	public ETypeAppart getType() {
 		return type;
 	}
 
-	public void setType(int type) {
+	public void setType(ETypeAppart type) {
 		this.type = type;
 	}
 
-	public ETypeAppart getSurface() {
+	public int getSurface() {
 		return surface;
 	}
 
-	public void setSurface(ETypeAppart surface) {
+	public void setSurface(int surface) {
 		this.surface = surface;
 	}
 

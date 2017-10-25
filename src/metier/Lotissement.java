@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.io.Serializable;
+import java.sql.Date;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
@@ -17,7 +18,7 @@ public class Lotissement extends Projet implements Serializable {
 
 	public Lotissement() {}
 
-	public Lotissement(int refProjet, int nom, int surfaceTotale, int avancement, int dateFinEstimee, int coutTotalEstime, boolean termine, int dateFinReelle, int nbMaisons) {
+	public Lotissement(String refProjet, String nom, int surfaceTotale, int avancement, Date dateFinEstimee, int coutTotalEstime, boolean termine, Date dateFinReelle, int nbMaisons) {
 		super(refProjet, nom, surfaceTotale, avancement, dateFinEstimee, coutTotalEstime, termine, dateFinReelle);
 		this.nbMaisons = nbMaisons;
 	}
