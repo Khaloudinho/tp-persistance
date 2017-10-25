@@ -11,7 +11,7 @@ public class Hopital extends BatimentPublic implements java.io.Serializable {
 
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
-	private int ID;
+	private int id;
 
 	private int nbLits;
 	private int nbServices;

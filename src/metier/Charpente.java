@@ -1,5 +1,7 @@
 package metier;
 
+import util.ECharpente;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -11,7 +13,7 @@ public class Charpente extends Lots implements java.io.Serializable {
 
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
-	private int ID;
+	private int id;
 
 	private ECharpente typeCharpente;
 

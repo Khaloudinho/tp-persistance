@@ -1,11 +1,11 @@
 package metier;
 
+import util.EStatut;
+import util.ETitre;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-
-
-
 import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity
@@ -13,7 +13,7 @@ public class Acteur implements java.io.Serializable {
 
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
-	private int ID;
+	private int id;
 
 	private int nom;
 	private ETitre titre;

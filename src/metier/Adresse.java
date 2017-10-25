@@ -11,7 +11,7 @@ public class Adresse implements java.io.Serializable {
 
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
-	private int ID;
+	private int id;
 
 	private int numero;
 	private int rue;

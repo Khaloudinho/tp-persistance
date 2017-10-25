@@ -7,11 +7,11 @@ import javax.persistence.Id;
 import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity
-public class Eletricite extends Lots implements java.io.Serializable {
+public class Electricite extends Lots implements java.io.Serializable {
 
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
-	private int ID;
+	private int id;
 
 	private int nbTableau;
 	private int longueurTable;
