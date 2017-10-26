@@ -2,13 +2,14 @@ package metier;
 
 import javax.persistence.*;
 
+import static javax.persistence.GenerationType.AUTO;
 import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity @Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
 public abstract class BatimentPublic extends Projet implements java.io.Serializable {
 
 	@Id
-	@GeneratedValue(strategy = IDENTITY)
+	@GeneratedValue(strategy = AUTO)
 	private int id;
 
 	private String ministere;
