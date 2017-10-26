@@ -7,13 +7,14 @@ import javax.persistence.ManyToOne;
 import java.io.Serializable;
 import java.sql.Date;
 
+import static javax.persistence.GenerationType.AUTO;
 import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity
 public class Maison extends Projet implements Serializable {
 
 	@Id
-	@GeneratedValue(strategy = IDENTITY)
+	@GeneratedValue(strategy = AUTO)
 	private int id;
 	private int nbPieces;
 	private int nbNiveaux;

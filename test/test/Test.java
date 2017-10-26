@@ -14,26 +14,9 @@ import java.util.Set;
 public class Test {
     public static void main(String [] args){
 
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("tp2-hibernatePU");
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("tpersistancePU");
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         // Etablissement scolaire
         Projet etablissementScolaire = new EtablissementScolaire("Education", 1500, EEtaScolaire.lycee);
@@ -67,6 +50,7 @@ public class Test {
         //em.persist();
 
         em.getTransaction().commit();
-
+        em.close();
+        emf.close();
     }
 }

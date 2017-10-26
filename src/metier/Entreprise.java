@@ -6,13 +6,14 @@ import javax.persistence.*;
 
 import java.util.Set;
 
+import static javax.persistence.GenerationType.AUTO;
 import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity
 public class Entreprise implements java.io.Serializable {
 
 	@Id
-	@GeneratedValue(strategy = IDENTITY)
+	@GeneratedValue(strategy = AUTO)
 	private int id;
 
 	private String nom;

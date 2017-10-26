@@ -8,8 +8,8 @@ import java.sql.Date;
 import static javax.persistence.GenerationType.AUTO;
 import static javax.persistence.GenerationType.IDENTITY;
 
-@Entity
-public class Lots implements Serializable {
+@Entity @Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
+public abstract class Lots implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = AUTO)

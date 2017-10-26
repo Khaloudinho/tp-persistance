@@ -4,13 +4,14 @@ import util.ETypeAppart;
 
 import javax.persistence.*;
 
+import static javax.persistence.GenerationType.AUTO;
 import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity
 public class Appartement implements java.io.Serializable {
 
 	@Id
-	@GeneratedValue(strategy = IDENTITY)
+	@GeneratedValue(strategy = AUTO)
 	private int id;
 
 	private int niveau;
