@@ -1,13 +1,11 @@
 package metier;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
-@Entity
-public class BatimentPublic extends Projet implements java.io.Serializable {
+@Entity @Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
+public abstract class BatimentPublic extends Projet implements java.io.Serializable {
 
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
@@ -22,12 +20,12 @@ public class BatimentPublic extends Projet implements java.io.Serializable {
 		ministere = ministere;
 	}
 
-	public String getMinistère() {
+	public String getMinistere() {
 		return ministere;
 	}
 
-	public void setMinistère(String ministère) {
-		ministere = ministère;
+	public void setMinistere(String ministere) {
+		ministere = ministere;
 	}
 
 	public int getID() {

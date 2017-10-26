@@ -7,8 +7,8 @@ import java.sql.Date;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
-@Entity
-public class Projet implements Serializable {
+@Entity @Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
+public abstract class Projet implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
