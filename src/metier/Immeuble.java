@@ -7,13 +7,14 @@ import javax.persistence.OneToMany;
 
 import java.util.Set;
 
+import static javax.persistence.GenerationType.AUTO;
 import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity
 public class Immeuble extends Projet implements java.io.Serializable {
 
 	@Id
-	@GeneratedValue(strategy = IDENTITY)
+	@GeneratedValue(strategy = AUTO)
 	private int id;
 
 	private int nbNiveaux;
@@ -24,8 +25,9 @@ public class Immeuble extends Projet implements java.io.Serializable {
 	public Immeuble() {
 	}
 
-	public Immeuble(int nbNiveaux) {
+	public Immeuble(int nbNiveaux, Set<Appartement> appartements) {
 		this.nbNiveaux = nbNiveaux;
+		this.appartements=appartements;
 	}
 
 	public int getNbNiveaux() {
@@ -36,11 +38,21 @@ public class Immeuble extends Projet implements java.io.Serializable {
 		this.nbNiveaux = nbNiveaux;
 	}
 
-	public int getID() {
+	@Override
+	public int getId() {
 		return id;
 	}
 
-	public void setID(int id) {
+	@Override
+	public void setId(int id) {
 		this.id = id;
+	}
+
+	public Set<Appartement> getAppartements() {
+		return appartements;
+	}
+
+	public void setAppartements(Set<Appartement> appartements) {
+		this.appartements = appartements;
 	}
 }

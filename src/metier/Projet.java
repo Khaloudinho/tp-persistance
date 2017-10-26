@@ -5,13 +5,14 @@ import java.io.Serializable;
 import java.util.Set;
 import java.sql.Date;
 
+import static javax.persistence.GenerationType.AUTO;
 import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity
 public class Projet implements Serializable {
 
 	@Id
-	@GeneratedValue(strategy = IDENTITY)
+	@GeneratedValue(strategy = AUTO)
 	private int id;
 	private String refProjet;
 	private String nom;

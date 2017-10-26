@@ -4,13 +4,14 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+import static javax.persistence.GenerationType.AUTO;
 import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity
 public class BatimentPublic extends Projet implements java.io.Serializable {
 
 	@Id
-	@GeneratedValue(strategy = IDENTITY)
+	@GeneratedValue(strategy = AUTO)
 	private int id;
 
 	private String ministere;
@@ -18,23 +19,25 @@ public class BatimentPublic extends Projet implements java.io.Serializable {
 	public BatimentPublic() {
 	}
 
-	public BatimentPublic(int ministere) {
+	public BatimentPublic(String ministere) {
 		ministere = ministere;
 	}
 
-	public String getMinistère() {
-		return ministere;
-	}
-
-	public void setMinistère(String ministère) {
-		ministere = ministère;
-	}
-
-	public int getID() {
+	@Override
+	public int getId() {
 		return id;
 	}
 
-	public void setID(int id) {
+	@Override
+	public void setId(int id) {
 		this.id = id;
+	}
+
+	public String getMinistere() {
+		return ministere;
+	}
+
+	public void setMinistere(String ministere) {
+		this.ministere = ministere;
 	}
 }
