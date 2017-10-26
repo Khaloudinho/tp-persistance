@@ -18,7 +18,7 @@ public class Entreprise implements java.io.Serializable {
 
 	private String nom;
 	private ECorpsMetier corpsMetier;
-	private int numTel;
+	private String numTel;
 
 	@OneToMany
 	private Set<Acteur> acteurs;
@@ -35,7 +35,7 @@ public class Entreprise implements java.io.Serializable {
 	public Entreprise() {
 	}
 
-	public Entreprise(String nom, ECorpsMetier corpsMetier, int numTel) {
+	public Entreprise(String nom, ECorpsMetier corpsMetier, String numTel) {
 		this.nom = nom;
 		this.corpsMetier = corpsMetier;
 		this.numTel = numTel;
@@ -57,11 +57,11 @@ public class Entreprise implements java.io.Serializable {
 		this.corpsMetier = corpsMetier;
 	}
 
-	public int getNumTel() {
+	public String getNumTel() {
 		return numTel;
 	}
 
-	public void setNumTel(int numTel) {
+	public void setNumTel(String numTel) {
 		this.numTel = numTel;
 	}
 

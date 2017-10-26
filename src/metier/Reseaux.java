@@ -14,20 +14,20 @@ public class Reseaux extends Lots implements Serializable {
 	@Id
 	@GeneratedValue(strategy = AUTO)
 	private int id;
-	private int longueur;
+	private float longueur;
 
 	public Reseaux() {
 	}
 
-	public Reseaux(int longueur) {
+	public Reseaux(float longueur) {
 		this.longueur = longueur;
 	}
 
-	public int getLongueur() {
+	public float getLongueur() {
 		return longueur;
 	}
 
-	public void setLongueur(int longueur) {
+	public void setLongueur(float longueur) {
 		this.longueur = longueur;
 	}
 

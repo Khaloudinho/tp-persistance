@@ -62,7 +62,11 @@ public class Test {
         immeuble.setLots(immeubleLots);
 
         // Musee
+
+            // On stocke les lots de travaux
             Set<Lots> museeLots = new HashSet<Lots>();
+
+            // On definit des lots de travaux
             Lots terassementMusee = new Terrassement(100);
             Lots dallageMusee = new Dallage(1000);
             Lots menuiseriesMusee = new Menuiseries(16, 10, 4);
@@ -102,9 +106,115 @@ public class Test {
             Acteur sanchez = new Acteur("sanchez", ETitre.Architecte, EStatut.Responsable);
             Acteur ivanov = new Acteur("ivanov", ETitre.Ingenieur, EStatut.Employe);
 
-            Entreprise entreprise = new Entreprise(nom, ECorpsMetier corpsMetier, 0325871035);
+            // Rassembler des acteurs ensembles (pour les entreprises)
 
-            Projet musee = new Musee(15);
+            Set<Acteur> acteursBerbe = new HashSet<Acteur>();
+            acteursBerbe.add(berbe);
+            acteursBerbe.add(martin);
+            acteursBerbe.add(grossi);
+
+            Set<Acteur> acteursSancho = new HashSet<Acteur>();
+            acteursSancho.add(sanchez);
+
+            Set<Acteur> acteursArnoult = new HashSet<Acteur>();
+            acteursArnoult.add(ivanov);
+            acteursArnoult.add(martel);
+
+            Set<Acteur> acteursDehaye = new HashSet<Acteur>();
+            acteursDehaye.add(cornevin);
+
+            Set<Acteur> acteursPeintreExperts = new HashSet<Acteur>();
+            acteursPeintreExperts.add(cornevin);
+            acteursPeintreExperts.add(gareau);
+
+            Set<Acteur> acteursBombardi = new HashSet<Acteur>();
+            acteursBombardi.add(villemin);
+
+            Set<Acteur> acteursBellorti = new HashSet<Acteur>();
+            acteursBellorti.add(vignarde);
+            acteursBellorti.add(mohamed);
+            acteursBellorti.add(slim);
+
+            Set<Acteur> acteursPlacoExpert = new HashSet<Acteur>();
+            acteursPlacoExpert.add(souleman);
+            acteursPlacoExpert.add(boudin);
+            acteursPlacoExpert.add(lagarde);
+
+            // Definir des entreprises
+            Entreprise entrepriseBerbe = new Entreprise("Berbe et fils SARL", ECorpsMetier.Macon, "0325871035");
+            Entreprise entrepriseSancho = new Entreprise("Sancho et fils SARL", ECorpsMetier.Carreleur, "0325871036");
+            Entreprise entrepriseArnoult = new Entreprise("Arnoult SA", ECorpsMetier.Menuisier, "0325871037");
+            Entreprise entrepriseDehaye = new Entreprise("Dehaye et fils SARL", ECorpsMetier.Electricien, "0325871038");
+            Entreprise entreprisePeintreExperts = new Entreprise("Peintre experts SARL", ECorpsMetier.Peintre, "0325871039");
+            Entreprise entrepriseBombardi = new Entreprise("Bombadi SARL", ECorpsMetier.Plombier, "0325871045");
+            Entreprise entrepriseBellorti = new Entreprise("Berlotti Holding en commandite", ECorpsMetier.Macon, "0325871046");
+            Entreprise entreprisePlacoExpert = new Entreprise("Placo expert SAS", ECorpsMetier.Platrier, "0325871047");
+
+            // Definir des entreprises realisatrices
+            Set<Entreprise> entreprisesTerassement = new HashSet<Entreprise>();
+            entreprisesTerassement.add(entrepriseBerbe);
+
+            Set<Entreprise> entreprisesDallage = new HashSet<Entreprise>();
+            entreprisesDallage.add(entrepriseSancho);
+
+            Set<Entreprise> entreprisesMenuiseries = new HashSet<Entreprise>();
+            entreprisesMenuiseries.add(entrepriseArnoult);
+
+            Set<Entreprise> entreprisesFondations = new HashSet<Entreprise>();
+            entreprisesFondations.add(entrepriseBerbe);
+            entreprisesFondations.add(entrepriseBellorti);
+
+            Set<Entreprise> entreprisesElectriciteReseaux = new HashSet<Entreprise>();
+            entreprisesElectriciteReseaux.add(entrepriseDehaye);
+
+            Set<Entreprise> entreprisesPeinture = new HashSet<Entreprise>();
+            entreprisesPeinture.add(entreprisePeintreExperts);
+
+            Set<Entreprise> entreprisesPlaterie = new HashSet<Entreprise>();
+            entreprisesPlaterie.add(entreprisePlacoExpert);
+
+        // Lier entreprises et acteurs
+            entrepriseBerbe.setActeurs(acteursBerbe);
+            entrepriseSancho.setActeurs(acteursSancho);
+            entrepriseArnoult.setActeurs(acteursArnoult);
+            entrepriseDehaye.setActeurs(acteursDehaye);
+            entreprisePeintreExperts.setActeurs(acteursPeintreExperts);
+            entrepriseBombardi.setActeurs(acteursBombardi);
+            entrepriseBellorti.setActeurs(acteursBellorti);
+            entreprisePlacoExpert.setActeurs(acteursPlacoExpert);
+
+            // On affecte des entreprises au lots de travaux
+            terassementMusee.setEntrepriseResponsable(entrepriseBerbe);
+            terassementMusee.setEntreprisesRealisatrices(entreprisesTerassement);
+
+            dallageMusee.setEntrepriseResponsable(entrepriseSancho);
+            dallageMusee.setEntreprisesRealisatrices(entreprisesDallage);
+
+            menuiseriesMusee.setEntrepriseResponsable(entrepriseArnoult);
+            menuiseriesMusee.setEntreprisesRealisatrices(entreprisesMenuiseries);
+
+            fondationsMusee.setEntrepriseResponsable(entrepriseBellorti);
+            fondationsMusee.setEntreprisesRealisatrices(entreprisesFondations);
+
+            maconnerieMusee.setEntrepriseResponsable(entrepriseBellorti);
+            maconnerieMusee.setEntreprisesRealisatrices(entreprisesFondations);
+
+            electriciteMusee.setEntrepriseResponsable(entrepriseDehaye);
+            electriciteMusee.setEntreprisesRealisatrices(entreprisesElectriciteReseaux);
+
+            reseauxMusee.setEntrepriseResponsable(entrepriseDehaye);
+            reseauxMusee.setEntreprisesRealisatrices(entreprisesElectriciteReseaux);
+
+            peintureMusee.setEntrepriseResponsable(entreprisePeintreExperts);
+            peintureMusee.setEntreprisesRealisatrices(entreprisesPeinture);
+
+            peintureMuseeHall.setEntrepriseResponsable(entreprisePeintreExperts);
+            peintureMuseeHall.setEntreprisesRealisatrices(entreprisesPeinture);
+
+            platerieMusee.setEntrepriseResponsable(entreprisePeintreExperts);
+            platerieMusee.setEntreprisesRealisatrices(entreprisesPlaterie);
+
+        Projet musee = new Musee(15);
             musee.setLots(museeLots);
 
 

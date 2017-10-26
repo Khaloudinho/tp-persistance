@@ -17,7 +17,7 @@ public abstract class Projet implements Serializable {
 	private String refProjet;
 	private String nom;
 	private int surfaceTotale;
-	private int avancement;
+	private String avancement;
 	private Date dateFinEstimee;
 	private int coutTotalEstime;
 	private boolean termine;
@@ -35,7 +35,7 @@ public abstract class Projet implements Serializable {
 	public Projet() {
 	}
 
-	public Projet(String refProjet, String nom, int surfaceTotale, int avancement, Date dateFinEstimee, int coutTotalEstime, boolean termine, Date dateFinReelle) {
+	public Projet(String refProjet, String nom, int surfaceTotale, String avancement, Date dateFinEstimee, int coutTotalEstime, boolean termine, Date dateFinReelle) {
 		this.refProjet = refProjet;
 		this.nom = nom;
 		this.surfaceTotale = surfaceTotale;
@@ -70,11 +70,11 @@ public abstract class Projet implements Serializable {
 		this.surfaceTotale = surfaceTotale;
 	}
 
-	public int getAvancement() {
+	public String getAvancement() {
 		return avancement;
 	}
 
-	public void setAvancement(int avancement) {
+	public void setAvancement(String avancement) {
 		this.avancement = avancement;
 	}
 
