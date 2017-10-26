@@ -17,8 +17,18 @@ public abstract class BatimentPublic extends Projet implements java.io.Serializa
 	public BatimentPublic() {
 	}
 
-	public BatimentPublic(int ministere) {
+	public BatimentPublic(String ministere) {
 		ministere = ministere;
+	}
+
+	@Override
+	public int getId() {
+		return id;
+	}
+
+	@Override
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getMinistere() {
@@ -26,14 +36,6 @@ public abstract class BatimentPublic extends Projet implements java.io.Serializa
 	}
 
 	public void setMinistere(String ministere) {
-		ministere = ministere;
-	}
-
-	public int getID() {
-		return id;
-	}
-
-	public void setID(int id) {
-		this.id = id;
+		this.ministere = ministere;
 	}
 }
