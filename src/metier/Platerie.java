@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.io.Serializable;
+import java.sql.Date;
 
 import static javax.persistence.GenerationType.AUTO;
 import static javax.persistence.GenerationType.IDENTITY;
@@ -19,7 +20,8 @@ public class Platerie extends Lots implements Serializable {
 
 	public Platerie() {}
 
-	public Platerie(int surfacePlafond, int surfaceMur) {
+	public Platerie(int numero, Date dateDebut, int dureeEstimee, int coutEstime, int avancement, int coutReel, Date dateFinReel, int surfacePlafond, int surfaceMur) {
+		super(numero, dateDebut, dureeEstimee, coutEstime, avancement, coutReel, dateFinReel);
 		this.surfacePlafond = surfacePlafond;
 		this.surfaceMur = surfaceMur;
 	}

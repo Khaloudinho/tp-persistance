@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+import java.sql.Date;
+
 import static javax.persistence.GenerationType.AUTO;
 import static javax.persistence.GenerationType.IDENTITY;
 
@@ -20,7 +22,8 @@ public class Electricite extends Lots implements java.io.Serializable {
 	public Electricite() {
 	}
 
-	public Electricite(int nbTableau, float longueurTable) {
+	public Electricite(int numero, Date dateDebut, int dureeEstimee, int coutEstime, int avancement, int coutReel, Date dateFinReel, int nbTableau, float longueurTable) {
+		super(numero, dateDebut, dureeEstimee, coutEstime, avancement, coutReel, dateFinReel);
 		this.nbTableau = nbTableau;
 		this.longueurTable = longueurTable;
 	}

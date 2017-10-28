@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.io.Serializable;
+import java.sql.Date;
 
 import static javax.persistence.GenerationType.AUTO;
 import static javax.persistence.GenerationType.IDENTITY;
@@ -19,7 +20,8 @@ public class Reseaux extends Lots implements Serializable {
 	public Reseaux() {
 	}
 
-	public Reseaux(float longueur) {
+	public Reseaux(int numero, Date dateDebut, int dureeEstimee, int coutEstime, int avancement, int coutReel, Date dateFinReel, float longueur) {
+		super(numero, dateDebut, dureeEstimee, coutEstime, avancement, coutReel, dateFinReel);
 		this.longueur = longueur;
 	}
 

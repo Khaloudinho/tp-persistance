@@ -20,7 +20,8 @@ public abstract class Lots implements Serializable {
 	private int coutEstime;
 	private int avancement;
 	private int coutReel;
-	private int dateFinReel;
+	@Column(nullable = true)
+	private Date dateFinReel;
 
 	@ManyToOne
 	private Entreprise entrepriseResponsable;
@@ -33,7 +34,7 @@ public abstract class Lots implements Serializable {
 
 	public Lots() {}
 
-	public Lots(int numero, Date dateDebut, int dureeEstimee, int coutEstime, int avancement, int coutReel, int dateFinReel) {
+	public Lots(int numero, Date dateDebut, int dureeEstimee, int coutEstime, int avancement, int coutReel, Date dateFinReel) {
 		this.numero = numero;
 		this.dateDebut = dateDebut;
 		this.dureeEstimee = dureeEstimee;
@@ -91,11 +92,11 @@ public abstract class Lots implements Serializable {
 		this.coutReel = coutReel;
 	}
 
-	public int getDateFinReel() {
+	public Date getDateFinReel() {
 		return dateFinReel;
 	}
 
-	public void setDateFinReel(int dateFinReel) {
+	public void setDateFinReel(Date dateFinReel) {
 		this.dateFinReel = dateFinReel;
 	}
 

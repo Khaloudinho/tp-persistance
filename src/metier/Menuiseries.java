@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.io.Serializable;
+import java.sql.Date;
 
 import static javax.persistence.GenerationType.AUTO;
 import static javax.persistence.GenerationType.IDENTITY;
@@ -20,7 +21,8 @@ public class Menuiseries extends Lots implements Serializable {
 
 	public Menuiseries() {}
 
-	public Menuiseries(int nbFenetres, int nbPortes, int nbFenetreToit) {
+	public Menuiseries(int numero, Date dateDebut, int dureeEstimee, int coutEstime, int avancement, int coutReel, Date dateFinReel, int nbFenetres, int nbPortes, int nbFenetreToit) {
+		super(numero, dateDebut, dureeEstimee, coutEstime, avancement, coutReel, dateFinReel);
 		this.nbFenetres = nbFenetres;
 		this.nbPortes = nbPortes;
 		this.nbFenetreToit = nbFenetreToit;

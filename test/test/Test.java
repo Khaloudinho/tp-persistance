@@ -7,10 +7,13 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import java.sql.Date;
+import java.util.Calendar;
 import java.util.HashSet;
 import java.util.Set;
 
 public class Test {
+
+    public static Date maintenant = new java.sql.Date(new java.util.Date().getTime());
 
     public static void save(EntityManager entityManager, Set<Object> objects){
         for (Object object:
@@ -21,6 +24,17 @@ public class Test {
 
     public static void save(EntityManager entityManager, Object object){
         entityManager.persist(object);
+    }
+
+    public static Date getDateInDays(Date currentDate, int numberOfDaysInFuture){
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(currentDate);
+        cal.add(Calendar.DAY_OF_YEAR,numberOfDaysInFuture);
+        cal.set(Calendar.HOUR_OF_DAY, 0);
+        cal.set(Calendar.MINUTE, 0);
+        cal.set(Calendar.SECOND, 0);
+        cal.set(Calendar.MILLISECOND, 0);
+        return new Date(cal.getTimeInMillis());
     }
     public static void main(String [] args){
 
@@ -167,6 +181,119 @@ public class Test {
         entrepriseCouvreTout.setActeurs(acteursCouvreTout);
         entreprisePlatrever.setActeurs(acteursPlatrever);
         entrepriseAkar.setActeurs(acteursAkar);
+
+        // Un lotissement : 10 lots, 8 entreprises, 10 acteurs ---------------------------------------------------------
+
+
+        Date dans100Jours = Test.getDateInDays(Test.maintenant, 100);
+        Date dans110Jours = Test.getDateInDays(Test.maintenant, 110);
+        Date dans120Jours = Test.getDateInDays(Test.maintenant, 120);
+        Date dans130Jours = Test.getDateInDays(Test.maintenant, 130);
+        Date dans140Jours = Test.getDateInDays(Test.maintenant, 140);
+
+        Lots charpenteLotissement10L8E10A = new Charpente(1, maintenant,  10, 150, 1, 70, dans100Jours, ECharpente.toitPlat);
+        Lots couvertureLotissement10L8E10A = new Charpente(2, maintenant,  3, 100, 1, 50, dans100Jours,ECharpente.toitPlat);
+        Lots dallageLotissement10L8E10A = new Dallage(3, maintenant, 3, 2, 1, 5, dans110Jours,2000);
+        Lots electriciteLotissement10L8E10A = new Electricite(4, maintenant, 3, 20, 1, 30, dans120Jours,4, 101.57f);
+        Lots menuiseriesLotissement10L8E10A = new Menuiseries(5, maintenant, 1, 3, 1, 2, dans130Jours,8, 15, 2);
+        Lots peintureLotissement10L8E10A = new Peinture(6, maintenant, 2, 1, 1, 3, dans130Jours,20);
+        Lots peintureExterieureLotissement10L8E10A = new Peinture(7, maintenant, 2, 2, 1, 4, dans110Jours,200);
+        Lots platerieLotissement10L8E10A = new Platerie(8, maintenant, 2, 1, 1, 2, dans130Jours,200, 1450);
+        Lots plomberieLotissement10L8E10A = new Reseaux(9, maintenant, 4, 10, 1, 20, dans140Jours,150.67f);
+        Lots electriciteReseauLotissement10L8E10A = new Reseaux(10, maintenant, 3, 15, 1, 30, dans110Jours,170.67f);
+
+        Set<Lots> lotsLotissement10L8E10A = new HashSet<>();
+        lotsLotissement10L8E10A.add(charpenteLotissement10L8E10A);
+        lotsLotissement10L8E10A.add(couvertureLotissement10L8E10A);
+        lotsLotissement10L8E10A.add(dallageLotissement10L8E10A);
+        lotsLotissement10L8E10A.add(electriciteLotissement10L8E10A);
+        lotsLotissement10L8E10A.add(menuiseriesLotissement10L8E10A);
+        lotsLotissement10L8E10A.add(peintureLotissement10L8E10A);
+        lotsLotissement10L8E10A.add(peintureExterieureLotissement10L8E10A);
+        lotsLotissement10L8E10A.add(platerieLotissement10L8E10A);
+        lotsLotissement10L8E10A.add(plomberieLotissement10L8E10A);
+        lotsLotissement10L8E10A.add(electriciteReseauLotissement10L8E10A);
+
+        Set<Entreprise> entreprisesCharpenteLotissement10L8E10A = new HashSet<>();
+        Set<Entreprise> entreprisesDallageLotissement10L8E10A = new HashSet<>();
+        Set<Entreprise> entreprisesElectriciteLotissement10L8E10A = new HashSet<>();
+        Set<Entreprise> entreprisesMenuiseriesLotissement10L8E10A = new HashSet<>();
+        Set<Entreprise> entreprisesPeintureLotissement10L8E10A = new HashSet<>();
+        Set<Entreprise> entreprisesPlaterieLotissement10L8E10A = new HashSet<>();
+        Set<Entreprise> entreprisesReseauxLotissement10L8E10A = new HashSet<>();
+
+        entreprisesCharpenteLotissement10L8E10A.add(entrepriseProCharpente);
+        entreprisesCharpenteLotissement10L8E10A.add(entrepriseCouvreTout);
+        entreprisesDallageLotissement10L8E10A.add(entrepriseSancho);
+        entreprisesElectriciteLotissement10L8E10A.add(entrepriseDehaye);
+        entreprisesMenuiseriesLotissement10L8E10A.add(entrepriseArnoult);
+        entreprisesPeintureLotissement10L8E10A.add(entreprisePeintreExperts);
+        entreprisesPlaterieLotissement10L8E10A.add(entreprisePlatrever);
+        entreprisesReseauxLotissement10L8E10A.add(entrepriseBombardi);
+
+
+        charpenteLotissement10L8E10A.setEntrepriseResponsable(entrepriseProCharpente);
+        charpenteLotissement10L8E10A.setEntreprisesRealisatrices(entreprisesCharpenteLotissement10L8E10A);
+
+        couvertureLotissement10L8E10A.setEntrepriseResponsable(entrepriseCouvreTout);
+        couvertureLotissement10L8E10A.setEntreprisesRealisatrices(entreprisesCharpenteLotissement10L8E10A);
+
+        dallageLotissement10L8E10A.setEntrepriseResponsable(entrepriseSancho);
+        dallageLotissement10L8E10A.setEntreprisesRealisatrices(entreprisesDallageLotissement10L8E10A);
+
+        electriciteLotissement10L8E10A.setEntrepriseResponsable(entrepriseDehaye);
+        electriciteLotissement10L8E10A.setEntreprisesRealisatrices(entreprisesElectriciteLotissement10L8E10A);
+
+        menuiseriesLotissement10L8E10A.setEntrepriseResponsable(entrepriseArnoult);
+        menuiseriesLotissement10L8E10A.setEntreprisesRealisatrices(entreprisesMenuiseriesLotissement10L8E10A);
+
+        peintureLotissement10L8E10A.setEntrepriseResponsable(entreprisePeintreExperts);
+        peintureLotissement10L8E10A.setEntreprisesRealisatrices(entreprisesPeintureLotissement10L8E10A);
+
+        peintureExterieureLotissement10L8E10A.setEntrepriseResponsable(entreprisePeintreExperts);
+        peintureExterieureLotissement10L8E10A.setEntreprisesRealisatrices(entreprisesPeintureLotissement10L8E10A);
+
+        platerieLotissement10L8E10A.setEntrepriseResponsable(entreprisePlatrever);
+        platerieLotissement10L8E10A.setEntreprisesRealisatrices(entreprisesPlaterieLotissement10L8E10A);
+
+        plomberieLotissement10L8E10A.setEntrepriseResponsable(entrepriseBombardi);
+        plomberieLotissement10L8E10A.setEntreprisesRealisatrices(entreprisesReseauxLotissement10L8E10A);
+
+        electriciteReseauLotissement10L8E10A.setEntrepriseResponsable(entrepriseBombardi);
+        electriciteReseauLotissement10L8E10A.setEntreprisesRealisatrices(entreprisesReseauxLotissement10L8E10A);
+
+        Lotissement lotissement10L8E10A = new Lotissement("Lotissement10L8E10A",
+                "Lotissement les Fleurs Bleues", 2000, "Terminé", new Date(2017-12-12),
+                1520000, true, new Date(2017-10-22), 14);
+
+        em.persist(lotissement10L8E10A);
+
+        lotissement10L8E10A.setLots(lotsLotissement10L8E10A);
+
+
+        charpenteLotissement10L8E10A.setProjet(lotissement10L8E10A);
+        couvertureLotissement10L8E10A.setProjet(lotissement10L8E10A);
+        dallageLotissement10L8E10A.setProjet(lotissement10L8E10A);
+        electriciteLotissement10L8E10A.setProjet(lotissement10L8E10A);
+        menuiseriesLotissement10L8E10A.setProjet(lotissement10L8E10A);
+        peintureLotissement10L8E10A.setProjet(lotissement10L8E10A);
+        peintureExterieureLotissement10L8E10A.setProjet(lotissement10L8E10A);
+        platerieLotissement10L8E10A.setProjet(lotissement10L8E10A);
+        plomberieLotissement10L8E10A.setProjet(lotissement10L8E10A);
+        electriciteReseauLotissement10L8E10A.setProjet(lotissement10L8E10A);
+
+        em.persist(charpenteLotissement10L8E10A);
+        em.persist(couvertureLotissement10L8E10A);
+        em.persist(dallageLotissement10L8E10A);
+        em.persist(electriciteLotissement10L8E10A);
+        em.persist(menuiseriesLotissement10L8E10A);
+        em.persist(peintureLotissement10L8E10A);
+        em.persist(peintureExterieureLotissement10L8E10A);
+        em.persist(platerieLotissement10L8E10A);
+        em.persist(plomberieLotissement10L8E10A);
+        em.persist(electriciteReseauLotissement10L8E10A);
+
+
 
         /*em.persist(etablissementScolaire0L);
         em.persist(immeuble8A7L);
