@@ -2,6 +2,8 @@ package metier;
 
 import javax.persistence.*;
 
+import java.sql.Date;
+
 import static javax.persistence.GenerationType.AUTO;
 import static javax.persistence.GenerationType.IDENTITY;
 
@@ -17,8 +19,9 @@ public abstract class BatimentPublic extends Projet implements java.io.Serializa
 	public BatimentPublic() {
 	}
 
-	public BatimentPublic(String ministere) {
-		ministere = ministere;
+	public BatimentPublic(String refProjet, String nom, int surfaceTotale, String avancement, Date dateFinEstimee, int coutTotalEstime, boolean termine, Date dateFinReelle, String ministere) {
+		super(refProjet, nom, surfaceTotale, avancement, dateFinEstimee, coutTotalEstime, termine, dateFinReelle);
+		this.ministere = ministere;
 	}
 
 	@Override

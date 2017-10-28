@@ -5,6 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import java.sql.Date;
 import java.util.Set;
 
 import static javax.persistence.GenerationType.AUTO;
@@ -25,9 +26,10 @@ public class Immeuble extends Projet implements java.io.Serializable {
 	public Immeuble() {
 	}
 
-	public Immeuble(int nbNiveaux, Set<Appartement> appartements) {
+	public Immeuble(String refProjet, String nom, int surfaceTotale, String avancement, Date dateFinEstimee, int coutTotalEstime, boolean termine, Date dateFinReelle, int nbNiveaux, Set<Appartement> appartements) {
+		super(refProjet, nom, surfaceTotale, avancement, dateFinEstimee, coutTotalEstime, termine, dateFinReelle);
 		this.nbNiveaux = nbNiveaux;
-		this.appartements=appartements;
+		this.appartements = appartements;
 	}
 
 	public int getNbNiveaux() {

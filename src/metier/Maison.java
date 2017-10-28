@@ -30,14 +30,6 @@ public class Maison extends Projet implements Serializable {
 		this.nbNiveaux = nbNiveaux;
 	}
 
-	public int getNbPièces() {
-		return nbPieces;
-	}
-
-	public void setNbPièces(int nbPièces) {
-		this.nbPieces = nbPièces;
-	}
-
 	public int getNbNiveaux() {
 		return nbNiveaux;
 	}
@@ -60,5 +52,13 @@ public class Maison extends Projet implements Serializable {
 
 	public void setLotissement(Lotissement lotissement) {
 		this.lotissement = lotissement;
+	}
+
+	public int getNbPieces() {
+		return nbPieces;
+	}
+
+	public void setNbPieces(int nbPieces) {
+		this.nbPieces = nbPieces;
 	}
 }
