@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+import java.sql.Date;
+
 import static javax.persistence.GenerationType.AUTO;
 import static javax.persistence.GenerationType.IDENTITY;
 
@@ -20,7 +22,8 @@ public class Hopital extends BatimentPublic implements java.io.Serializable {
 	public Hopital() {
 	}
 
-	public Hopital(int nbLits, int nbServices) {
+	public Hopital(String refProjet, String nom, int surfaceTotale, String avancement, Date dateFinEstimee, int coutTotalEstime, boolean termine, Date dateFinReelle, String ministere, int nbLits, int nbServices) {
+		super(refProjet, nom, surfaceTotale, avancement, dateFinEstimee, coutTotalEstime, termine, dateFinReelle, ministere);
 		this.nbLits = nbLits;
 		this.nbServices = nbServices;
 	}
@@ -41,12 +44,10 @@ public class Hopital extends BatimentPublic implements java.io.Serializable {
 		this.nbServices = nbServices;
 	}
 
-	@Override
 	public int getID() {
 		return id;
 	}
 
-	@Override
 	public void setID(int id) {
 		this.id = id;
 	}
