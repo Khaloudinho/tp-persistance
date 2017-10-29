@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+import java.sql.Date;
+
 import static javax.persistence.GenerationType.AUTO;
 import static javax.persistence.GenerationType.IDENTITY;
 
@@ -19,7 +21,8 @@ public class Fondation extends Lots implements java.io.Serializable {
 	public Fondation() {
 	}
 
-	public Fondation(int profondeur) {
+	public Fondation(int numero, Date dateDebut, int dureeEstimee, int coutEstime, int avancement, int coutReel, Date dateFinReel, int profondeur) {
+		super(numero, dateDebut, dureeEstimee, coutEstime, avancement, coutReel, dateFinReel);
 		this.profondeur = profondeur;
 	}
 

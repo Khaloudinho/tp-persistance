@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.io.Serializable;
+import java.sql.Date;
 
 import static javax.persistence.GenerationType.AUTO;
 import static javax.persistence.GenerationType.IDENTITY;
@@ -19,7 +20,8 @@ public class Maconnerie extends Lots implements Serializable {
 
 	public Maconnerie() {}
 
-	public Maconnerie(int surfaceMur, int nbPoteaux) {
+	public Maconnerie(int numero, Date dateDebut, int dureeEstimee, int coutEstime, int avancement, int coutReel, Date dateFinReel, int surfaceMur, int nbPoteaux) {
+		super(numero, dateDebut, dureeEstimee, coutEstime, avancement, coutReel, dateFinReel);
 		this.surfaceMur = surfaceMur;
 		this.nbPoteaux = nbPoteaux;
 	}

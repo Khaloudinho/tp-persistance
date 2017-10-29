@@ -293,7 +293,126 @@ public class Test {
         em.persist(plomberieLotissement10L8E10A);
         em.persist(electriciteReseauLotissement10L8E10A);
 
+        // Un immeuble : 10 appartements, 8 lots, 7 entreprises, 8 acteurs ---------------------------------------------
 
+        Appartement appart1Immeuble10A8L7E8A = new Appartement(2, ETypeAppart.T2, 50);
+        Appartement appart2Immeuble10A8L7E8A = new Appartement(3, ETypeAppart.T3, 80);
+        Appartement appart3Immeuble10A8L7E8A = new Appartement(2, ETypeAppart.T2, 65);
+        Appartement appart4Immeuble10A8L7E8A = new Appartement(1, ETypeAppart.Studio, 20);
+        Appartement appart5Immeuble10A8L7E8A = new Appartement(1, ETypeAppart.Studio, 17);
+        Appartement appart6Immeuble10A8L7E8A = new Appartement(1, ETypeAppart.Studio, 15);
+        Appartement appart7Immeuble10A8L7E8A = new Appartement(1, ETypeAppart.Studio, 27);
+        Appartement appart8Immeuble10A8L7E8A = new Appartement(2, ETypeAppart.T2, 75);
+        Appartement appart9Immeuble10A8L7E8A = new Appartement(4, ETypeAppart.T4, 150);
+        Appartement appart10Immeuble10A8L7E8A = new Appartement(3, ETypeAppart.T3, 100);
+
+        em.persist(appart1Immeuble10A8L7E8A);
+        em.persist(appart2Immeuble10A8L7E8A);
+        em.persist(appart3Immeuble10A8L7E8A);
+        em.persist(appart4Immeuble10A8L7E8A);
+        em.persist(appart5Immeuble10A8L7E8A);
+        em.persist(appart6Immeuble10A8L7E8A);
+        em.persist(appart7Immeuble10A8L7E8A);
+        em.persist(appart8Immeuble10A8L7E8A);
+        em.persist(appart9Immeuble10A8L7E8A);
+        em.persist(appart10Immeuble10A8L7E8A);
+
+        Set<Appartement> appartsImmeuble10A8L7E8A =  new HashSet<Appartement>();
+        appartsImmeuble10A8L7E8A.add(appart1Immeuble10A8L7E8A);
+        appartsImmeuble10A8L7E8A.add(appart2Immeuble10A8L7E8A);
+        appartsImmeuble10A8L7E8A.add(appart3Immeuble10A8L7E8A);
+        appartsImmeuble10A8L7E8A.add(appart4Immeuble10A8L7E8A);
+        appartsImmeuble10A8L7E8A.add(appart5Immeuble10A8L7E8A);
+        appartsImmeuble10A8L7E8A.add(appart6Immeuble10A8L7E8A);
+        appartsImmeuble10A8L7E8A.add(appart7Immeuble10A8L7E8A);
+        appartsImmeuble10A8L7E8A.add(appart8Immeuble10A8L7E8A);
+        appartsImmeuble10A8L7E8A.add(appart9Immeuble10A8L7E8A);
+        appartsImmeuble10A8L7E8A.add(appart10Immeuble10A8L7E8A);
+
+        Charpente charpenteImmeuble10A8L7E8A = new Charpente(1, maintenant, 30, 150, 1, 40, dans110Jours,ECharpente.fermette);
+        Dallage dallageImmeuble10A8L7E8A = new Dallage(2, maintenant, 5, 20, 1, 10, dans100Jours,2000);
+        Electricite electriciteImmeuble10A8L7E8A = new Electricite(3, maintenant, 7, 30, 1, 15, dans120Jours,9, 91.57f);
+        Fondation fondationImmeuble10A8L7E8A = new Fondation(4, maintenant, 10, 26, 1, 20, dans100Jours,13);
+        Maconnerie maconnerieImmeuble10A8L7E8A = new Maconnerie(5, maintenant, 20, 16, 1, 30, dans130Jours,1500, 8);
+        Menuiseries menuiseriesImmeuble10A8L7E8A = new Menuiseries(6, maintenant, 7, 10, 1, 5, dans130Jours,53, 25, 8);
+        Platerie platerieImmeuble10A8L7E8A = new Platerie(7, maintenant, 3, 6, 1, 3, dans140Jours,1500, 6000);
+        Reseaux reseauxImmeuble10A8L7E8A = new Reseaux(8, maintenant, 2, 12, 1, 6, dans140Jours,99.97f);
+
+
+        Set<Lots> lotsImmeuble10A8L7E8A = new HashSet<>();
+        lotsImmeuble10A8L7E8A.add(charpenteImmeuble10A8L7E8A);
+        lotsImmeuble10A8L7E8A.add(dallageImmeuble10A8L7E8A);
+        lotsImmeuble10A8L7E8A.add(electriciteImmeuble10A8L7E8A);
+        lotsImmeuble10A8L7E8A.add(fondationImmeuble10A8L7E8A);
+        lotsImmeuble10A8L7E8A.add(maconnerieImmeuble10A8L7E8A);
+        lotsImmeuble10A8L7E8A.add(menuiseriesImmeuble10A8L7E8A);
+        lotsImmeuble10A8L7E8A.add(platerieImmeuble10A8L7E8A);
+        lotsImmeuble10A8L7E8A.add(reseauxImmeuble10A8L7E8A);
+
+        Set<Entreprise> entreprisesCharpenteImmeuble10A8L7E8A = new HashSet<>();
+        Set<Entreprise> entreprisesDallageImmeuble10A8L7E8A = new HashSet<>();
+        Set<Entreprise> entreprisesElectriciteImmeuble10A8L7E8A = new HashSet<>();
+        Set<Entreprise> entreprisesMaconnerieImmeuble10A8L7E8A = new HashSet<>();
+        Set<Entreprise> entreprisesMenuiseriesImmeuble10A8L7E8A = new HashSet<>();
+        Set<Entreprise> entreprisesPlaterieImmeuble10A8L7E8A = new HashSet<>();
+        Set<Entreprise> entreprisesReseauxImmeuble10A8L7E8A = new HashSet<>();
+
+        entreprisesCharpenteImmeuble10A8L7E8A.add(entrepriseProCharpente);
+        entreprisesDallageImmeuble10A8L7E8A.add(entrepriseSancho);
+        entreprisesElectriciteImmeuble10A8L7E8A.add(entrepriseDehaye);
+        entreprisesMaconnerieImmeuble10A8L7E8A.add(entrepriseAkar);
+        entreprisesMenuiseriesImmeuble10A8L7E8A.add(entrepriseArnoult);
+        entreprisesPlaterieImmeuble10A8L7E8A.add(entreprisePlatrever);
+        entreprisesReseauxImmeuble10A8L7E8A.add(entrepriseBombardi);
+
+        charpenteImmeuble10A8L7E8A.setEntrepriseResponsable(entrepriseProCharpente);
+        charpenteImmeuble10A8L7E8A.setEntreprisesRealisatrices(entreprisesCharpenteImmeuble10A8L7E8A);
+
+        dallageImmeuble10A8L7E8A.setEntrepriseResponsable(entrepriseSancho);
+        dallageImmeuble10A8L7E8A.setEntreprisesRealisatrices(entreprisesDallageImmeuble10A8L7E8A);
+
+        electriciteImmeuble10A8L7E8A.setEntrepriseResponsable(entrepriseDehaye);
+        electriciteImmeuble10A8L7E8A.setEntreprisesRealisatrices(entreprisesElectriciteImmeuble10A8L7E8A);
+
+        fondationImmeuble10A8L7E8A.setEntrepriseResponsable(entrepriseAkar);
+        fondationImmeuble10A8L7E8A.setEntreprisesRealisatrices(entreprisesMaconnerieImmeuble10A8L7E8A);
+
+        maconnerieImmeuble10A8L7E8A.setEntrepriseResponsable(entrepriseAkar);
+        maconnerieImmeuble10A8L7E8A.setEntreprisesRealisatrices(entreprisesMaconnerieImmeuble10A8L7E8A);
+
+        menuiseriesImmeuble10A8L7E8A.setEntrepriseResponsable(entrepriseArnoult);
+        menuiseriesImmeuble10A8L7E8A.setEntreprisesRealisatrices(entreprisesMenuiseriesImmeuble10A8L7E8A);
+
+        platerieImmeuble10A8L7E8A.setEntrepriseResponsable(entreprisePlatrever);
+        platerieImmeuble10A8L7E8A.setEntreprisesRealisatrices(entreprisesPlaterieImmeuble10A8L7E8A);
+
+        reseauxImmeuble10A8L7E8A.setEntrepriseResponsable(entrepriseBombardi);
+        reseauxImmeuble10A8L7E8A.setEntreprisesRealisatrices(entreprisesReseauxImmeuble10A8L7E8A);
+
+        Projet immeuble10A8L7E8A = new Immeuble("Immeuble10A8L7E8A", "Immeuble de rapport 10 appartements",
+                2500, "Terminé", new Date(2017-5-11), 1620000, true, new Date(2017-5-24),
+                4, appartsImmeuble10A8L7E8A);
+        immeuble10A8L7E8A.setLots(lotsImmeuble10A8L7E8A);
+
+        em.persist(immeuble10A8L7E8A);
+
+        charpenteImmeuble10A8L7E8A.setProjet(immeuble10A8L7E8A);
+        dallageImmeuble10A8L7E8A.setProjet(immeuble10A8L7E8A);
+        electriciteImmeuble10A8L7E8A.setProjet(immeuble10A8L7E8A);
+        fondationImmeuble10A8L7E8A.setProjet(immeuble10A8L7E8A);
+        maconnerieImmeuble10A8L7E8A.setProjet(immeuble10A8L7E8A);
+        menuiseriesImmeuble10A8L7E8A.setProjet(immeuble10A8L7E8A);
+        platerieImmeuble10A8L7E8A.setProjet(immeuble10A8L7E8A);
+        reseauxImmeuble10A8L7E8A.setProjet(immeuble10A8L7E8A);
+
+        em.persist(charpenteImmeuble10A8L7E8A);
+        em.persist(dallageImmeuble10A8L7E8A);
+        em.persist(electriciteImmeuble10A8L7E8A);
+        em.persist(fondationImmeuble10A8L7E8A);
+        em.persist(maconnerieImmeuble10A8L7E8A);
+        em.persist(menuiseriesImmeuble10A8L7E8A);
+        em.persist(platerieImmeuble10A8L7E8A);
+        em.persist(reseauxImmeuble10A8L7E8A);
 
         /*em.persist(etablissementScolaire0L);
         em.persist(immeuble8A7L);
