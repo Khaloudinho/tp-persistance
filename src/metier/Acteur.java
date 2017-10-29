@@ -32,8 +32,15 @@ public class Acteur implements java.io.Serializable {
 	@ManyToOne
 	private Entreprise entreprise;
 
+	/*
+	 Nous n'utilisons a aucun moment cette liaison dans le jeu de donnees
+	 Cette liaison pourrait etre utile uniquement dans le cas ou acteur devrait etre relie a une entreprise s'il ne fait pas partit d'une entreprise
+	 Or generalement en situation reelle, de nos jours le client ne fait plus partit des projets et ce meme a titre consultatif (ce n'est pas une blague..)
+	  */
+	/*
 	@ManyToMany
 	private Set<Projet> projet;
+	*/
 
 	public Acteur() {
 
@@ -85,6 +92,7 @@ public class Acteur implements java.io.Serializable {
 		this.entreprise = entreprise;
 	}
 
+	/*
 	public Set<Projet> getProjet() {
 		return projet;
 	}
@@ -92,4 +100,5 @@ public class Acteur implements java.io.Serializable {
 	public void setProjet(Set<Projet> projet) {
 		this.projet = projet;
 	}
+	*/
 }

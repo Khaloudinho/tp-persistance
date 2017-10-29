@@ -36,7 +36,7 @@ public class Test {
         em.getTransaction().begin();
 
         // Génère le jeu de données
-        //Seeder.initialize(em);
+        Seeder.initialize(em);
 
         // Requêtes ----------------------------------------------------------------------------------------------------
 

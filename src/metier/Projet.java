@@ -62,8 +62,13 @@ public abstract class Projet implements Serializable {
 	@OneToOne
 	private Adresse adresse;
 
-	@ManyToMany
-	private Set<Acteur> acteurs;
+	/*
+	 Nous n'utilisons a aucun moment cette liaison dans le jeu de donnees
+	 Cette liaison pourrait etre utile uniquement dans le cas ou acteur devrait etre relie a une entreprise s'il ne fait pas partit d'une entreprise
+	 Or generalement en situation reelle, de nos jours le client ne fait plus partit des projets et ce meme a titre consultatif (ce n'est pas une blague..)
+	  */
+	/*@ManyToMany
+	private Set<Acteur> acteurs;*/
 
 	@OneToMany
 	private Set<Lots> lots;
@@ -162,6 +167,7 @@ public abstract class Projet implements Serializable {
 		this.adresse = adresse;
 	}
 
+	/*
 	public Set<Acteur> getActeurs() {
 		return acteurs;
 	}
@@ -169,7 +175,7 @@ public abstract class Projet implements Serializable {
 	public void setActeurs(Set<Acteur> acteurs) {
 		this.acteurs = acteurs;
 	}
-
+	*/
 	public Set<Lots> getLots() {
 		return lots;
 	}
