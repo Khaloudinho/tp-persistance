@@ -17,13 +17,13 @@ public class Adresse implements java.io.Serializable {
 
 	private int numero;
 	private String rue;
-	private int CP;
+	private String CP;
 	private String ville;
 
 	public Adresse() {
 	}
 
-	public Adresse(int numero, String rue, int CP, String ville) {
+	public Adresse(int numero, String rue, String CP, String ville) {
 		this.numero = numero;
 		this.rue = rue;
 		this.CP = CP;
@@ -46,11 +46,11 @@ public class Adresse implements java.io.Serializable {
 		this.rue = rue;
 	}
 
-	public int getCP() {
+	public String getCP() {
 		return CP;
 	}
 
-	public void setCP(int CP) {
+	public void setCP(String CP) {
 		this.CP = CP;
 	}
 

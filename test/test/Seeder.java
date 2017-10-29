@@ -34,7 +34,8 @@ public class Seeder {
     }
 
     public static void initialize(EntityManager em){
-        // Entreprises pour les projets --------------------------------------------------------------------------------
+
+        // Entreprises réalisant les projets ---------------------------------------------------------------------------
 
         Entreprise entrepriseBerbe = new Entreprise("Berbe et fils SARL", ECorpsMetier.Macon, "0325871035");
         Entreprise entrepriseSancho = new Entreprise("Sancho et fils SARL", ECorpsMetier.Carreleur, "0325871036");
@@ -62,7 +63,7 @@ public class Seeder {
         em.persist(entreprisePlatrever);
         em.persist(entrepriseAkar);
 
-        // Acteurs réalisant tous les projets --------------------------------------------------------------------------
+        // Acteurs réalisant les projets -------------------------------------------------------------------------------
 
         Acteur martin = new Acteur("Martin", ETitre.Architecte, EStatut.Directeur);
         Acteur berbe = new Acteur("Berbe", ETitre.Technicien, EStatut.Responsable);
@@ -85,6 +86,7 @@ public class Seeder {
         Acteur hakki = new Acteur("Hakki", ETitre.Technicien, EStatut.Directeur);
 
         // 1 - On enregistre les acteurs
+
         martin.setEntreprise(entrepriseBerbe);
         berbe.setEntreprise(entrepriseBerbe);
         grossi.setEntreprise(entrepriseBerbe);
@@ -147,7 +149,6 @@ public class Seeder {
         acteursArnoult.add(ivanov);
         acteursArnoult.add(martel);
         acteursDehaye.add(cornevin);
-        //acteursPeintreExperts.add(cornevin);
         acteursPeintreExperts.add(gareau);
         acteursBombardi.add(villemin);
         acteursBellorti.add(vignarde);
@@ -173,9 +174,61 @@ public class Seeder {
         entrepriseCouvreTout.setActeurs(acteursCouvreTout);
         entreprisePlatrever.setActeurs(acteursPlatrever);
         entrepriseAkar.setActeurs(acteursAkar);
+        
+        // On donne une adresse à chaque entreprise
+        
+        Adresse adresseEntrepriseBerbe = new Adresse(12, "rue des Peupliers", "67500", "Haguenau");
+        Adresse adresseEntrepriseSancho = new Adresse(154, "rue des Rosiers", "70200", "Héricourt");
+        Adresse adresseEntrepriseArnoult = new Adresse(20, "rue d'Austrasie", "54000", "Nancy");
+        Adresse adresseEntrepriseDehaye = new Adresse(26, "rue des Fusillés", "57000", "Metz");
+        Adresse adresseEntreprisePeintreExperts = new Adresse(111, "rue de l'Europe", "54000", "Laxou");
+        Adresse adresseEntrepriseBombardi = new Adresse(45, "rue des Tulipiers", "10000", "Troyes");
+        Adresse adresseEntrepriseBellorti = new Adresse(37, "avenue Jean Jaurès", "59000", "Lille");
+        Adresse adresseEntreprisePlacoExpert = new Adresse(59, "impasse des Coquelicots", "88000", "Epinal");
+        Adresse adresseEntrepriseProCharpente = new Adresse(22, "route des Romains", "83000", "Toulon");
+        Adresse adresseEntrepriseCouvreTout = new Adresse(36, "rue de Cambrai", "93400", "Clichy-sous-Bois");
+        Adresse adresseEntreprisePlatrever = new Adresse(69, "rue du Duc", "L-2850", "Luxembourg");
+        Adresse adresseEntrepriseAkar = new Adresse(123, "rue Aristide Briand", "67000", "Strasbourg");
+        Adresse adresseImmeuble10A8L7E8A = new Adresse(37, "avenue Jean Jaurès", "59000", "Lille");
+        Adresse adresseHopital10L9E11A = new Adresse(590, "rue du Commandant Girardot", "70000", "Vesoul");
+        Adresse adresseMaison5L4E4A = new Adresse(22, "route de la Victoire", "83000", "Toulon");
+        Adresse adresseEtablissementScolaire0L = new Adresse(44, "rue des Sources", "93400", "Clichy-sous-Bois");
+        Adresse adresseImmeuble8A7L = new Adresse(9, "rue Marie Curie", "L-2850", "Luxembourg");
+        Adresse adresseMusee10L8E15A = new Adresse(188, "rue Napoléon Bonaparte", "67000", "Strasbourg");
 
+        em.persist(adresseEntrepriseBerbe);
+        em.persist(adresseEntrepriseSancho);
+        em.persist(adresseEntrepriseArnoult);
+        em.persist(adresseEntrepriseDehaye);
+        em.persist(adresseEntreprisePeintreExperts);
+        em.persist(adresseEntrepriseBombardi);
+        em.persist(adresseEntrepriseBellorti);
+        em.persist(adresseEntreprisePlacoExpert);
+        em.persist(adresseEntrepriseProCharpente);
+        em.persist(adresseEntrepriseCouvreTout);
+        em.persist(adresseEntreprisePlatrever);
+        em.persist(adresseEntrepriseAkar);
+        em.persist(adresseImmeuble10A8L7E8A);
+        em.persist(adresseHopital10L9E11A);
+        em.persist(adresseMaison5L4E4A);
+        em.persist(adresseEtablissementScolaire0L);
+        em.persist(adresseImmeuble8A7L);
+        em.persist(adresseMusee10L8E15A);
+
+        entrepriseBerbe.setAdresse(adresseEntrepriseBerbe);
+        entrepriseSancho.setAdresse(adresseEntrepriseSancho);
+        entrepriseArnoult.setAdresse(adresseEntrepriseArnoult);
+        entrepriseDehaye.setAdresse(adresseEntrepriseDehaye);
+        entreprisePeintreExperts.setAdresse(adresseEntreprisePeintreExperts);
+        entrepriseBombardi.setAdresse(adresseEntrepriseBombardi);
+        entrepriseBellorti.setAdresse(adresseEntrepriseBellorti);
+        entreprisePlacoExpert.setAdresse(adresseEntreprisePlacoExpert);
+        entrepriseProCharpente.setAdresse(adresseEntrepriseProCharpente);
+        entrepriseCouvreTout.setAdresse(adresseEntrepriseCouvreTout);
+        entreprisePlatrever.setAdresse(adresseEntreprisePlatrever);
+        entrepriseAkar.setAdresse(adresseEntrepriseAkar);
+        
         // Un lotissement : 10 lots, 8 entreprises, 10 acteurs ---------------------------------------------------------
-
 
         Date dans100Jours = getDateInDays(maintenant, 100);
         Date dans110Jours = getDateInDays(maintenant, 110);
@@ -183,16 +236,16 @@ public class Seeder {
         Date dans130Jours = getDateInDays(maintenant, 130);
         Date dans140Jours = getDateInDays(maintenant, 140);
 
-        Lots charpenteLotissement10L8E10A = new Charpente(1, maintenant,  10, 150, EAvancement.enCours, 70, dans100Jours, ECharpente.toitPlat);
-        Lots couvertureLotissement10L8E10A = new Charpente(2, maintenant,  3, 100, EAvancement.enCours, 50, dans100Jours,ECharpente.toitPlat);
-        Lots dallageLotissement10L8E10A = new Dallage(3, maintenant, 3, 2, EAvancement.enCours, 5, dans110Jours,2000);
-        Lots electriciteLotissement10L8E10A = new Electricite(4, maintenant, 3, 20, EAvancement.enCours, 30, dans120Jours,4, 101.57f);
-        Lots menuiseriesLotissement10L8E10A = new Menuiseries(5, maintenant, 1, 3, EAvancement.enCours, 2, dans130Jours,8, 15, 2);
-        Lots peintureLotissement10L8E10A = new Peinture(6, maintenant, 2, 1, EAvancement.enCours, 3, dans130Jours,20);
-        Lots peintureExterieureLotissement10L8E10A = new Peinture(7, maintenant, 2, 2, EAvancement.enCours, 4, dans110Jours,200);
-        Lots platerieLotissement10L8E10A = new Platerie(8, maintenant, 2, 1, EAvancement.enCours, 2, dans130Jours,200, 1450);
-        Lots plomberieLotissement10L8E10A = new Reseaux(9, maintenant, 4, 10, EAvancement.enCours, 20, dans140Jours,150.67f);
-        Lots electriciteReseauLotissement10L8E10A = new Reseaux(10, maintenant, 3, 15, EAvancement.enCours, 30, dans110Jours,170.67f);
+        Lots charpenteLotissement10L8E10A = new Charpente(1, maintenant,  10, 150, 70, dans100Jours, ECharpente.toitPlat);
+        Lots couvertureLotissement10L8E10A = new Charpente(2, maintenant,  3, 100, 50, dans100Jours,ECharpente.toitPlat);
+        Lots dallageLotissement10L8E10A = new Dallage(3, maintenant, 3, 2, 5, dans110Jours,2000);
+        Lots electriciteLotissement10L8E10A = new Electricite(4, maintenant, 3, 20, 30, dans120Jours,4, 101.57f);
+        Lots menuiseriesLotissement10L8E10A = new Menuiseries(5, maintenant, 1, 3, 2, dans130Jours,8, 15, 2);
+        Lots peintureLotissement10L8E10A = new Peinture(6, maintenant, 2, 1, 3, dans130Jours,20);
+        Lots peintureExterieureLotissement10L8E10A = new Peinture(7, maintenant, 2, 2, 4, dans110Jours,200);
+        Lots platerieLotissement10L8E10A = new Platerie(8, maintenant, 2, 1, 2, dans130Jours,200, 1450);
+        Lots plomberieLotissement10L8E10A = new Reseaux(9, maintenant, 4, 10, 20, dans140Jours,150.67f);
+        Lots electriciteReseauLotissement10L8E10A = new Reseaux(10, maintenant, 3, 15, 30, dans110Jours,170.67f);
 
         Set<Lots> lotsLotissement10L8E10A = new HashSet<>();
         lotsLotissement10L8E10A.add(charpenteLotissement10L8E10A);
@@ -261,8 +314,7 @@ public class Seeder {
         em.persist(lotissement10L8E10A);
 
         lotissement10L8E10A.setLots(lotsLotissement10L8E10A);
-
-
+        
         charpenteLotissement10L8E10A.setProjet(lotissement10L8E10A);
         couvertureLotissement10L8E10A.setProjet(lotissement10L8E10A);
         dallageLotissement10L8E10A.setProjet(lotissement10L8E10A);
@@ -321,16 +373,15 @@ public class Seeder {
         appartsImmeuble10A8L7E8A.add(appart9Immeuble10A8L7E8A);
         appartsImmeuble10A8L7E8A.add(appart10Immeuble10A8L7E8A);
 
-        Charpente charpenteImmeuble10A8L7E8A = new Charpente(1, maintenant, 30, 150, EAvancement.enCours, 40, dans110Jours,ECharpente.fermette);
-        Dallage dallageImmeuble10A8L7E8A = new Dallage(2, maintenant, 5, 20, EAvancement.enCours, 10, dans100Jours,2000);
-        Electricite electriciteImmeuble10A8L7E8A = new Electricite(3, maintenant, 7, 30, EAvancement.enCours, 15, dans120Jours,9, 91.57f);
-        Fondation fondationImmeuble10A8L7E8A = new Fondation(4, maintenant, 10, 26, EAvancement.enCours, 20, dans100Jours,13);
-        Maconnerie maconnerieImmeuble10A8L7E8A = new Maconnerie(5, maintenant, 20, 16, EAvancement.enCours, 30, dans130Jours,1500, 8);
-        Menuiseries menuiseriesImmeuble10A8L7E8A = new Menuiseries(6, maintenant, 7, 10, EAvancement.enCours, 5, dans130Jours,53, 25, 8);
-        Platerie platerieImmeuble10A8L7E8A = new Platerie(7, maintenant, 3, 6, EAvancement.enCours, 3, dans140Jours,1500, 6000);
-        Reseaux reseauxImmeuble10A8L7E8A = new Reseaux(8, maintenant, 2, 12, EAvancement.enCours, 6, dans140Jours,99.97f);
-
-
+        Charpente charpenteImmeuble10A8L7E8A = new Charpente(1, maintenant, 30, 150, 40, dans110Jours,ECharpente.fermette);
+        Dallage dallageImmeuble10A8L7E8A = new Dallage(2, maintenant, 5, 20, 10, dans100Jours,2000);
+        Electricite electriciteImmeuble10A8L7E8A = new Electricite(3, maintenant, 7, 30, 15, dans120Jours,9, 91.57f);
+        Fondation fondationImmeuble10A8L7E8A = new Fondation(4, maintenant, 10, 26, 20, dans100Jours,13);
+        Maconnerie maconnerieImmeuble10A8L7E8A = new Maconnerie(5, maintenant, 20, 16, 30, dans130Jours,1500, 8);
+        Menuiseries menuiseriesImmeuble10A8L7E8A = new Menuiseries(6, maintenant, 7, 10, 5, dans130Jours,53, 25, 8);
+        Platerie platerieImmeuble10A8L7E8A = new Platerie(7, maintenant, 3, 6,3, dans140Jours,1500, 6000);
+        Reseaux reseauxImmeuble10A8L7E8A = new Reseaux(8, maintenant, 2, 12, 6, dans140Jours,99.97f);
+        
         Set<Lots> lotsImmeuble10A8L7E8A = new HashSet<>();
         lotsImmeuble10A8L7E8A.add(charpenteImmeuble10A8L7E8A);
         lotsImmeuble10A8L7E8A.add(dallageImmeuble10A8L7E8A);
@@ -384,6 +435,8 @@ public class Seeder {
         Projet immeuble10A8L7E8A = new Immeuble("Immeuble10A8L7E8A", "Immeuble de rapport 10 appartements",
                 2500, EAvancement.terminé, new Date(2017-5-11), 1620000, true, new Date(2017-5-24),
                 4, appartsImmeuble10A8L7E8A);
+
+        immeuble10A8L7E8A.setAdresse(adresseImmeuble10A8L7E8A);
         immeuble10A8L7E8A.setLots(lotsImmeuble10A8L7E8A);
 
         appart1Immeuble10A8L7E8A.setImmeuble((Immeuble)immeuble10A8L7E8A);
@@ -419,16 +472,16 @@ public class Seeder {
 
         // Un hôpital : 10 lots, 9 entreprises, 11 acteurs -------------------------------------------------------------
 
-        Charpente charpenteHopital10L9E11A = new Charpente(1, maintenant, 40, 2000, EAvancement.enCours, 1000, dans100Jours,ECharpente.toitPlat);
-        Dallage dallageHopital10L9E11A = new Dallage(2, maintenant, 10, 400, EAvancement.enCours, 200, dans110Jours,20000);
-        Electricite electriciteHopital10L9E11A = new Electricite(3, maintenant, 20, 800, EAvancement.enCours, 400, dans120Jours,12, 101.57f);
-        Fondation fondationHopital10L9E11A = new Fondation(4, maintenant, 10, 1000, EAvancement.enCours, 500, dans100Jours,25);
-        Maconnerie maconnerieHopital10L9E11A = new Maconnerie(5, maintenant, 20, 1200, EAvancement.enCours, 600, dans110Jours,1500, 22);
-        Menuiseries menuiseriesHopital10L9E11A = new Menuiseries(6, maintenant, 10, 600, EAvancement.enCours, 300, dans120Jours,113, 55, 0);
-        Peinture peintureHopital10L9E11A = new Peinture(7, maintenant, 5, 300, EAvancement.enCours, 150, dans130Jours,25000);
-        Platerie platerieHopital10L9E11A = new Platerie(8, maintenant, 7, 400, EAvancement.enCours, 200, dans120Jours,2000, 8500);
-        Reseaux reseauxHopital10L9E11A = new Reseaux(9, maintenant, 5, 800, EAvancement.enCours, 400, dans110Jours,1510.97f);
-        Terrassement terrassementHopital10L9E11A = new Terrassement(10, maintenant, 10, 100, EAvancement.enCours, 50, dans100Jours,65000);
+        Charpente charpenteHopital10L9E11A = new Charpente(1, maintenant, 40, 2000, 1000, dans100Jours,ECharpente.toitPlat);
+        Dallage dallageHopital10L9E11A = new Dallage(2, maintenant, 10, 400, 200, dans110Jours,20000);
+        Electricite electriciteHopital10L9E11A = new Electricite(3, maintenant, 20, 800, 400, dans120Jours,12, 101.57f);
+        Fondation fondationHopital10L9E11A = new Fondation(4, maintenant, 10, 1000, 500, dans100Jours,25);
+        Maconnerie maconnerieHopital10L9E11A = new Maconnerie(5, maintenant, 20, 1200, 600, dans110Jours,1500, 22);
+        Menuiseries menuiseriesHopital10L9E11A = new Menuiseries(6, maintenant, 10, 600, 300, dans120Jours,113, 55, 0);
+        Peinture peintureHopital10L9E11A = new Peinture(7, maintenant, 5, 300, 150, dans130Jours,25000);
+        Platerie platerieHopital10L9E11A = new Platerie(8, maintenant, 7, 400, 200, dans120Jours,2000, 8500);
+        Reseaux reseauxHopital10L9E11A = new Reseaux(9, maintenant, 5, 800, 400, dans110Jours,1510.97f);
+        Terrassement terrassementHopital10L9E11A = new Terrassement(10, maintenant, 10, 100, 50, dans100Jours,65000);
 
         Set<Lots> lotsHopital10L9E11A = new HashSet<>();
         lotsHopital10L9E11A.add(charpenteHopital10L9E11A);
@@ -498,6 +551,7 @@ public class Seeder {
                 EAvancement.terminé, new Date(2016-5-5), 5420000, true, new Date(2017-5-19), "Santé",
                 357, 24);
 
+        hopital10L9E11A.setAdresse(adresseHopital10L9E11A);
         hopital10L9E11A.setLots(lotsHopital10L9E11A);
 
         em.persist(hopital10L9E11A);
@@ -526,11 +580,11 @@ public class Seeder {
 
         // Une maison : 5 lots, 4 entreprises, 4 acteurs ---------------------------------------------------------------
 
-        Lots charpenteMaison5L4E4A = new Charpente(1, maintenant, 10, 40, EAvancement.enCours, 20, dans100Jours, ECharpente.traditionnelle);
-        Lots dallageMaison5L4E4A = new Dallage(2, maintenant, 2, 10, EAvancement.enCours, 5, dans110Jours, 150);
-        Lots electriciteMaison5L4E4A = new Electricite(3, maintenant, 3, 8, EAvancement.enCours, 4, dans130Jours, 2, 88.57f);
-        Lots maconnerieMaison5L4E4A = new Maconnerie(4, maintenant, 4, 20, EAvancement.enCours, 10, dans120Jours, 500, 4);
-        Lots reseauxMaison5L4E4A = new Reseaux(5, maintenant, 1, 4, EAvancement.enCours, 2, dans140Jours, 73.67f);
+        Lots charpenteMaison5L4E4A = new Charpente(1, maintenant, 10, 40, 20, dans100Jours, ECharpente.traditionnelle);
+        Lots dallageMaison5L4E4A = new Dallage(2, maintenant, 2, 10, 5, dans110Jours, 150);
+        Lots electriciteMaison5L4E4A = new Electricite(3, maintenant, 3, 8, 4, dans130Jours, 2, 88.57f);
+        Lots maconnerieMaison5L4E4A = new Maconnerie(4, maintenant, 4, 20, 10, dans120Jours, 500, 4);
+        Lots reseauxMaison5L4E4A = new Reseaux(5, maintenant, 1, 4, 2, dans140Jours, 73.67f);
 
         Set<Lots> lotsMaison5L4E4A = new HashSet<>();
         lotsMaison5L4E4A.add(charpenteMaison5L4E4A);
@@ -568,6 +622,7 @@ public class Seeder {
                 EAvancement.terminé, new Date(2017-12-1), 400000, true, new Date(2017-10-11),
                 5, 2);
 
+        maison5L4E4A.setAdresse(adresseMaison5L4E4A);
         maison5L4E4A.setLots(lotsMaison5L4E4A);
 
         em.persist(maison5L4E4A);
@@ -590,6 +645,7 @@ public class Seeder {
                 1500, EAvancement.enCours, new Date(2017-9-18), 2500000, false,
                 new Date(2017-12-9), "Education Nationale",1142, EEtaScolaire.lycee);
 
+        etablissementScolaire0L.setAdresse(adresseEtablissementScolaire0L);
         em.persist(etablissementScolaire0L);
 
         // Un immeuble : 8 appartements, 7 lots ------------------------------------------------------------------------
@@ -622,13 +678,13 @@ public class Seeder {
         appartsImmeuble8A7L.add(appart7Immeuble8A7L);
         appartsImmeuble8A7L.add(appart8Immeuble8A7L);
 
-        Lots terrassementImmeuble8A7L = new Terrassement(1, maintenant, 5, 60, EAvancement.enCours, 30, dans100Jours, 100);
-        Lots dallageImmeuble8A7L = new Dallage(2, maintenant, 10, 20, EAvancement.enCours, 10, dans120Jours, 1000);
-        Lots menuiseriesImmeuble8A7L = new Menuiseries(3, maintenant, 3, 16, EAvancement.enCours, 8, dans130Jours, 16, 10, 4);
-        Lots fondationsImmeuble8A7L = new Fondation(4, maintenant, 5, 20, EAvancement.enCours, 10, dans100Jours, 20);
-        Lots maconnerieImmeuble8A7L = new Maconnerie(5, maintenant, 8, 30, EAvancement.enCours, 15, dans110Jours, 2000, 20);
-        Lots electriciteImmeuble8A7L = new Electricite(6, maintenant, 3, 40, EAvancement.enCours, 20, dans130Jours, 10, 100);
-        Lots reseauxImmeuble8A7L = new Reseaux(7, maintenant, 2, 4, EAvancement.enCours, 2, dans140Jours, 1000);
+        Lots terrassementImmeuble8A7L = new Terrassement(1, maintenant, 5, 60, 30, dans100Jours, 100);
+        Lots dallageImmeuble8A7L = new Dallage(2, maintenant, 10, 20, 10, dans120Jours, 1000);
+        Lots menuiseriesImmeuble8A7L = new Menuiseries(3, maintenant, 3, 16, 8, dans130Jours, 16, 10, 4);
+        Lots fondationsImmeuble8A7L = new Fondation(4, maintenant, 5, 20, 10, dans100Jours, 20);
+        Lots maconnerieImmeuble8A7L = new Maconnerie(5, maintenant, 8, 30, 15, dans110Jours, 2000, 20);
+        Lots electriciteImmeuble8A7L = new Electricite(6, maintenant, 3, 40, 20, dans130Jours, 10, 100);
+        Lots reseauxImmeuble8A7L = new Reseaux(7, maintenant, 2, 4, 2, dans140Jours, 1000);
 
         Set<Lots> lotsImmeuble8A7L = new HashSet<>();
         lotsImmeuble8A7L.add(terrassementImmeuble8A7L);
@@ -642,6 +698,7 @@ public class Seeder {
         Projet immeuble8A7L = new Immeuble("Immeuble8A7L", "Immeuble HLM", 2500, EAvancement.enCours,
                 new Date(2017-5-26), 3000000, false, new Date(2018-5-26), 7, appartsImmeuble8A7L);
 
+        immeuble8A7L.setAdresse(adresseImmeuble8A7L);
         immeuble8A7L.setLots(lotsImmeuble8A7L);
 
         appart1Immeuble8A7L.setImmeuble((Immeuble)immeuble8A7L);
@@ -673,16 +730,16 @@ public class Seeder {
 
         // Un musée : 10 lots, 8 entreprises, 15 acteurs ---------------------------------------------------------------
 
-        Lots terrassementMusee10L8E15A = new Terrassement(1, maintenant, 3, 20, EAvancement.enCours, 10, dans100Jours, 100);
-        Lots dallageMusee10L8E15A = new Dallage(2, maintenant, 2, 10, EAvancement.enCours, 5, dans110Jours, 1000);
-        Lots menuiseriesMusee10L8E15A = new Menuiseries(3, maintenant, 1, 14, EAvancement.enCours, 7, dans120Jours, 16, 10, 4);
-        Lots fondationsMusee10L8E15A = new Fondation(4, maintenant, 2, 20, EAvancement.enCours, 10, dans110Jours, 20);
-        Lots maconnerieMusee10L8E15A = new Maconnerie(5, maintenant, 5, 30, EAvancement.enCours, 15, dans100Jours, 2000, 20);
-        Lots electriciteMusee10L8E15A = new Electricite(6, maintenant, 3, 18, EAvancement.enCours, 9, dans130Jours, 10, 100);
-        Lots reseauxMusee10L8E15A = new Reseaux(7, maintenant, 1, 6, EAvancement.enCours, 3, dans140Jours, 1000);
-        Lots peintureMusee10L8E15A = new Peinture(8, maintenant, 4, 4, EAvancement.enCours, 2, dans130Jours, 100);
-        Lots peintureMuseeHall10L8E15A = new Peinture(9, maintenant, 1, 2, EAvancement.enCours, 1, dans130Jours, 30);
-        Lots platerieMusee10L8E15A = new Platerie(10, maintenant, 3, 6, EAvancement.enCours, 3, dans120Jours, 500,700);
+        Lots terrassementMusee10L8E15A = new Terrassement(1, maintenant, 3, 20, 10, dans100Jours, 100);
+        Lots dallageMusee10L8E15A = new Dallage(2, maintenant, 2, 10, 5, dans110Jours, 1000);
+        Lots menuiseriesMusee10L8E15A = new Menuiseries(3, maintenant, 1, 14, 7, dans120Jours, 16, 10, 4);
+        Lots fondationsMusee10L8E15A = new Fondation(4, maintenant, 2, 20, 10, dans110Jours, 20);
+        Lots maconnerieMusee10L8E15A = new Maconnerie(5, maintenant, 5, 30, 15, dans100Jours, 2000, 20);
+        Lots electriciteMusee10L8E15A = new Electricite(6, maintenant, 3, 18, 9, dans130Jours, 10, 100);
+        Lots reseauxMusee10L8E15A = new Reseaux(7, maintenant, 1, 6, 3, dans140Jours, 1000);
+        Lots peintureMusee10L8E15A = new Peinture(8, maintenant, 4, 4, 2, dans130Jours, 100);
+        Lots peintureMuseeHall10L8E15A = new Peinture(9, maintenant, 1, 2, 1, dans130Jours, 30);
+        Lots platerieMusee10L8E15A = new Platerie(10, maintenant, 3, 6, 3, dans120Jours, 500,700);
 
         Set<Lots> lotsMusee10L8E15A = new HashSet<>();
         lotsMusee10L8E15A.add(terrassementMusee10L8E15A);
@@ -747,6 +804,7 @@ public class Seeder {
                 EAvancement.enCours, new Date(2017-5-5), 6520000, false, new Date(2017-12-31),
                 "Culture", 8);
 
+        musee10L8E15A.setAdresse(adresseMusee10L8E15A);
         musee10L8E15A.setLots(lotsMusee10L8E15A);
 
         em.persist(musee10L8E15A);
