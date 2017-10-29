@@ -3,6 +3,8 @@ package test;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
+import java.util.List;
 
 
 public class Test {
@@ -18,6 +20,12 @@ public class Test {
 
         // Requetes
         // 1 - Quelles sont les entreprises avec lesquelles le cabinet travaille ?
+        Query queryEntreprisesTravaillantAvecCabinet = em.createNamedQuery("Entreprise.entreprisesTravaillantAvecCabinet", String.class);
+        List<String> entreprisesTravaillantAvecCabinet = queryEntreprisesTravaillantAvecCabinet.getResultList();
+        for (String entreprise : entreprisesTravaillantAvecCabinet) {
+            System.out.println("Nom entreprise : "+entreprise);
+        }
+
         // 2 - Quels sont les projets en cours ?
         // 3 - Quel est lʼavancement du projet de reference « PLot12 » ?
         // 4 - Combien de projets portant sur un etablissement scolaire ont ete realise ?
