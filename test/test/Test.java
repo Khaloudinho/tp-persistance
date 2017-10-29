@@ -9,6 +9,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 public class Test {
@@ -115,22 +116,32 @@ public class Test {
         System.out.println("======================== A quels projets terminés lʼentreprise « General Batiment » a-t-elle participé ? ======================== \n");
         Query queryProjetsTerminesAvecGeneralBatiment = em.createNamedQuery("Projet.projetsTerminesAvecGeneralBatiment", Object[].class);
         queryProjetsTerminesAvecGeneralBatiment.setParameter("avancement", EAvancement.terminé);
-        //queryProjetsTerminesAvecGeneralBatiment.setParameter("entreprise", "Sancho et fils SARL");
-        List<Object[]> projetsTerminesOuEntrepriseGeneralBatimentParticipe = queryProjetsTerminesAvecGeneralBatiment.getResultList();
-        for (Object[] o : projetsTerminesOuEntrepriseGeneralBatimentParticipe) {
-            System.out.println("Nom projet : " + o[0].toString() + "\nNbre lots : " + o[1].toString());
+        queryProjetsTerminesAvecGeneralBatiment.setParameter("entreprise", "Sancho et fils SARL");
+        List<Object> projetsTerminesOuEntrepriseGeneralBatimentParticipe = queryProjetsTerminesAvecGeneralBatiment.getResultList();
+        for (Object o : projetsTerminesOuEntrepriseGeneralBatimentParticipe) {
+            System.out.println(o.toString());
+            //System.out.println("Nom projet : " + o[0].toString() + "\nNbre lots : " + o[1].toString());
         }
 
         twoNewLineInConsole();
 
         // 8 - Quels sont les lots des projets en cours auxquels participe lʼentreprise « General Batiment » ?
 
+        // Pour avoir le nom du lot on devrait ce base sur le nom de la table fille.. relativement complexe
+
         System.out.println("======================== Quels sont les lots des projets en cours auxquels participe lʼentreprise « General Batiment » ? ======================== \n");
         Query queryLotsDesProjetsEnCoursDeGeneralBatiment = em.createNamedQuery("Lots.lotsDesProjetsEnCoursDeGeneralBatiment", Integer.class);
         queryLotsDesProjetsEnCoursDeGeneralBatiment.setParameter("entreprise", "Sancho et fils SARL");
         queryLotsDesProjetsEnCoursDeGeneralBatiment.setParameter("avancement", EAvancement.terminé);
-        List<String> lotsDesProjetsEnCoursDeGeneralBatiment = queryLotsDesProjetsEnCoursDeGeneralBatiment.getResultList();
-        displayOneAttributeResults(lotsDesProjetsEnCoursDeGeneralBatiment, "Lot d'un projet en cours auxquels participe General Batiment :");
+        //On est oblige de faire ceci..
+        List<Integer> lotsDesProjetsEnCoursDeGeneralBatiment = queryLotsDesProjetsEnCoursDeGeneralBatiment.getResultList();
+        displayOneAttributeResults(lotsDesProjetsEnCoursDeGeneralBatiment.stream().map(Object::toString)
+                .collect(Collectors.toList()), "Lot d'un projet en cours auxquels participe General Batiment :");
+
+        /*for (Object object:
+             lotsDesProjetsEnCoursDeGeneralBatiment) {
+            System.out.println(object.toString());
+        }*/
 
         // 9 - Quels sont les acteurs (et leur entreprise) participant au projet de reference « PLot12 » ?
 

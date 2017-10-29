@@ -23,24 +23,12 @@ import static javax.persistence.GenerationType.IDENTITY;
 		),
 		@NamedQuery(
 				name="Projet.projetsTerminesAvecGeneralBatiment",
-				query="SELECT p.nom, COUNT(p.nom) " +
-						"FROM Projet p " +
-						"JOIN Lots l ON l.projet = p " +
-						"WHERE p.avancement = :avancement " +
-						"GROUP BY p.nom"
+				query = "SELECT DISTINCT p.nom " +
+						"FROM Lots l, IN(l.entreprisesRealisatrices) e " +
+						"JOIN Projet p ON l.projet = p " +
+						"WHERE e = (SELECT id FROM Entreprise WHERE nom = :entreprise) " +
+						"AND p.avancement = :avancement"
 		),
-		/*
-		query="SELECT p.nom " +
-						"FROM Projet p" +
-						"JOIN Lots l, IN(l.entreprisesRealisatrices) e " +
-						"WHERE p.avancement = :avancement AND e = (SELECT nom FROM Entreprise WHERE nom = :entreprise)"
-		@NamedQuery(
-				name="Projet.lotsDesProjetsEnCoursDeGeneralBatiment",
-				query="SELECT p.nom FROM Projet p JOIN Lots lots ON lots.projet = p WHERE p.avancement=\'enCours\' " +
-						"AND (lots.entrepriseResponsable.nom=:nomEntreprise) " +
-						"SELECT p.nom FROM Projet p JOIN Lots lots " +
-						"ON lots.projet=p WHERE p.avancement=\'Terminé\' AND (lots.entrepriseResponsable.nom=:nomEntreprise)"
-		),*/
 })
 public abstract class Projet implements Serializable {
 
@@ -62,8 +50,13 @@ public abstract class Projet implements Serializable {
 	@OneToOne
 	private Adresse adresse;
 
-	@ManyToMany
-	private Set<Acteur> acteurs;
+	/*
+	 Nous n'utilisons a aucun moment cette liaison dans le jeu de donnees
+	 Cette liaison pourrait etre utile uniquement dans le cas ou acteur devrait etre relie a une entreprise s'il ne fait pas partit d'une entreprise
+	 Or generalement en situation reelle, de nos jours le client ne fait plus partit des projets et ce meme a titre consultatif (ce n'est pas une blague..)
+	  */
+	/*@ManyToMany
+	private Set<Acteur> acteurs;*/
 
 	@OneToMany
 	private Set<Lots> lots;
@@ -162,6 +155,7 @@ public abstract class Projet implements Serializable {
 		this.adresse = adresse;
 	}
 
+	/*
 	public Set<Acteur> getActeurs() {
 		return acteurs;
 	}
@@ -169,7 +163,7 @@ public abstract class Projet implements Serializable {
 	public void setActeurs(Set<Acteur> acteurs) {
 		this.acteurs = acteurs;
 	}
-
+	*/
 	public Set<Lots> getLots() {
 		return lots;
 	}
