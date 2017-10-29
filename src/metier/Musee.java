@@ -1,6 +1,7 @@
 package metier;
 
 import util.EAvancement;
+import util.EMinistere;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -21,7 +22,7 @@ public class Musee extends BatimentPublic implements Serializable {
 
 	public Musee() {}
 
-	public Musee(String refProjet, String nom, int surfaceTotale, EAvancement avancement, Date dateFinEstimee, int coutTotalEstime, boolean termine, Date dateFinReelle, String ministere, int nbSalles) {
+	public Musee(String refProjet, String nom, int surfaceTotale, EAvancement avancement, Date dateFinEstimee, int coutTotalEstime, boolean termine, Date dateFinReelle, EMinistere ministere, int nbSalles) {
 		super(refProjet, nom, surfaceTotale, avancement, dateFinEstimee, coutTotalEstime, termine, dateFinReelle, ministere);
 		this.nbSalles = nbSalles;
 	}

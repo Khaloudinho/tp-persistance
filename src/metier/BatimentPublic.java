@@ -1,6 +1,7 @@
 package metier;
 
 import util.EAvancement;
+import util.EMinistere;
 
 import javax.persistence.*;
 
@@ -16,12 +17,13 @@ public abstract class BatimentPublic extends Projet implements java.io.Serializa
 	@GeneratedValue(strategy = AUTO)
 	private int id;
 
-	private String ministere;
+	@Enumerated(EnumType.STRING)
+	private EMinistere ministere;
 
 	public BatimentPublic() {
 	}
 
-	public BatimentPublic(String refProjet, String nom, int surfaceTotale, EAvancement avancement, Date dateFinEstimee, int coutTotalEstime, boolean termine, Date dateFinReelle, String ministere) {
+	public BatimentPublic(String refProjet, String nom, int surfaceTotale, EAvancement avancement, Date dateFinEstimee, int coutTotalEstime, boolean termine, Date dateFinReelle, EMinistere ministere) {
 		super(refProjet, nom, surfaceTotale, avancement, dateFinEstimee, coutTotalEstime, termine, dateFinReelle);
 		this.ministere = ministere;
 	}
@@ -36,11 +38,11 @@ public abstract class BatimentPublic extends Projet implements java.io.Serializa
 		this.id = id;
 	}
 
-	public String getMinistere() {
+	public EMinistere getMinistere() {
 		return ministere;
 	}
 
-	public void setMinistere(String ministere) {
+	public void setMinistere(EMinistere ministere) {
 		this.ministere = ministere;
 	}
 }

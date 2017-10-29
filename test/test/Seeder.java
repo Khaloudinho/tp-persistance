@@ -548,7 +548,7 @@ public class Seeder {
         terrassementHopital10L9E11A.setEntreprisesRealisatrices(entreprisesTerrassementHopital10L9E11A);
 
         Projet hopital10L9E11A = new Hopital("hopital10L9E11A", "Hôpital Saint-Martin", 6000,
-                EAvancement.terminé, new Date(2016-5-5), 5420000, true, new Date(2017-5-19), "Santé",
+                EAvancement.terminé, new Date(2016-5-5), 5420000, true, new Date(2017-5-19), EMinistere.santé,
                 357, 24);
 
         hopital10L9E11A.setAdresse(adresseHopital10L9E11A);
@@ -643,7 +643,7 @@ public class Seeder {
 
         Projet etablissementScolaire0L = new EtablissementScolaire("EtablissementScolaire0L", "Lycée les Lavandes",
                 1500, EAvancement.enCours, new Date(2017-9-18), 2500000, false,
-                new Date(2017-12-9), "Education Nationale",1142, EEtaScolaire.lycee);
+                new Date(2017-12-9), EMinistere.education,1142, EEtaScolaire.lycee);
 
         etablissementScolaire0L.setAdresse(adresseEtablissementScolaire0L);
         em.persist(etablissementScolaire0L);
@@ -802,7 +802,7 @@ public class Seeder {
 
         Projet musee10L8E15A = new Musee("Musee10L8E15A", "Musée des Arts Modernes", 6000,
                 EAvancement.enCours, new Date(2017-5-5), 6520000, false, new Date(2017-12-31),
-                "Culture", 8);
+                EMinistere.culture, 8);
 
         musee10L8E15A.setAdresse(adresseMusee10L8E15A);
         musee10L8E15A.setLots(lotsMusee10L8E15A);
