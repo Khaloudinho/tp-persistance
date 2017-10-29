@@ -29,18 +29,6 @@ import static javax.persistence.GenerationType.IDENTITY;
 						"WHERE p.avancement = :avancement " +
 						"GROUP BY p.nom"
 		),
-		/*
-		query="SELECT p.nom " +
-						"FROM Projet p" +
-						"JOIN Lots l, IN(l.entreprisesRealisatrices) e " +
-						"WHERE p.avancement = :avancement AND e = (SELECT nom FROM Entreprise WHERE nom = :entreprise)"
-		@NamedQuery(
-				name="Projet.lotsDesProjetsEnCoursDeGeneralBatiment",
-				query="SELECT p.nom FROM Projet p JOIN Lots lots ON lots.projet = p WHERE p.avancement=\'enCours\' " +
-						"AND (lots.entrepriseResponsable.nom=:nomEntreprise) " +
-						"SELECT p.nom FROM Projet p JOIN Lots lots " +
-						"ON lots.projet=p WHERE p.avancement=\'Terminé\' AND (lots.entrepriseResponsable.nom=:nomEntreprise)"
-		),*/
 })
 public abstract class Projet implements Serializable {
 
