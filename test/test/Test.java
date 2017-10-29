@@ -27,11 +27,12 @@ public class Test {
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
 
-        // Genere le jeu de donnees
+        // Génère le jeu de données
         Seeder.initialize(em);
 
-        // Requetes
+        // Requetes ----------------------------------------------------------------------------------------------------
         // 1 - Quelles sont les entreprises avec lesquelles le cabinet travaille ?
+
         System.out.println("Quelles sont les entreprises avec lesquelles le cabinet travaille ?\n");
         Query queryEntreprisesTravaillantAvecCabinet = em.createNamedQuery("Entreprise.entreprisesTravaillantAvecCabinet", String.class);
         List<String> entreprisesTravaillantAvecCabinet = queryEntreprisesTravaillantAvecCabinet.getResultList();
@@ -72,7 +73,8 @@ public class Test {
         // 5 - Quelles sont les entreprises de plomberie ?
         /*
             Il n'est pas possible de passer la valeur de l'enumeration directement on a recours donc a une requete parametree
-            ce qui apporte au final plus de flexibilite / et moins de redondance si jamais on decidait de faire des requetes sur plusieurs types d'entreprises
+            ce qui apporte au final plus de flexibilite / et moins de redondance si jamais on decidait de faire des requetes
+            sur plusieurs types d'entreprises
         */
         System.out.println("Quelles sont les entreprises de plomberie ?\n");
         Query queryEntreprisesPlomberie = em.createNamedQuery("Entreprise.entreprisesCorpsMetier", String.class);
@@ -82,9 +84,9 @@ public class Test {
 
         twoNewLineInConsole();
 
-        // 6 - Quels sont les noms des contacts de lʼentreprise « General Batiment» ?
+        // 6 - Quels sont les noms des contacts de lʼentreprise « General Batiment » ?
         // A valider je ne sais pas ce que le professeur veut vraiement
-        // Je ne comprends pa l'interet du cross join (ntlr a la place d'un inner) genere par hibernate mais les resultats sont corrects
+        // Je ne comprends pas l'interet du cross join (ntlr a la place d'un inner) genere par hibernate mais les resultats sont corrects
         System.out.println("Quels sont les noms des contacts de lʼentreprise « General Batiment» ?\n");
         Query queryNomsContactEntrepriseGeneralBatiment = em.createNamedQuery("Acteur.contactEntreprise", String.class);
         // Chez nous
@@ -95,7 +97,7 @@ public class Test {
 
         twoNewLineInConsole();
 
-        // 7 - A quels projets termines lʼentreprise « General Batiment» a participe ?
+        // 7 - A quels projets terminés lʼentreprise « General Batiment » a participé ?
         // 8 - Quels sont les lots des projets en cours auxquels participe lʼentreprise « General Batiment» ?
         // 9 - Quels sont les acteurs (et leur entreprise) participant au projet de reference « PLot12 » ?
         // 10 - Combien de lots a le projet de reference " PLot12 " ?

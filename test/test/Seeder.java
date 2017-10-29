@@ -13,8 +13,7 @@ public class Seeder {
     public static Date maintenant = new java.sql.Date(new java.util.Date().getTime());
 
     public static void save(EntityManager entityManager, Set<Object> objects){
-        for (Object object:
-                objects) {
+        for (Object object : objects) {
             entityManager.persist(object);
         }
     }
