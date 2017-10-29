@@ -16,7 +16,13 @@ import static javax.persistence.GenerationType.IDENTITY;
 				query="SELECT p.nom FROM Projet p WHERE p.avancement=\'Terminé\'"),
 		@NamedQuery(
 				name="Projet.projetDeReference",
-				query="SELECT p.nom FROM Projet p WHERE p.refProjet = :reference")
+				query="SELECT p.nom FROM Projet p WHERE p.refProjet = :reference"),
+		@NamedQuery(
+				name="Projet.projetsTerminesParUneEntreprise",
+				query="SELECT p.nom FROM Projet p JOIN Lots lots ON lots.projet=p WHERE p.avancement=\'Terminé\' AND (lots.entrepriseResponsable.nom=:nomEntreprise)"),
+		/*@NamedQuery(
+				name="Projet.projetsTerminesParUneEntreprise",
+				query="SELECT p.nom FROM Projet p JOIN Lots lots ON lots.projet=p WHERE p.avancement=\'Terminé\' AND (lots.entrepriseResponsable.nom=:nomEntreprise) SELECT p.nom FROM Projet p JOIN Lots lots ON lots.projet=p WHERE p.avancement=\'Terminé\' AND (lots.entrepriseResponsable.nom=:nomEntreprise)"),*/
 })
 public abstract class Projet implements Serializable {
 
