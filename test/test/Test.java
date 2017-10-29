@@ -113,16 +113,17 @@ public class Test {
 
         // 7 - A quels projets termines lʼentreprise « General Batiment » a participé ?
 
-        /*System.out.println("======================== A quels projets terminés lʼentreprise « General Batiment » a-t-elle participé ? ======================== \n");
+        System.out.println("======================== A quels projets terminés lʼentreprise « General Batiment » a-t-elle participé ? ======================== \n");
         Query queryProjetsTerminesAvecGeneralBatiment = em.createNamedQuery("Projet.projetsTerminesAvecGeneralBatiment", Object[].class);
         queryProjetsTerminesAvecGeneralBatiment.setParameter("avancement", EAvancement.terminé);
-        //queryProjetsTerminesAvecGeneralBatiment.setParameter("entreprise", "Sancho et fils SARL");
-        List<Object[]> projetsTerminesOuEntrepriseGeneralBatimentParticipe = queryProjetsTerminesAvecGeneralBatiment.getResultList();
-        for (Object[] o : projetsTerminesOuEntrepriseGeneralBatimentParticipe) {
-            System.out.println("Nom projet : " + o[0].toString() + "\nNbre lots : " + o[1].toString());
+        queryProjetsTerminesAvecGeneralBatiment.setParameter("entreprise", "Sancho et fils SARL");
+        List<Object> projetsTerminesOuEntrepriseGeneralBatimentParticipe = queryProjetsTerminesAvecGeneralBatiment.getResultList();
+        for (Object o : projetsTerminesOuEntrepriseGeneralBatimentParticipe) {
+            System.out.println(o.toString());
+            //System.out.println("Nom projet : " + o[0].toString() + "\nNbre lots : " + o[1].toString());
         }
 
-        twoNewLineInConsole();*/
+        twoNewLineInConsole();
 
         // 8 - Quels sont les lots des projets en cours auxquels participe lʼentreprise « General Batiment » ?
 

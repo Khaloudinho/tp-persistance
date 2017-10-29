@@ -23,11 +23,11 @@ import static javax.persistence.GenerationType.IDENTITY;
 		),
 		@NamedQuery(
 				name="Projet.projetsTerminesAvecGeneralBatiment",
-				query="SELECT p.nom, COUNT(p.nom) " +
-						"FROM Projet p " +
-						"JOIN Lots l ON l.projet = p " +
-						"WHERE p.avancement = :avancement " +
-						"GROUP BY p.nom"
+				query = "SELECT DISTINCT p.nom " +
+						"FROM Lots l, IN(l.entreprisesRealisatrices) e " +
+						"JOIN Projet p ON l.projet = p " +
+						"WHERE e = (SELECT id FROM Entreprise WHERE nom = :entreprise) " +
+						"AND p.avancement = :avancement"
 		),
 })
 public abstract class Projet implements Serializable {
