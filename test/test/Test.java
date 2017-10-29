@@ -589,10 +589,79 @@ public class Test {
 
         em.persist(etablissementScolaire0L);
 
+        // Un immeuble : 8 appartements, 7 lots ------------------------------------------------------------------------
 
-        /*em.persist(etablissementScolaire0L);
+        Appartement appart1Immeuble8A7L = new Appartement(1, ETypeAppart.T1, 30);
+        Appartement appart2Immeuble8A7L = new Appartement(1, ETypeAppart.T2, 40);
+        Appartement appart3Immeuble8A7L = new Appartement(2, ETypeAppart.Studio, 20);
+        Appartement appart4Immeuble8A7L = new Appartement(2, ETypeAppart.Studio, 20);
+        Appartement appart5Immeuble8A7L = new Appartement(2, ETypeAppart.Studio, 20);
+        Appartement appart6Immeuble8A7L = new Appartement(2, ETypeAppart.Studio, 20);
+        Appartement appart7Immeuble8A7L = new Appartement(3, ETypeAppart.T4, 75);
+        Appartement appart8Immeuble8A7L = new Appartement(3, ETypeAppart.Studio, 25);
+
+        em.persist(appart1Immeuble8A7L);
+        em.persist(appart2Immeuble8A7L);
+        em.persist(appart3Immeuble8A7L);
+        em.persist(appart4Immeuble8A7L);
+        em.persist(appart5Immeuble8A7L);
+        em.persist(appart6Immeuble8A7L);
+        em.persist(appart7Immeuble8A7L);
+        em.persist(appart8Immeuble8A7L);
+
+        Set<Appartement> appartsImmeuble8A7L =  new HashSet<Appartement>();
+        appartsImmeuble8A7L.add(appart1Immeuble8A7L);
+        appartsImmeuble8A7L.add(appart2Immeuble8A7L);
+        appartsImmeuble8A7L.add(appart3Immeuble8A7L);
+        appartsImmeuble8A7L.add(appart4Immeuble8A7L);
+        appartsImmeuble8A7L.add(appart5Immeuble8A7L);
+        appartsImmeuble8A7L.add(appart6Immeuble8A7L);
+        appartsImmeuble8A7L.add(appart7Immeuble8A7L);
+        appartsImmeuble8A7L.add(appart8Immeuble8A7L);
+
+        Lots terrassementImmeuble8A7L = new Terrassement(1, maintenant, 5, 60, 1, 30, dans100Jours, 100);
+        Lots dallageImmeuble8A7L = new Dallage(2, maintenant, 10, 20, 1, 10, dans120Jours, 1000);
+        Lots menuiseriesImmeuble8A7L = new Menuiseries(3, maintenant, 3, 16, 1, 8, dans130Jours, 16, 10, 4);
+        Lots fondationsImmeuble8A7L = new Fondation(4, maintenant, 5, 20, 1, 10, dans100Jours, 20);
+        Lots maconnerieImmeuble8A7L = new Maconnerie(5, maintenant, 8, 30, 1, 15, dans110Jours, 2000, 20);
+        Lots electriciteImmeuble8A7L = new Electricite(6, maintenant, 3, 40, 1, 20, dans130Jours, 10, 100);
+        Lots reseauxImmeuble8A7L = new Reseaux(7, maintenant, 2, 4, 1, 2, dans140Jours, 1000);
+
+        Set<Lots> lotsImmeuble8A7L = new HashSet<>();
+        lotsImmeuble8A7L.add(terrassementImmeuble8A7L);
+        lotsImmeuble8A7L.add(dallageImmeuble8A7L);
+        lotsImmeuble8A7L.add(menuiseriesImmeuble8A7L);
+        lotsImmeuble8A7L.add(fondationsImmeuble8A7L);
+        lotsImmeuble8A7L.add(maconnerieImmeuble8A7L);
+        lotsImmeuble8A7L.add(electriciteImmeuble8A7L);
+        lotsImmeuble8A7L.add(reseauxImmeuble8A7L);
+
+        Projet immeuble8A7L = new Immeuble("Immeuble8A7L", "Immeuble HLM", 2500, "En cours",
+                new Date(2017-5-26), 3000000, false, new Date(2018-5-26), 7, appartsImmeuble8A7L);
+
+        immeuble8A7L.setLots(lotsImmeuble8A7L);
+
         em.persist(immeuble8A7L);
-        em.persist(musee10L8E15A);*/
+
+        terrassementImmeuble8A7L.setProjet(immeuble8A7L);
+        dallageImmeuble8A7L.setProjet(immeuble8A7L);
+        menuiseriesImmeuble8A7L.setProjet(immeuble8A7L);
+        fondationsImmeuble8A7L.setProjet(immeuble8A7L);
+        maconnerieImmeuble8A7L.setProjet(immeuble8A7L);
+        electriciteImmeuble8A7L.setProjet(immeuble8A7L);
+        reseauxImmeuble8A7L.setProjet(immeuble8A7L);
+
+        em.persist(terrassementImmeuble8A7L);
+        em.persist(dallageImmeuble8A7L);
+        em.persist(menuiseriesImmeuble8A7L);
+        em.persist(fondationsImmeuble8A7L);
+        em.persist(maconnerieImmeuble8A7L);
+        em.persist(electriciteImmeuble8A7L);
+        em.persist(reseauxImmeuble8A7L);
+
+
+
+
 
         em.getTransaction().commit();
         em.close();
