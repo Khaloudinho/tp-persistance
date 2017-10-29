@@ -521,6 +521,74 @@ public class Test {
         em.persist(reseauxHopital10L9E11A);
         em.persist(terrassementHopital10L9E11A);
 
+        // Une maison : 5 lots, 4 entreprises, 4 acteurs ---------------------------------------------------------------
+
+        Lots charpenteMaison5L4E4A = new Charpente(1, maintenant, 10, 40, 1, 20, dans100Jours, ECharpente.traditionnelle);
+        Lots dallageMaison5L4E4A = new Dallage(2, maintenant, 2, 10, 1, 5, dans110Jours, 150);
+        Lots electriciteMaison5L4E4A = new Electricite(3, maintenant, 3, 8, 1, 4, dans130Jours, 2, 88.57f);
+        Lots maconnerieMaison5L4E4A = new Maconnerie(4, maintenant, 4, 20, 1, 10, dans120Jours, 500, 4);
+        Lots reseauxMaison5L4E4A = new Reseaux(5, maintenant, 1, 4, 1, 2, dans140Jours, 73.67f);
+
+        Set<Lots> lotsMaison5L4E4A = new HashSet<>();
+        lotsMaison5L4E4A.add(charpenteMaison5L4E4A);
+        lotsMaison5L4E4A.add(dallageMaison5L4E4A);
+        lotsMaison5L4E4A.add(electriciteMaison5L4E4A);
+        lotsMaison5L4E4A.add(maconnerieMaison5L4E4A);
+        lotsMaison5L4E4A.add(reseauxMaison5L4E4A);
+
+        Set<Entreprise> entreprisesCarrelageMaison5L4E4A = new HashSet<>();
+        Set<Entreprise> entreprisesElectriciteMaison5L4E4A = new HashSet<>();
+        Set<Entreprise> entreprisesPlomberieMaison5L4E4A = new HashSet<>();
+        Set<Entreprise> entreprisesCharpenterieMaison5L4E4A = new HashSet<>();
+
+        entreprisesCarrelageMaison5L4E4A.add(entrepriseSancho);
+        entreprisesElectriciteMaison5L4E4A.add(entrepriseBombardi);
+        entreprisesPlomberieMaison5L4E4A.add(entrepriseDehaye);
+        entreprisesCharpenterieMaison5L4E4A.add(entrepriseProCharpente);
+
+        charpenteMaison5L4E4A.setEntrepriseResponsable(entrepriseProCharpente);
+        charpenteMaison5L4E4A.setEntreprisesRealisatrices(entreprisesCharpenterieMaison5L4E4A);
+
+        dallageMaison5L4E4A.setEntrepriseResponsable(entrepriseSancho);
+        dallageMaison5L4E4A.setEntreprisesRealisatrices(entreprisesCarrelageMaison5L4E4A);
+
+        electriciteMaison5L4E4A.setEntrepriseResponsable(entrepriseBombardi);
+        electriciteMaison5L4E4A.setEntreprisesRealisatrices(entreprisesElectriciteMaison5L4E4A);
+
+        maconnerieMaison5L4E4A.setEntrepriseResponsable(entrepriseSancho);
+        maconnerieMaison5L4E4A.setEntreprisesRealisatrices(entreprisesCarrelageMaison5L4E4A);
+
+        reseauxMaison5L4E4A.setEntrepriseResponsable(entrepriseDehaye);
+        reseauxMaison5L4E4A.setEntreprisesRealisatrices(entreprisesPlomberieMaison5L4E4A);
+
+        Projet maison5L4E4A = new Maison("Maison5L4E4A", "Maison pour 4 personnes", 150,
+                "Terminé", new Date(2017-12-1), 400000, true, new Date(2017-10-11),
+                5, 2);
+
+        maison5L4E4A.setLots(lotsMaison5L4E4A);
+
+        em.persist(maison5L4E4A);
+
+        charpenteMaison5L4E4A.setProjet(maison5L4E4A);
+        dallageMaison5L4E4A.setProjet(maison5L4E4A);
+        electriciteMaison5L4E4A.setProjet(maison5L4E4A);
+        maconnerieMaison5L4E4A.setProjet(maison5L4E4A);
+        reseauxMaison5L4E4A.setProjet(maison5L4E4A);
+
+        em.persist(charpenteMaison5L4E4A);
+        em.persist(dallageMaison5L4E4A);
+        em.persist(electriciteMaison5L4E4A);
+        em.persist(maconnerieMaison5L4E4A);
+        em.persist(reseauxMaison5L4E4A);
+
+        // Un établissement scolaire : pas de lots ---------------------------------------------------------------------
+
+        Projet etablissementScolaire0L = new EtablissementScolaire("EtablissementScolaire0L", "Lycée les Lavandes",
+                1500, "En cours", new Date(2017-9-18), 2500000, false,
+                new Date(2017-12-9), "Education Nationale",1142, EEtaScolaire.lycee);
+
+        em.persist(etablissementScolaire0L);
+
 
         /*em.persist(etablissementScolaire0L);
         em.persist(immeuble8A7L);
