@@ -84,9 +84,10 @@ public class Test {
 
         twoNewLineInConsole();
 
-        // 6 - Quels sont les noms des contacts de lʼentreprise « General Batiment » ?
-        // A valider je ne sais pas ce que le professeur veut vraiement
-        // Je ne comprends pas l'interet du cross join (ntlr a la place d'un inner) genere par hibernate mais les resultats sont corrects
+        // 6 - Quels sont les noms des contacts de lʼentreprise « General Batiment» ?
+        // A valider je ne sais pas ce que le professeur veut vraiement ==> les contacts ==> les acteurs ? ou le tel simplement ?
+        // Je ne comprends pa l'interet du cross join (ntlr a la place d'un inner) genere par hibernate mais les resultats sont corrects
+
         System.out.println("Quels sont les noms des contacts de lʼentreprise « General Batiment» ?\n");
         Query queryNomsContactEntrepriseGeneralBatiment = em.createNamedQuery("Acteur.contactEntreprise", String.class);
         // Chez nous
@@ -97,7 +98,17 @@ public class Test {
 
         twoNewLineInConsole();
 
-        // 7 - A quels projets terminés lʼentreprise « General Batiment » a participé ?
+        // 7 - A quels projets termines lʼentreprise « General Batiment» a participe ?
+        System.out.println("A quels projets termines lʼentreprise « General Batiment» a participe ?\n");
+        Query queryProjetsTerminesOuEntrepriseGeneralBatimentParticipe = em.createNamedQuery("Projet.projetsTerminesParUneEntreprise", String.class);
+        // Chez nous
+        queryProjetsTerminesOuEntrepriseGeneralBatimentParticipe.setParameter("nomEntreprise", "Sancho et fils SARL");
+        //queryProjetsTerminesOuEntrepriseGeneralBatimentParticipe.setParameter("nomEntreprise", "General Batiment");
+        List<String> projetsTerminesOuEntrepriseGeneralBatimentParticipe = queryProjetsTerminesOuEntrepriseGeneralBatimentParticipe.getResultList();
+        displayOneAttributeResults(projetsTerminesOuEntrepriseGeneralBatimentParticipe, "Nom projet :");
+
+        twoNewLineInConsole();
+
         // 8 - Quels sont les lots des projets en cours auxquels participe lʼentreprise « General Batiment» ?
         // 9 - Quels sont les acteurs (et leur entreprise) participant au projet de reference « PLot12 » ?
         // 10 - Combien de lots a le projet de reference " PLot12 " ?

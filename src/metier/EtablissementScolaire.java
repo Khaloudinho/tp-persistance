@@ -23,6 +23,8 @@ public class EtablissementScolaire extends BatimentPublic implements Serializabl
 	private int id;
 
 	private int nbEleves;
+
+	@Enumerated(EnumType.STRING)
 	private EEtaScolaire categorie;
 
 	public EtablissementScolaire() {

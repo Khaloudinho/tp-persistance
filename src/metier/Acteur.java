@@ -24,6 +24,8 @@ public class Acteur implements java.io.Serializable {
 
 	private String nom;
 	private ETitre titre;
+
+	@Enumerated(EnumType.STRING)
 	private EStatut statut;
 
 	@ManyToOne

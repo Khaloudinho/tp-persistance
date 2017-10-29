@@ -2,9 +2,7 @@ package metier;
 
 import util.ECharpente;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 import java.sql.Date;
 
@@ -18,6 +16,7 @@ public class Charpente extends Lots implements java.io.Serializable {
 	@GeneratedValue(strategy = AUTO)
 	private int id;
 
+	@Enumerated(EnumType.STRING)
 	private ECharpente typeCharpente;
 
 	public Charpente() {

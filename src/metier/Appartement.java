@@ -15,7 +15,10 @@ public class Appartement implements java.io.Serializable {
 	private int id;
 
 	private int niveau;
+
+	@Enumerated(EnumType.STRING)
 	private ETypeAppart type;
+
 	private int surface;
 
 	@ManyToOne

@@ -28,6 +28,7 @@ public class Entreprise implements java.io.Serializable {
 
 	@Enumerated(EnumType.STRING)
 	private ECorpsMetier corpsMetier;
+
 	private String numTel;
 
 	@OneToMany
