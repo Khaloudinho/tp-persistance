@@ -15,16 +15,32 @@ import static javax.persistence.GenerationType.IDENTITY;
 @NamedQueries({
 		@NamedQuery(
 				name="Projet.projetsEnCours",
-				query="SELECT p.nom FROM Projet p WHERE p.avancement=\'Terminé\'"),
+				query="SELECT p.nom FROM Projet p WHERE p.avancement = :avancement"
+		),
 		@NamedQuery(
-				name="Projet.projetDeReference",
-				query="SELECT p.nom FROM Projet p WHERE p.refProjet = :reference"),
+				name="Projet.avancementProjetPLot12",
+				query="SELECT p.avancement FROM Projet p WHERE p.refProjet = :reference"
+		),
 		@NamedQuery(
-				name="Projet.projetsTerminesParUneEntreprise",
-				query="SELECT p.nom FROM Projet p JOIN Lots lots ON lots.projet=p WHERE p.avancement=\'Terminé\' AND (lots.entrepriseResponsable.nom=:nomEntreprise)"),
-		/*@NamedQuery(
-				name="Projet.projetsTerminesParUneEntreprise",
-				query="SELECT p.nom FROM Projet p JOIN Lots lots ON lots.projet=p WHERE p.avancement=\'Terminé\' AND (lots.entrepriseResponsable.nom=:nomEntreprise) SELECT p.nom FROM Projet p JOIN Lots lots ON lots.projet=p WHERE p.avancement=\'Terminé\' AND (lots.entrepriseResponsable.nom=:nomEntreprise)"),*/
+				name="Projet.projetsTerminesAvecGeneralBatiment",
+				query="SELECT p.nom, COUNT(p.nom) " +
+						"FROM Projet p " +
+						"JOIN Lots l ON l.projet = p " +
+						"WHERE p.avancement = :avancement " +
+						"GROUP BY p.nom"
+		),
+		/*
+		query="SELECT p.nom " +
+						"FROM Projet p" +
+						"JOIN Lots l, IN(l.entreprisesRealisatrices) e " +
+						"WHERE p.avancement = :avancement AND e = (SELECT nom FROM Entreprise WHERE nom = :entreprise)"
+		@NamedQuery(
+				name="Projet.lotsDesProjetsEnCoursDeGeneralBatiment",
+				query="SELECT p.nom FROM Projet p JOIN Lots lots ON lots.projet = p WHERE p.avancement=\'enCours\' " +
+						"AND (lots.entrepriseResponsable.nom=:nomEntreprise) " +
+						"SELECT p.nom FROM Projet p JOIN Lots lots " +
+						"ON lots.projet=p WHERE p.avancement=\'Terminé\' AND (lots.entrepriseResponsable.nom=:nomEntreprise)"
+		),*/
 })
 public abstract class Projet implements Serializable {
 

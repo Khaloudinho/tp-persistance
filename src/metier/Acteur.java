@@ -13,8 +13,9 @@ import static javax.persistence.GenerationType.IDENTITY;
 @Entity
 @NamedQueries({
 		@NamedQuery(
-				name="Acteur.contactEntreprise",
-				query="SELECT a.nom FROM Acteur a WHERE a.entreprise.nom=:nomEntreprise"),
+				name="Acteur.contactsEntrepriseGeneralBatiment",
+				query="SELECT a.nom FROM Acteur a WHERE a.entreprise.nom = :entreprise"
+		),
 })
 public class Acteur implements java.io.Serializable {
 

@@ -10,7 +10,19 @@ import java.sql.Date;
 import static javax.persistence.GenerationType.AUTO;
 import static javax.persistence.GenerationType.IDENTITY;
 
-@Entity @Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
+@Entity
+@Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
+@NamedQueries({
+		@NamedQuery(
+				name = "Lots.lotsDesProjetsEnCoursDeGeneralBatiment",
+				query = "SELECT l.numero " +
+						"FROM Lots l, IN(l.entreprisesRealisatrices) e " +
+						"JOIN Projet p ON l.projet = p " +
+						"WHERE e = (SELECT nom FROM Entreprise WHERE nom = :entreprise) " +
+						"AND p.avancement = :avancement"
+		),
+})
+
 public abstract class Lots implements Serializable {
 
 	@Id
