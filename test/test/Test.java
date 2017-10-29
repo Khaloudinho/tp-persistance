@@ -659,9 +659,107 @@ public class Test {
         em.persist(electriciteImmeuble8A7L);
         em.persist(reseauxImmeuble8A7L);
 
+        // Un musée : 10 lots, 8 entreprises, 15 acteurs ---------------------------------------------------------------
 
+        Lots terrassementMusee10L8E15A = new Terrassement(1, maintenant, 3, 20, 1, 10, dans100Jours, 100);
+        Lots dallageMusee10L8E15A = new Dallage(2, maintenant, 2, 10, 1, 5, dans110Jours, 1000);
+        Lots menuiseriesMusee10L8E15A = new Menuiseries(3, maintenant, 1, 14, 1, 7, dans120Jours, 16, 10, 4);
+        Lots fondationsMusee10L8E15A = new Fondation(4, maintenant, 2, 20, 1, 10, dans110Jours, 20);
+        Lots maconnerieMusee10L8E15A = new Maconnerie(5, maintenant, 5, 30, 1, 15, dans100Jours, 2000, 20);
+        Lots electriciteMusee10L8E15A = new Electricite(6, maintenant, 3, 18, 1, 9, dans130Jours, 10, 100);
+        Lots reseauxMusee10L8E15A = new Reseaux(7, maintenant, 1, 6, 1, 3, dans140Jours, 1000);
+        Lots peintureMusee10L8E15A = new Peinture(8, maintenant, 4, 4, 1, 2, dans130Jours, 100);
+        Lots peintureMuseeHall10L8E15A = new Peinture(9, maintenant, 1, 2, 1, 1, dans130Jours, 30);
+        Lots platerieMusee10L8E15A = new Platerie(10, maintenant, 3, 6, 1, 3, dans120Jours, 500,700);
 
+        Set<Lots> lotsMusee10L8E15A = new HashSet<>();
+        lotsMusee10L8E15A.add(terrassementMusee10L8E15A);
+        lotsMusee10L8E15A.add(dallageMusee10L8E15A);
+        lotsMusee10L8E15A.add(menuiseriesMusee10L8E15A);
+        lotsMusee10L8E15A.add(fondationsMusee10L8E15A);
+        lotsMusee10L8E15A.add(maconnerieMusee10L8E15A);
+        lotsMusee10L8E15A.add(electriciteMusee10L8E15A);
+        lotsMusee10L8E15A.add(reseauxMusee10L8E15A);
+        lotsMusee10L8E15A.add(peintureMusee10L8E15A);
+        lotsMusee10L8E15A.add(peintureMuseeHall10L8E15A);
+        lotsMusee10L8E15A.add(platerieMusee10L8E15A);
 
+        Set<Entreprise> entreprisesTerrassementMusee10L8E15A = new HashSet<>();
+        Set<Entreprise> entreprisesDallageMusee10L8E15A = new HashSet<>();
+        Set<Entreprise> entreprisesMenuiseriesMusee10L8E15A = new HashSet<>();
+        Set<Entreprise> entreprisesFondationsMusee10L8E15A = new HashSet<>();
+        Set<Entreprise> entreprisesElectriciteReseauxMusee10L8E15A = new HashSet<>();
+        Set<Entreprise> entreprisesPeintureMusee10L8E15A = new HashSet<>();
+        Set<Entreprise> entreprisesPlaterieMusee10L8E15A = new HashSet<>();
+
+        entreprisesTerrassementMusee10L8E15A.add(entrepriseBerbe);
+        entreprisesDallageMusee10L8E15A.add(entrepriseSancho);
+        entreprisesMenuiseriesMusee10L8E15A.add(entrepriseArnoult);
+        entreprisesFondationsMusee10L8E15A.add(entrepriseBerbe);
+        entreprisesFondationsMusee10L8E15A.add(entrepriseBellorti);
+        entreprisesElectriciteReseauxMusee10L8E15A.add(entrepriseDehaye);
+        entreprisesPeintureMusee10L8E15A.add(entreprisePeintreExperts);
+        entreprisesPlaterieMusee10L8E15A.add(entreprisePlacoExpert);
+
+        terrassementMusee10L8E15A.setEntrepriseResponsable(entrepriseBerbe);
+        terrassementMusee10L8E15A.setEntreprisesRealisatrices(entreprisesTerrassementMusee10L8E15A);
+
+        dallageMusee10L8E15A.setEntrepriseResponsable(entrepriseSancho);
+        dallageMusee10L8E15A.setEntreprisesRealisatrices(entreprisesDallageMusee10L8E15A);
+
+        menuiseriesMusee10L8E15A.setEntrepriseResponsable(entrepriseArnoult);
+        menuiseriesMusee10L8E15A.setEntreprisesRealisatrices(entreprisesMenuiseriesMusee10L8E15A);
+
+        fondationsMusee10L8E15A.setEntrepriseResponsable(entrepriseBellorti);
+        fondationsMusee10L8E15A.setEntreprisesRealisatrices(entreprisesFondationsMusee10L8E15A);
+
+        maconnerieMusee10L8E15A.setEntrepriseResponsable(entrepriseBellorti);
+        maconnerieMusee10L8E15A.setEntreprisesRealisatrices(entreprisesFondationsMusee10L8E15A);
+
+        electriciteMusee10L8E15A.setEntrepriseResponsable(entrepriseDehaye);
+        electriciteMusee10L8E15A.setEntreprisesRealisatrices(entreprisesElectriciteReseauxMusee10L8E15A);
+
+        reseauxMusee10L8E15A.setEntrepriseResponsable(entrepriseDehaye);
+        reseauxMusee10L8E15A.setEntreprisesRealisatrices(entreprisesElectriciteReseauxMusee10L8E15A);
+
+        peintureMusee10L8E15A.setEntrepriseResponsable(entreprisePeintreExperts);
+        peintureMusee10L8E15A.setEntreprisesRealisatrices(entreprisesPeintureMusee10L8E15A);
+
+        peintureMuseeHall10L8E15A.setEntrepriseResponsable(entreprisePeintreExperts);
+        peintureMuseeHall10L8E15A.setEntreprisesRealisatrices(entreprisesPeintureMusee10L8E15A);
+
+        platerieMusee10L8E15A.setEntrepriseResponsable(entreprisePeintreExperts);
+        platerieMusee10L8E15A.setEntreprisesRealisatrices(entreprisesPlaterieMusee10L8E15A);
+
+        Projet musee10L8E15A = new Musee("Musee10L8E15A", "Musée des Arts Modernes", 6000,
+                "En cours", new Date(2017-5-5), 6520000, false, new Date(2017-12-31),
+                "Culture", 8);
+
+        musee10L8E15A.setLots(lotsMusee10L8E15A);
+
+        em.persist(musee10L8E15A);
+
+        terrassementMusee10L8E15A.setProjet(musee10L8E15A);
+        dallageMusee10L8E15A.setProjet(musee10L8E15A);
+        menuiseriesMusee10L8E15A.setProjet(musee10L8E15A);
+        fondationsMusee10L8E15A.setProjet(musee10L8E15A);
+        maconnerieMusee10L8E15A.setProjet(musee10L8E15A);
+        electriciteMusee10L8E15A.setProjet(musee10L8E15A);
+        reseauxMusee10L8E15A.setProjet(musee10L8E15A);
+        peintureMusee10L8E15A.setProjet(musee10L8E15A);
+        peintureMuseeHall10L8E15A.setProjet(musee10L8E15A);
+        platerieMusee10L8E15A.setProjet(musee10L8E15A);
+
+        em.persist(terrassementMusee10L8E15A);
+        em.persist(dallageMusee10L8E15A);
+        em.persist(menuiseriesMusee10L8E15A);
+        em.persist(fondationsMusee10L8E15A);
+        em.persist(maconnerieMusee10L8E15A);
+        em.persist(electriciteMusee10L8E15A);
+        em.persist(reseauxMusee10L8E15A);
+        em.persist(peintureMusee10L8E15A);
+        em.persist(peintureMuseeHall10L8E15A);
+        em.persist(platerieMusee10L8E15A);
 
         em.getTransaction().commit();
         em.close();
