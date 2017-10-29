@@ -14,6 +14,9 @@ import static javax.persistence.GenerationType.IDENTITY;
 		@NamedQuery(
 				name="Entreprise.entreprisesTravaillantAvecCabinet",
 				query="SELECT e.nom FROM Entreprise e"),
+		@NamedQuery(
+				name="Entreprise.entreprisesCorpsMetier",
+				query="SELECT e.nom FROM Entreprise e WHERE e.corpsMetier=:corpsMetier"),
 })
 public class Entreprise implements java.io.Serializable {
 
@@ -22,6 +25,8 @@ public class Entreprise implements java.io.Serializable {
 	private int id;
 
 	private String nom;
+
+	@Enumerated(EnumType.STRING)
 	private ECorpsMetier corpsMetier;
 	private String numTel;
 

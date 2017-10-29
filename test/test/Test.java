@@ -1,5 +1,7 @@
 package test;
 
+import util.ECorpsMetier;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -67,6 +69,19 @@ public class Test {
         twoNewLineInConsole();
 
         // 5 - Quelles sont les entreprises de plomberie ?
+        /*
+            Il n'est pas possible de passer la valeur de l'enumeration directement on a recours donc a une requete parametree
+            ce qui apporte au final plus de flexibilite / et moins de redondance si jamais on decidait de faire des requetes sur plusieurs types d'entreprises
+        */
+        System.out.println("Quelles sont les entreprises de plomberie ?\n");
+        Query queryEntreprisesPlomberie = em.createNamedQuery("Entreprise.entreprisesCorpsMetier", String.class);
+        queryEntreprisesPlomberie.setParameter("corpsMetier", ECorpsMetier.Plombier);
+        List<String> entreprisesPlomberie = queryEntreprisesPlomberie.getResultList();
+        displayOneAttributeResults(entreprisesPlomberie, "Nom entreprise :");
+
+        twoNewLineInConsole();
+
+
         // 6 - Quels sont les noms des contacts de lʼentreprise « General Batiment» ?
         // 7 - A quels projets termines lʼentreprise « General Batiment» a participe ?
         // 8 - Quels sont les lots des projets en cours auxquels participe lʼentreprise « General Batiment» ?
