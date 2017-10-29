@@ -27,6 +27,7 @@ public class Test {
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
 
+        // Genere le jeu de donnees
         Seeder.initialize(em);
 
         // Requetes
@@ -81,8 +82,19 @@ public class Test {
 
         twoNewLineInConsole();
 
-
         // 6 - Quels sont les noms des contacts de lʼentreprise « General Batiment» ?
+        // A valider je ne sais pas ce que le professeur veut vraiement
+        // Je ne comprends pa l'interet du cross join (ntlr a la place d'un inner) genere par hibernate mais les resultats sont corrects
+        System.out.println("Quels sont les noms des contacts de lʼentreprise « General Batiment» ?\n");
+        Query queryNomsContactEntrepriseGeneralBatiment = em.createNamedQuery("Acteur.contactEntreprise", String.class);
+        // Chez nous
+        //queryNomsContactEntrepriseGeneralBatiment.setParameter("nomEntreprise", "Berbe et fils SARL");
+        queryNomsContactEntrepriseGeneralBatiment.setParameter("nomEntreprise", "General Batiment");
+        List<String> nomsContactEntrepriseGeneralBatiment = queryNomsContactEntrepriseGeneralBatiment.getResultList();
+        displayOneAttributeResults(nomsContactEntrepriseGeneralBatiment, "Nom contact :");
+
+        twoNewLineInConsole();
+
         // 7 - A quels projets termines lʼentreprise « General Batiment» a participe ?
         // 8 - Quels sont les lots des projets en cours auxquels participe lʼentreprise « General Batiment» ?
         // 9 - Quels sont les acteurs (et leur entreprise) participant au projet de reference « PLot12 » ?

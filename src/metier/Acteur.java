@@ -11,6 +11,11 @@ import static javax.persistence.GenerationType.AUTO;
 import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity
+@NamedQueries({
+		@NamedQuery(
+				name="Acteur.contactEntreprise",
+				query="SELECT a.nom FROM Acteur a WHERE a.entreprise.nom=:nomEntreprise"),
+})
 public class Acteur implements java.io.Serializable {
 
 	@Id
