@@ -23,8 +23,8 @@ public class Menuiseries extends Lots implements Serializable {
 
 	public Menuiseries() {}
 
-	public Menuiseries(int numero, Date dateDebut, int dureeEstimee, int coutEstime, EAvancement avancement, int coutReel, Date dateFinReel, int nbFenetres, int nbPortes, int nbFenetreToit) {
-		super(numero, dateDebut, dureeEstimee, coutEstime, avancement, coutReel, dateFinReel);
+	public Menuiseries(int numero, Date dateDebut, int dureeEstimee, int coutEstime, int coutReel, Date dateFinReel, int nbFenetres, int nbPortes, int nbFenetreToit) {
+		super(numero, dateDebut, dureeEstimee, coutEstime, coutReel, dateFinReel);
 		this.nbFenetres = nbFenetres;
 		this.nbPortes = nbPortes;
 		this.nbFenetreToit = nbFenetreToit;

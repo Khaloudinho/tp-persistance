@@ -24,8 +24,8 @@ public class Electricite extends Lots implements java.io.Serializable {
 	public Electricite() {
 	}
 
-	public Electricite(int numero, Date dateDebut, int dureeEstimee, int coutEstime, EAvancement avancement, int coutReel, Date dateFinReel, int nbTableau, float longueurTable) {
-		super(numero, dateDebut, dureeEstimee, coutEstime, avancement, coutReel, dateFinReel);
+	public Electricite(int numero, Date dateDebut, int dureeEstimee, int coutEstime, int coutReel, Date dateFinReel, int nbTableau, float longueurTable) {
+		super(numero, dateDebut, dureeEstimee, coutEstime, coutReel, dateFinReel);
 		this.nbTableau = nbTableau;
 		this.longueurTable = longueurTable;
 	}

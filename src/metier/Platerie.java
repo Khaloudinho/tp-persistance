@@ -22,8 +22,8 @@ public class Platerie extends Lots implements Serializable {
 
 	public Platerie() {}
 
-	public Platerie(int numero, Date dateDebut, int dureeEstimee, int coutEstime, EAvancement avancement, int coutReel, Date dateFinReel, int surfacePlafond, int surfaceMur) {
-		super(numero, dateDebut, dureeEstimee, coutEstime, avancement, coutReel, dateFinReel);
+	public Platerie(int numero, Date dateDebut, int dureeEstimee, int coutEstime, int coutReel, Date dateFinReel, int surfacePlafond, int surfaceMur) {
+		super(numero, dateDebut, dureeEstimee, coutEstime, coutReel, dateFinReel);
 		this.surfacePlafond = surfacePlafond;
 		this.surfaceMur = surfaceMur;
 	}

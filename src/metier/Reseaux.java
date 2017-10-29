@@ -22,8 +22,8 @@ public class Reseaux extends Lots implements Serializable {
 	public Reseaux() {
 	}
 
-	public Reseaux(int numero, Date dateDebut, int dureeEstimee, int coutEstime, EAvancement avancement, int coutReel, Date dateFinReel, float longueur) {
-		super(numero, dateDebut, dureeEstimee, coutEstime, avancement, coutReel, dateFinReel);
+	public Reseaux(int numero, Date dateDebut, int dureeEstimee, int coutEstime, int coutReel, Date dateFinReel, float longueur) {
+		super(numero, dateDebut, dureeEstimee, coutEstime, coutReel, dateFinReel);
 		this.longueur = longueur;
 	}
 

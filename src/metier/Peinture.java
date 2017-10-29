@@ -21,8 +21,8 @@ public class Peinture extends Lots implements Serializable {
 
 	public Peinture() {}
 
-	public Peinture(int numero, Date dateDebut, int dureeEstimee, int coutEstime, EAvancement avancement, int coutReel, Date dateFinReel, int surface) {
-		super(numero, dateDebut, dureeEstimee, coutEstime, avancement, coutReel, dateFinReel);
+	public Peinture(int numero, Date dateDebut, int dureeEstimee, int coutEstime, int coutReel, Date dateFinReel, int surface) {
+		super(numero, dateDebut, dureeEstimee, coutEstime, coutReel, dateFinReel);
 		this.surface = surface;
 	}
 

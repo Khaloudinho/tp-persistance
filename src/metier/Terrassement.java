@@ -21,8 +21,8 @@ public class Terrassement extends Lots implements Serializable {
 
 	public Terrassement() {}
 
-	public Terrassement(int numero, Date dateDebut, int dureeEstimee, int coutEstime, EAvancement avancement, int coutReel, Date dateFinReel, int volumeTerre) {
-		super(numero, dateDebut, dureeEstimee, coutEstime, avancement, coutReel, dateFinReel);
+	public Terrassement(int numero, Date dateDebut, int dureeEstimee, int coutEstime, int coutReel, Date dateFinReel, int volumeTerre) {
+		super(numero, dateDebut, dureeEstimee, coutEstime, coutReel, dateFinReel);
 		this.volumeTerre = volumeTerre;
 	}
 

@@ -22,8 +22,8 @@ public class Maconnerie extends Lots implements Serializable {
 
 	public Maconnerie() {}
 
-	public Maconnerie(int numero, Date dateDebut, int dureeEstimee, int coutEstime, EAvancement avancement, int coutReel, Date dateFinReel, int surfaceMur, int nbPoteaux) {
-		super(numero, dateDebut, dureeEstimee, coutEstime, avancement, coutReel, dateFinReel);
+	public Maconnerie(int numero, Date dateDebut, int dureeEstimee, int coutEstime, int coutReel, Date dateFinReel, int surfaceMur, int nbPoteaux) {
+		super(numero, dateDebut, dureeEstimee, coutEstime, coutReel, dateFinReel);
 		this.surfaceMur = surfaceMur;
 		this.nbPoteaux = nbPoteaux;
 	}

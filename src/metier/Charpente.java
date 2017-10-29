@@ -23,8 +23,8 @@ public class Charpente extends Lots implements java.io.Serializable {
 	public Charpente() {
 	}
 
-	public Charpente(int numero, Date dateDebut, int dureeEstimee, int coutEstime, EAvancement avancement, int coutReel, Date dateFinReel, ECharpente typeCharpente) {
-		super(numero, dateDebut, dureeEstimee, coutEstime, avancement, coutReel, dateFinReel);
+	public Charpente(int numero, Date dateDebut, int dureeEstimee, int coutEstime, int coutReel, Date dateFinReel, ECharpente typeCharpente) {
+		super(numero, dateDebut, dureeEstimee, coutEstime, coutReel, dateFinReel);
 		this.typeCharpente = typeCharpente;
 	}
 

@@ -23,8 +23,8 @@ public class Fondation extends Lots implements java.io.Serializable {
 	public Fondation() {
 	}
 
-	public Fondation(int numero, Date dateDebut, int dureeEstimee, int coutEstime, EAvancement avancement, int coutReel, Date dateFinReel, int profondeur) {
-		super(numero, dateDebut, dureeEstimee, coutEstime, avancement, coutReel, dateFinReel);
+	public Fondation(int numero, Date dateDebut, int dureeEstimee, int coutEstime, int coutReel, Date dateFinReel, int profondeur) {
+		super(numero, dateDebut, dureeEstimee, coutEstime, coutReel, dateFinReel);
 		this.profondeur = profondeur;
 	}
 

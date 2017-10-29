@@ -23,8 +23,8 @@ public class Dallage extends Lots implements java.io.Serializable {
 	public Dallage() {
 	}
 
-	public Dallage(int numero, Date dateDebut, int dureeEstimee, int coutEstime, EAvancement avancement, int coutReel, Date dateFinReel, int surfaceTotale) {
-		super(numero, dateDebut, dureeEstimee, coutEstime, avancement, coutReel, dateFinReel);
+	public Dallage(int numero, Date dateDebut, int dureeEstimee, int coutEstime, int coutReel, Date dateFinReel, int surfaceTotale) {
+		super(numero, dateDebut, dureeEstimee, coutEstime, coutReel, dateFinReel);
 		this.surfaceTotale = surfaceTotale;
 	}
 

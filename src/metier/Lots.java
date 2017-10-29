@@ -23,6 +23,7 @@ public abstract class Lots implements Serializable {
 
 	@Enumerated(EnumType.STRING)
 	private EAvancement avancement;
+
 	private int coutReel;
 
 	@Column(nullable = true)
@@ -39,12 +40,12 @@ public abstract class Lots implements Serializable {
 
 	public Lots() {}
 
-	public Lots(int numero, Date dateDebut, int dureeEstimee, int coutEstime, EAvancement avancement, int coutReel, Date dateFinReel) {
+	public Lots(int numero, Date dateDebut, int dureeEstimee, int coutEstime, int coutReel, Date dateFinReel) {
 		this.numero = numero;
 		this.dateDebut = dateDebut;
 		this.dureeEstimee = dureeEstimee;
 		this.coutEstime = coutEstime;
-		this.avancement = avancement;
+		this.avancement = EAvancement.enCours;
 		this.coutReel = coutReel;
 		this.dateFinReel = dateFinReel;
 	}
