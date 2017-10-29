@@ -133,10 +133,20 @@ public class Test {
         displayOneAttributeResults(lotsDesProjetsEnCoursDeGeneralBatiment, "Lot d'un projet en cours auxquels participe General Batiment :");
 
         // 9 - Quels sont les acteurs (et leur entreprise) participant au projet de reference « PLot12 » ?
+
+
         // 10 - Combien de lots a le projet de reference " PLot12 " ?
-        // 11 - Quel est le cout total estime du projet de reference « PLot12 »?
+
+
+        // 11 - Quel est le cout total estime du projet de reference « PLot12 » ?
+
+
         // 12 - Quelles sont les entreprises (et leur adresse) qui ont realisees les menuiseries dans les projets de Musee ?
+
+
         // 13 - Quelles sont les durees estimees des differents projets en cours ?
+
+
         // 14 - Quels sont les avancements des lots (et leur type) du projet de reference « PLot12 » ?
 
         em.getTransaction().commit();
