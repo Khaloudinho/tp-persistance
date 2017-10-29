@@ -8,7 +8,13 @@ import java.sql.Date;
 import static javax.persistence.GenerationType.AUTO;
 import static javax.persistence.GenerationType.IDENTITY;
 
-@Entity @Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
+@Entity
+@Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
+@NamedQueries({
+		@NamedQuery(
+				name="Projet.projetsEnCours",
+				query="SELECT p.nom FROM Projet p WHERE p.avancement=\'Terminé\'"),
+})
 public abstract class Projet implements Serializable {
 
 	@Id

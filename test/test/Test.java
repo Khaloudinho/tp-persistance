@@ -9,6 +9,15 @@ import java.util.List;
 
 public class Test {
 
+    private static void displayOneAttributeResults(List<String> results, String resultIdentifier){
+        for (String result : results) {
+            System.out.println(resultIdentifier + " " +result);
+        }
+    }
+
+    private static void twoNewLineInConsole(){
+        System.out.println("\n\n");
+    }
 
     public static void main(String [] args){
 
@@ -22,11 +31,15 @@ public class Test {
         // 1 - Quelles sont les entreprises avec lesquelles le cabinet travaille ?
         Query queryEntreprisesTravaillantAvecCabinet = em.createNamedQuery("Entreprise.entreprisesTravaillantAvecCabinet", String.class);
         List<String> entreprisesTravaillantAvecCabinet = queryEntreprisesTravaillantAvecCabinet.getResultList();
-        for (String entreprise : entreprisesTravaillantAvecCabinet) {
-            System.out.println("Nom entreprise : "+entreprise);
-        }
+        displayOneAttributeResults(entreprisesTravaillantAvecCabinet, "Nom entreprise :");
+
+        twoNewLineInConsole();
 
         // 2 - Quels sont les projets en cours ?
+        Query queryProjetEnCours = em.createNamedQuery("Projet.projetsEnCours", String.class);
+        List<String> projetsEnCours = queryProjetEnCours.getResultList();
+        displayOneAttributeResults(projetsEnCours, "Nom projet :");
+
         // 3 - Quel est lʼavancement du projet de reference « PLot12 » ?
         // 4 - Combien de projets portant sur un etablissement scolaire ont ete realise ?
         // 5 - Quelles sont les entreprises de plomberie ?
