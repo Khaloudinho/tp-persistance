@@ -414,6 +414,114 @@ public class Test {
         em.persist(platerieImmeuble10A8L7E8A);
         em.persist(reseauxImmeuble10A8L7E8A);
 
+        // Un hôpital : 10 lots, 9 entreprises, 11 acteurs -------------------------------------------------------------
+
+        Charpente charpenteHopital10L9E11A = new Charpente(1, maintenant, 40, 2000, 1, 1000, dans100Jours,ECharpente.toitPlat);
+        Dallage dallageHopital10L9E11A = new Dallage(2, maintenant, 10, 400, 1, 200, dans110Jours,20000);
+        Electricite electriciteHopital10L9E11A = new Electricite(3, maintenant, 20, 800, 1, 400, dans120Jours,12, 101.57f);
+        Fondation fondationHopital10L9E11A = new Fondation(4, maintenant, 10, 1000, 1, 500, dans100Jours,25);
+        Maconnerie maconnerieHopital10L9E11A = new Maconnerie(5, maintenant, 20, 1200, 1, 600, dans110Jours,1500, 22);
+        Menuiseries menuiseriesHopital10L9E11A = new Menuiseries(6, maintenant, 10, 600, 1, 300, dans120Jours,113, 55, 0);
+        Peinture peintureHopital10L9E11A = new Peinture(7, maintenant, 5, 300, 1, 150, dans130Jours,25000);
+        Platerie platerieHopital10L9E11A = new Platerie(8, maintenant, 7, 400, 1, 200, dans120Jours,2000, 8500);
+        Reseaux reseauxHopital10L9E11A = new Reseaux(9, maintenant, 5, 800, 1, 400, dans110Jours,1510.97f);
+        Terrassement terrassementHopital10L9E11A = new Terrassement(10, maintenant, 10, 100, 1, 50, dans100Jours,65000);
+
+        Set<Lots> lotsHopital10L9E11A = new HashSet<>();
+        lotsHopital10L9E11A.add(charpenteHopital10L9E11A);
+        lotsHopital10L9E11A.add(dallageHopital10L9E11A);
+        lotsHopital10L9E11A.add(electriciteHopital10L9E11A);
+        lotsHopital10L9E11A.add(fondationHopital10L9E11A);
+        lotsHopital10L9E11A.add(maconnerieHopital10L9E11A);
+        lotsHopital10L9E11A.add(menuiseriesHopital10L9E11A);
+        lotsHopital10L9E11A.add(peintureHopital10L9E11A);
+        lotsHopital10L9E11A.add(platerieHopital10L9E11A);
+        lotsHopital10L9E11A.add(reseauxHopital10L9E11A);
+        lotsHopital10L9E11A.add(terrassementHopital10L9E11A);
+
+        Set<Entreprise> entreprisesCharpenteHopital10L9E11A = new HashSet<>();
+        Set<Entreprise> entreprisesDallageHopital10L9E11A = new HashSet<>();
+        Set<Entreprise> entreprisesElectriciteHopital10L9E11A = new HashSet<>();
+        Set<Entreprise> entreprisesFondationHopital10L9E11A = new HashSet<>();
+        Set<Entreprise> entreprisesMaconnerieHopital10L9E11A = new HashSet<>();
+        Set<Entreprise> entreprisesMenuiseriesHopital10L9E11A = new HashSet<>();
+        Set<Entreprise> entreprisesPeintureHopital10L9E11A = new HashSet<>();
+        Set<Entreprise> entreprisesPlaterieHopital10L9E11A = new HashSet<>();
+        Set<Entreprise> entreprisesReseauxHopital10L9E11A = new HashSet<>();
+        Set<Entreprise> entreprisesTerrassementHopital10L9E11A = new HashSet<>();
+
+        entreprisesCharpenteHopital10L9E11A.add(entrepriseProCharpente);
+        entreprisesDallageHopital10L9E11A.add(entrepriseSancho);
+        entreprisesElectriciteHopital10L9E11A.add(entrepriseDehaye);
+        entreprisesFondationHopital10L9E11A.add(entrepriseAkar);
+        entreprisesMaconnerieHopital10L9E11A.add(entrepriseAkar);
+        entreprisesMenuiseriesHopital10L9E11A.add(entrepriseArnoult);
+        entreprisesPeintureHopital10L9E11A.add(entreprisePeintreExperts);
+        entreprisesPlaterieHopital10L9E11A.add(entreprisePlatrever);
+        entreprisesReseauxHopital10L9E11A.add(entrepriseBombardi);
+        entreprisesTerrassementHopital10L9E11A.add(entrepriseCouvreTout);
+
+        charpenteHopital10L9E11A.setEntrepriseResponsable(entrepriseProCharpente);
+        charpenteHopital10L9E11A.setEntreprisesRealisatrices(entreprisesCharpenteHopital10L9E11A);
+
+        dallageHopital10L9E11A.setEntrepriseResponsable(entrepriseSancho);
+        dallageHopital10L9E11A.setEntreprisesRealisatrices(entreprisesDallageHopital10L9E11A);
+
+        electriciteHopital10L9E11A.setEntrepriseResponsable(entrepriseDehaye);
+        electriciteHopital10L9E11A.setEntreprisesRealisatrices(entreprisesElectriciteHopital10L9E11A);
+
+        fondationHopital10L9E11A.setEntrepriseResponsable(entrepriseAkar);
+        fondationHopital10L9E11A.setEntreprisesRealisatrices(entreprisesFondationHopital10L9E11A);
+
+        maconnerieHopital10L9E11A.setEntrepriseResponsable(entrepriseAkar);
+        maconnerieHopital10L9E11A.setEntreprisesRealisatrices(entreprisesMaconnerieHopital10L9E11A);
+
+        menuiseriesHopital10L9E11A.setEntrepriseResponsable(entrepriseArnoult);
+        menuiseriesHopital10L9E11A.setEntreprisesRealisatrices(entreprisesMenuiseriesHopital10L9E11A);
+
+        peintureHopital10L9E11A.setEntrepriseResponsable(entreprisePeintreExperts);
+        peintureHopital10L9E11A.setEntreprisesRealisatrices(entreprisesPeintureHopital10L9E11A);
+
+        platerieHopital10L9E11A.setEntrepriseResponsable(entreprisePlatrever);
+        platerieHopital10L9E11A.setEntreprisesRealisatrices(entreprisesPlaterieHopital10L9E11A);
+
+        reseauxHopital10L9E11A.setEntrepriseResponsable(entrepriseBombardi);
+        reseauxHopital10L9E11A.setEntreprisesRealisatrices(entreprisesReseauxHopital10L9E11A);
+
+        terrassementHopital10L9E11A.setEntrepriseResponsable(entrepriseCouvreTout);
+        terrassementHopital10L9E11A.setEntreprisesRealisatrices(entreprisesTerrassementHopital10L9E11A);
+
+        Projet hopital10L9E11A = new Hopital("hopital10L9E11A", "Hôpital Saint-Martin", 6000,
+                "Terminé", new Date(2016-5-5), 5420000, true, new Date(2017-5-19), "Santé",
+                357, 24);
+
+        hopital10L9E11A.setLots(lotsHopital10L9E11A);
+
+        em.persist(hopital10L9E11A);
+
+        charpenteHopital10L9E11A.setProjet(hopital10L9E11A);
+        dallageHopital10L9E11A.setProjet(hopital10L9E11A);
+        electriciteHopital10L9E11A.setProjet(hopital10L9E11A);
+        fondationHopital10L9E11A.setProjet(hopital10L9E11A);
+        maconnerieHopital10L9E11A.setProjet(hopital10L9E11A);
+        menuiseriesHopital10L9E11A.setProjet(hopital10L9E11A);
+        peintureHopital10L9E11A.setProjet(hopital10L9E11A);
+        platerieHopital10L9E11A.setProjet(hopital10L9E11A);
+        reseauxHopital10L9E11A.setProjet(hopital10L9E11A);
+        terrassementHopital10L9E11A.setProjet(hopital10L9E11A);
+
+        em.persist(charpenteHopital10L9E11A);
+        em.persist(dallageHopital10L9E11A);
+        em.persist(electriciteHopital10L9E11A);
+        em.persist(fondationHopital10L9E11A);
+        em.persist(maconnerieHopital10L9E11A);
+        em.persist(menuiseriesHopital10L9E11A);
+        em.persist(peintureHopital10L9E11A);
+        em.persist(platerieHopital10L9E11A);
+        em.persist(reseauxHopital10L9E11A);
+        em.persist(terrassementHopital10L9E11A);
+
+
         /*em.persist(etablissementScolaire0L);
         em.persist(immeuble8A7L);
         em.persist(musee10L8E15A);*/
