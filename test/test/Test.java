@@ -26,6 +26,12 @@ public class Test {
         }
     }
 
+    private static void displayOneAttributeResultsForInt(List<Integer> results, String resultIdentifier){
+        for (Integer result : results) {
+            System.out.println(resultIdentifier + " " +result);
+        }
+    }
+
     private static void twoNewLineInConsole(){
         System.out.println("\n");
     }
@@ -45,7 +51,7 @@ public class Test {
 
         twoNewLineInConsole();
 
-        System.out.println("======================== Quelles sont les entreprises avec lesquelles le cabinet travaille ? ======================== \n");
+        System.out.println("======================== REQUÊTE 1 : Quelles sont les entreprises avec lesquelles le cabinet travaille ? ======================== \n");
         Query queryEntreprisesTravaillantAvecCabinet = em.createNamedQuery("Entreprise.entreprisesTravaillantAvecCabinet", String.class);
         List<String> entreprisesTravaillantAvecCabinet = queryEntreprisesTravaillantAvecCabinet.getResultList();
         displayOneAttributeResults(entreprisesTravaillantAvecCabinet, "Nom entreprise : ");
@@ -54,7 +60,7 @@ public class Test {
 
         // 2 - Quels sont les projets en cours ? OK
 
-        System.out.println("======================== Quels sont les projets en cours ? ======================== \n");
+        System.out.println("======================== REQUÊTE 2 : Quels sont les projets en cours ? ======================== \n");
         Query queryProjetsEnCours = em.createNamedQuery("Projet.projetsEnCours", String.class);
         queryProjetsEnCours.setParameter("avancement", EAvancement.enCours);
         List<String> projetsEnCours = queryProjetsEnCours.getResultList();
@@ -63,7 +69,7 @@ public class Test {
         twoNewLineInConsole();
 
         // 3 - Quel est lʼavancement du projet de reference « PLot12 » ? OK
-        System.out.println("======================== Quel est lʼavancement du projet de référence « PLot12 » ? ======================== \n");
+        System.out.println("======================== REQUÊTE 3 : Quel est lʼavancement du projet de référence « PLot12 » ? ======================== \n");
         Query queryAvancementProjetsPLot12 = em.createNamedQuery("Projet.avancementProjetPLot12", EAvancement.class);
         queryAvancementProjetsPLot12.setParameter("reference", "Immeuble10A8L7E8A");
         List<Enum> projetsDeReferencePLot12 = queryAvancementProjetsPLot12.getResultList();
@@ -77,7 +83,7 @@ public class Test {
             la denomination EtablisementScolaire correspond meme si elle trompeuse a un Projet
         */
 
-        System.out.println("======================== Combien de projets portant sur un établissement scolaire ont été realisés ? ======================== \n");
+        System.out.println("======================== REQUÊTE 4 : Combien de projets portant sur un établissement scolaire ont été realisés ? ======================== \n");
         Query queryNombreProjetsEtablissementScolaire = em.createNamedQuery("EtablissementScolaire.nombreDeProjets", Object.class);
         Object nombreProjetsEtablissementScolaire = queryNombreProjetsEtablissementScolaire.getResultList();
         System.out.println("Nombre de projets : " + nombreProjetsEtablissementScolaire.toString());
@@ -91,7 +97,7 @@ public class Test {
             sur plusieurs types d'entreprises
         */
 
-        System.out.println("======================== Quelles sont les entreprises de plomberie ? ======================== \n");
+        System.out.println("======================== REQUÊTE 5 : Quelles sont les entreprises de plomberie ? ======================== \n");
         Query queryEntreprisesPlomberie = em.createNamedQuery("Entreprise.entreprisesCorpsMetier", String.class);
         queryEntreprisesPlomberie.setParameter("corpsMetier", ECorpsMetier.Plombier);
         List<String> entreprisesPlomberie = queryEntreprisesPlomberie.getResultList();
@@ -103,7 +109,7 @@ public class Test {
         // A valider je ne sais pas ce que le professeur veut vraiement ==> les contacts ==> les acteurs ? ou le tel simplement ?
         // Je ne comprends pa l'interet du cross join (ntlr a la place d'un inner) genere par hibernate mais les resultats sont corrects
 
-        System.out.println("======================== Quels sont les noms des contacts de lʼentreprise « General Batiment » ? ======================== \n");
+        System.out.println("======================== REQUÊTE 6 : Quels sont les noms des contacts de lʼentreprise « General Batiment » ? ======================== \n");
         Query queryContactsEntrepriseGeneralBatiment = em.createNamedQuery("Acteur.contactsEntrepriseGeneralBatiment", String.class);
         queryContactsEntrepriseGeneralBatiment.setParameter("entreprise", "Berbe et fils SARL");
         List<String> nomsContactEntrepriseGeneralBatiment = queryContactsEntrepriseGeneralBatiment.getResultList();
@@ -113,15 +119,12 @@ public class Test {
 
         // 7 - A quels projets termines lʼentreprise « General Batiment » a participé ?
 
-        System.out.println("======================== A quels projets terminés lʼentreprise « General Batiment » a-t-elle participé ? ======================== \n");
+        System.out.println("======================== REQUÊTE 7 : À quels projets terminés lʼentreprise « General Batiment » a-t-elle participé ? ======================== \n");
         Query queryProjetsTerminesAvecGeneralBatiment = em.createNamedQuery("Projet.projetsTerminesAvecGeneralBatiment", Object[].class);
         queryProjetsTerminesAvecGeneralBatiment.setParameter("avancement", EAvancement.terminé);
         queryProjetsTerminesAvecGeneralBatiment.setParameter("entreprise", "Sancho et fils SARL");
         List<Object> projetsTerminesOuEntrepriseGeneralBatimentParticipe = queryProjetsTerminesAvecGeneralBatiment.getResultList();
-        for (Object o : projetsTerminesOuEntrepriseGeneralBatimentParticipe) {
-            System.out.println(o.toString());
-            //System.out.println("Nom projet : " + o[0].toString() + "\nNbre lots : " + o[1].toString());
-        }
+        for (Object o : projetsTerminesOuEntrepriseGeneralBatimentParticipe) System.out.println(o.toString());
 
         twoNewLineInConsole();
 
@@ -129,22 +132,30 @@ public class Test {
 
         // Pour avoir le nom du lot on devrait ce base sur le nom de la table fille.. relativement complexe
 
-        System.out.println("======================== Quels sont les lots des projets en cours auxquels participe lʼentreprise « General Batiment » ? ======================== \n");
+        System.out.println("======================== REQUÊTE 8 : Quels sont les lots des projets en cours auxquels participe lʼentreprise « General Batiment » ? ======================== \n");
         Query queryLotsDesProjetsEnCoursDeGeneralBatiment = em.createNamedQuery("Lots.lotsDesProjetsEnCoursDeGeneralBatiment", Integer.class);
         queryLotsDesProjetsEnCoursDeGeneralBatiment.setParameter("entreprise", "Sancho et fils SARL");
         queryLotsDesProjetsEnCoursDeGeneralBatiment.setParameter("avancement", EAvancement.terminé);
-        //On est oblige de faire ceci..
         List<Integer> lotsDesProjetsEnCoursDeGeneralBatiment = queryLotsDesProjetsEnCoursDeGeneralBatiment.getResultList();
-        displayOneAttributeResults(lotsDesProjetsEnCoursDeGeneralBatiment.stream().map(Object::toString)
-                .collect(Collectors.toList()), "Lot d'un projet en cours auxquels participe General Batiment :");
+        displayOneAttributeResultsForInt(lotsDesProjetsEnCoursDeGeneralBatiment, "Lot d'un projet en cours auxquels participe General Batiment :");
 
-        /*for (Object object:
-             lotsDesProjetsEnCoursDeGeneralBatiment) {
-            System.out.println(object.toString());
-        }*/
+        twoNewLineInConsole();
 
         // 9 - Quels sont les acteurs (et leur entreprise) participant au projet de reference « PLot12 » ?
+        /*
+                "SELECT DISTINCT a.nom, e.nom " +
+                "FROM acteur a, entreprise e, entreprise_acteur ea, lots_entreprise l, projet_lots p " +
+                "WHERE ea.entreprise_id = l.entreprisesRealisatrices_id AND l.lots_id = p.lots_id AND a.id = e.acteurs_id " +
+                "AND e.id = l.entreprisesRealisatrices_id AND p.refProjet = 'Immeuble8A7L' ";
+        */
 
+        System.out.println("======================== REQUÊTE 9 : Quels sont les acteurs (et leur entreprise) participant au projet de référence « PLot12 » ? ======================== \n");
+        Query queryActeursEtEntrepriseProjetPLot12 = em.createNamedQuery("Acteur.acteursEtEntrepriseDuProjetPLot12", Object[].class);
+        queryActeursEtEntrepriseProjetPLot12.setParameter("refProjet", "Musee10L8E15A");
+        List<Object[]> acteursEtEntrepriseProjetPLot12 = queryActeursEtEntrepriseProjetPLot12.getResultList();
+        for (Object[] o : acteursEtEntrepriseProjetPLot12){
+            System.out.println("Attr 1 " + o[0].toString() + " Attr 2 " + o[1].toString());
+        }
 
         // 10 - Combien de lots a le projet de reference " PLot12 " ?
 

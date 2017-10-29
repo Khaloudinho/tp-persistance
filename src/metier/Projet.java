@@ -15,17 +15,17 @@ import static javax.persistence.GenerationType.IDENTITY;
 @NamedQueries({
 		@NamedQuery(
 				name="Projet.projetsEnCours",
-				query="SELECT p.nom FROM Projet p WHERE p.avancement = :avancement"
+				query="SELECT p.nom FROM Projet p WHERE p.avancement = :avancement "
 		),
 		@NamedQuery(
 				name="Projet.avancementProjetPLot12",
-				query="SELECT p.avancement FROM Projet p WHERE p.refProjet = :reference"
+				query="SELECT p.avancement FROM Projet p WHERE p.refProjet = :reference "
 		),
 		@NamedQuery(
 				name="Projet.projetsTerminesAvecGeneralBatiment",
 				query = "SELECT DISTINCT p.nom " +
 						"FROM Lots l, IN(l.entreprisesRealisatrices) e " +
-						"JOIN Projet p ON l.projet = p " +
+						"JOIN l.projet p " +
 						"WHERE e = (SELECT id FROM Entreprise WHERE nom = :entreprise) " +
 						"AND p.avancement = :avancement"
 		),
@@ -55,8 +55,8 @@ public abstract class Projet implements Serializable {
 	 Cette liaison pourrait etre utile uniquement dans le cas ou acteur devrait etre relie a une entreprise s'il ne fait pas partit d'une entreprise
 	 Or generalement en situation reelle, de nos jours le client ne fait plus partit des projets et ce meme a titre consultatif (ce n'est pas une blague..)
 	  */
-	/*@ManyToMany
-	private Set<Acteur> acteurs;*/
+	@ManyToMany
+	private Set<Acteur> acteurs;
 
 	@OneToMany
 	private Set<Lots> lots;
@@ -155,7 +155,6 @@ public abstract class Projet implements Serializable {
 		this.adresse = adresse;
 	}
 
-	/*
 	public Set<Acteur> getActeurs() {
 		return acteurs;
 	}
@@ -163,7 +162,7 @@ public abstract class Projet implements Serializable {
 	public void setActeurs(Set<Acteur> acteurs) {
 		this.acteurs = acteurs;
 	}
-	*/
+
 	public Set<Lots> getLots() {
 		return lots;
 	}

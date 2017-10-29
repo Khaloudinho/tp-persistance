@@ -17,9 +17,9 @@ import static javax.persistence.GenerationType.IDENTITY;
 				name = "Lots.lotsDesProjetsEnCoursDeGeneralBatiment",
 				query = "SELECT DISTINCT l.id " +
 						"FROM Lots l, IN(l.entreprisesRealisatrices) e " +
-						"JOIN Projet p ON l.projet = p " +
+						"JOIN l.projet p " +
 						"WHERE e = (SELECT id FROM Entreprise WHERE nom = :entreprise) " +
-						"AND p.avancement = :avancement"
+						"AND p.avancement = :avancement "
 		),
 })
 

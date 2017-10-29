@@ -16,6 +16,15 @@ import static javax.persistence.GenerationType.IDENTITY;
 				name="Acteur.contactsEntrepriseGeneralBatiment",
 				query="SELECT a.nom FROM Acteur a WHERE a.entreprise.nom = :entreprise"
 		),
+		@NamedQuery(
+				name="Acteur.acteursEtEntrepriseDuProjetPLot12",
+				query="SELECT a.nom, e.nom " +
+						"FROM Acteur a " +
+						"JOIN a.entreprise e " +
+						"JOIN e.lotsSousResponsabilite l " +
+						"JOIN l.projet p " +
+						"WHERE p.refProjet = :refProjet "
+		)
 })
 public class Acteur implements java.io.Serializable {
 
@@ -37,10 +46,9 @@ public class Acteur implements java.io.Serializable {
 	 Cette liaison pourrait etre utile uniquement dans le cas ou acteur devrait etre relie a une entreprise s'il ne fait pas partit d'une entreprise
 	 Or generalement en situation reelle, de nos jours le client ne fait plus partit des projets et ce meme a titre consultatif (ce n'est pas une blague..)
 	  */
-	/*
+
 	@ManyToMany
 	private Set<Projet> projet;
-	*/
 
 	public Acteur() {
 
@@ -92,7 +100,6 @@ public class Acteur implements java.io.Serializable {
 		this.entreprise = entreprise;
 	}
 
-	/*
 	public Set<Projet> getProjet() {
 		return projet;
 	}
@@ -100,5 +107,4 @@ public class Acteur implements java.io.Serializable {
 	public void setProjet(Set<Projet> projet) {
 		this.projet = projet;
 	}
-	*/
 }

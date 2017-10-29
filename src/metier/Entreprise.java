@@ -13,10 +13,12 @@ import static javax.persistence.GenerationType.IDENTITY;
 @NamedQueries({
 		@NamedQuery(
 				name="Entreprise.entreprisesTravaillantAvecCabinet",
-				query="SELECT e.nom FROM Entreprise e"),
+				query="SELECT e.nom FROM Entreprise e "
+		),
 		@NamedQuery(
 				name="Entreprise.entreprisesCorpsMetier",
-				query="SELECT e.nom FROM Entreprise e WHERE e.corpsMetier = :corpsMetier"),
+				query="SELECT e.nom FROM Entreprise e WHERE e.corpsMetier = :corpsMetier "
+		),
 })
 public class Entreprise implements java.io.Serializable {
 
