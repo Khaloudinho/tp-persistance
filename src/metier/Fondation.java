@@ -1,5 +1,7 @@
 package metier;
 
+import util.EAvancement;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -21,9 +23,19 @@ public class Fondation extends Lots implements java.io.Serializable {
 	public Fondation() {
 	}
 
-	public Fondation(int numero, Date dateDebut, int dureeEstimee, int coutEstime, int avancement, int coutReel, Date dateFinReel, int profondeur) {
+	public Fondation(int numero, Date dateDebut, int dureeEstimee, int coutEstime, EAvancement avancement, int coutReel, Date dateFinReel, int profondeur) {
 		super(numero, dateDebut, dureeEstimee, coutEstime, avancement, coutReel, dateFinReel);
 		this.profondeur = profondeur;
+	}
+
+	@Override
+	public int getId() {
+		return id;
+	}
+
+	@Override
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public int getProfondeur() {
@@ -32,13 +44,5 @@ public class Fondation extends Lots implements java.io.Serializable {
 
 	public void setProfondeur(int profondeur) {
 		this.profondeur = profondeur;
-	}
-
-	public int getID() {
-		return id;
-	}
-
-	public void setID(int id) {
-		this.id = id;
 	}
 }

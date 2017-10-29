@@ -1,5 +1,7 @@
 package metier;
 
+import util.EAvancement;
+
 import javax.persistence.*;
 
 import java.sql.Date;
@@ -19,7 +21,7 @@ public abstract class BatimentPublic extends Projet implements java.io.Serializa
 	public BatimentPublic() {
 	}
 
-	public BatimentPublic(String refProjet, String nom, int surfaceTotale, String avancement, Date dateFinEstimee, int coutTotalEstime, boolean termine, Date dateFinReelle, String ministere) {
+	public BatimentPublic(String refProjet, String nom, int surfaceTotale, EAvancement avancement, Date dateFinEstimee, int coutTotalEstime, boolean termine, Date dateFinReelle, String ministere) {
 		super(refProjet, nom, surfaceTotale, avancement, dateFinEstimee, coutTotalEstime, termine, dateFinReelle);
 		this.ministere = ministere;
 	}

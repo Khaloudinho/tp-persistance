@@ -1,5 +1,7 @@
 package metier;
 
+import util.EAvancement;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -22,10 +24,20 @@ public class Electricite extends Lots implements java.io.Serializable {
 	public Electricite() {
 	}
 
-	public Electricite(int numero, Date dateDebut, int dureeEstimee, int coutEstime, int avancement, int coutReel, Date dateFinReel, int nbTableau, float longueurTable) {
+	public Electricite(int numero, Date dateDebut, int dureeEstimee, int coutEstime, EAvancement avancement, int coutReel, Date dateFinReel, int nbTableau, float longueurTable) {
 		super(numero, dateDebut, dureeEstimee, coutEstime, avancement, coutReel, dateFinReel);
 		this.nbTableau = nbTableau;
 		this.longueurTable = longueurTable;
+	}
+
+	@Override
+	public int getId() {
+		return id;
+	}
+
+	@Override
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public int getNbTableau() {
@@ -42,13 +54,5 @@ public class Electricite extends Lots implements java.io.Serializable {
 
 	public void setLongueurTable(float longueurTable) {
 		this.longueurTable = longueurTable;
-	}
-
-	public int getID() {
-		return id;
-	}
-
-	public void setID(int id) {
-		this.id = id;
 	}
 }

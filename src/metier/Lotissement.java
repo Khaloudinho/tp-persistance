@@ -1,5 +1,7 @@
 package metier;
 
+import util.EAvancement;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -24,7 +26,7 @@ public class Lotissement extends Projet implements Serializable {
 
 	public Lotissement() {}
 
-	public Lotissement(String refProjet, String nom, int surfaceTotale, String avancement, Date dateFinEstimee, int coutTotalEstime, boolean termine, Date dateFinReelle, int nbMaisons) {
+	public Lotissement(String refProjet, String nom, int surfaceTotale, EAvancement avancement, Date dateFinEstimee, int coutTotalEstime, boolean termine, Date dateFinReelle, int nbMaisons) {
 		super(refProjet, nom, surfaceTotale, avancement, dateFinEstimee, coutTotalEstime, termine, dateFinReelle);
 		this.nbMaisons = nbMaisons;
 	}

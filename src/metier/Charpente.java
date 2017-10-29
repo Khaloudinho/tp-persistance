@@ -1,5 +1,6 @@
 package metier;
 
+import util.EAvancement;
 import util.ECharpente;
 
 import javax.persistence.*;
@@ -22,9 +23,19 @@ public class Charpente extends Lots implements java.io.Serializable {
 	public Charpente() {
 	}
 
-	public Charpente(int numero, Date dateDebut, int dureeEstimee, int coutEstime, int avancement, int coutReel, Date dateFinReel, ECharpente typeCharpente) {
+	public Charpente(int numero, Date dateDebut, int dureeEstimee, int coutEstime, EAvancement avancement, int coutReel, Date dateFinReel, ECharpente typeCharpente) {
 		super(numero, dateDebut, dureeEstimee, coutEstime, avancement, coutReel, dateFinReel);
 		this.typeCharpente = typeCharpente;
+	}
+
+	@Override
+	public int getId() {
+		return id;
+	}
+
+	@Override
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public ECharpente getTypeCharpente() {
@@ -33,13 +44,5 @@ public class Charpente extends Lots implements java.io.Serializable {
 
 	public void setTypeCharpente(ECharpente typeCharpente) {
 		this.typeCharpente = typeCharpente;
-	}
-
-	public int getID() {
-		return id;
-	}
-
-	public void setID(int id) {
-		this.id = id;
 	}
 }

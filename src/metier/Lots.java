@@ -1,5 +1,7 @@
 package metier;
 
+import util.EAvancement;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Set;
@@ -18,8 +20,11 @@ public abstract class Lots implements Serializable {
 	private Date dateDebut;
 	private int dureeEstimee;
 	private int coutEstime;
-	private int avancement;
+
+	@Enumerated(EnumType.STRING)
+	private EAvancement avancement;
 	private int coutReel;
+
 	@Column(nullable = true)
 	private Date dateFinReel;
 
@@ -34,7 +39,7 @@ public abstract class Lots implements Serializable {
 
 	public Lots() {}
 
-	public Lots(int numero, Date dateDebut, int dureeEstimee, int coutEstime, int avancement, int coutReel, Date dateFinReel) {
+	public Lots(int numero, Date dateDebut, int dureeEstimee, int coutEstime, EAvancement avancement, int coutReel, Date dateFinReel) {
 		this.numero = numero;
 		this.dateDebut = dateDebut;
 		this.dureeEstimee = dureeEstimee;
@@ -76,11 +81,11 @@ public abstract class Lots implements Serializable {
 		this.coutEstime = coutEstime;
 	}
 
-	public int getAvancement() {
+	public EAvancement getAvancement() {
 		return avancement;
 	}
 
-	public void setAvancement(int avancement) {
+	public void setAvancement(EAvancement avancement) {
 		this.avancement = avancement;
 	}
 

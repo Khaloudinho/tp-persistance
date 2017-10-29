@@ -1,5 +1,7 @@
 package metier;
 
+import util.EAvancement;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -20,10 +22,20 @@ public class Maconnerie extends Lots implements Serializable {
 
 	public Maconnerie() {}
 
-	public Maconnerie(int numero, Date dateDebut, int dureeEstimee, int coutEstime, int avancement, int coutReel, Date dateFinReel, int surfaceMur, int nbPoteaux) {
+	public Maconnerie(int numero, Date dateDebut, int dureeEstimee, int coutEstime, EAvancement avancement, int coutReel, Date dateFinReel, int surfaceMur, int nbPoteaux) {
 		super(numero, dateDebut, dureeEstimee, coutEstime, avancement, coutReel, dateFinReel);
 		this.surfaceMur = surfaceMur;
 		this.nbPoteaux = nbPoteaux;
+	}
+
+	@Override
+	public int getId() {
+		return id;
+	}
+
+	@Override
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public int getSurfaceMur() {
@@ -40,15 +52,5 @@ public class Maconnerie extends Lots implements Serializable {
 
 	public void setNbPoteaux(int nbPoteaux) {
 		this.nbPoteaux = nbPoteaux;
-	}
-
-	@Override
-	public int getId() {
-		return id;
-	}
-
-	@Override
-	public void setId(int id) {
-		this.id = id;
 	}
 }

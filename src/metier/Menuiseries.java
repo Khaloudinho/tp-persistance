@@ -1,5 +1,7 @@
 package metier;
 
+import util.EAvancement;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -21,11 +23,21 @@ public class Menuiseries extends Lots implements Serializable {
 
 	public Menuiseries() {}
 
-	public Menuiseries(int numero, Date dateDebut, int dureeEstimee, int coutEstime, int avancement, int coutReel, Date dateFinReel, int nbFenetres, int nbPortes, int nbFenetreToit) {
+	public Menuiseries(int numero, Date dateDebut, int dureeEstimee, int coutEstime, EAvancement avancement, int coutReel, Date dateFinReel, int nbFenetres, int nbPortes, int nbFenetreToit) {
 		super(numero, dateDebut, dureeEstimee, coutEstime, avancement, coutReel, dateFinReel);
 		this.nbFenetres = nbFenetres;
 		this.nbPortes = nbPortes;
 		this.nbFenetreToit = nbFenetreToit;
+	}
+
+	@Override
+	public int getId() {
+		return id;
+	}
+
+	@Override
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public int getNbFenetres() {
@@ -50,13 +62,5 @@ public class Menuiseries extends Lots implements Serializable {
 
 	public void setNbFenetreToit(int nbFenetreToit) {
 		this.nbFenetreToit = nbFenetreToit;
-	}
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
 	}
 }

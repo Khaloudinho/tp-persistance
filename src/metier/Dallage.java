@@ -1,5 +1,7 @@
 package metier;
 
+import util.EAvancement;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -21,9 +23,19 @@ public class Dallage extends Lots implements java.io.Serializable {
 	public Dallage() {
 	}
 
-	public Dallage(int numero, Date dateDebut, int dureeEstimee, int coutEstime, int avancement, int coutReel, Date dateFinReel, int surfaceTotale) {
+	public Dallage(int numero, Date dateDebut, int dureeEstimee, int coutEstime, EAvancement avancement, int coutReel, Date dateFinReel, int surfaceTotale) {
 		super(numero, dateDebut, dureeEstimee, coutEstime, avancement, coutReel, dateFinReel);
 		this.surfaceTotale = surfaceTotale;
+	}
+
+	@Override
+	public int getId() {
+		return id;
+	}
+
+	@Override
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public int getSurfaceTotale() {
@@ -32,13 +44,5 @@ public class Dallage extends Lots implements java.io.Serializable {
 
 	public void setSurfaceTotale(int surfaceTotale) {
 		this.surfaceTotale = surfaceTotale;
-	}
-
-	public int getID() {
-		return id;
-	}
-
-	public void setID(int id) {
-		this.id = id;
 	}
 }

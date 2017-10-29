@@ -1,5 +1,7 @@
 package metier;
 
+import util.EAvancement;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -19,9 +21,19 @@ public class Terrassement extends Lots implements Serializable {
 
 	public Terrassement() {}
 
-	public Terrassement(int numero, Date dateDebut, int dureeEstimee, int coutEstime, int avancement, int coutReel, Date dateFinReel, int volumeTerre) {
+	public Terrassement(int numero, Date dateDebut, int dureeEstimee, int coutEstime, EAvancement avancement, int coutReel, Date dateFinReel, int volumeTerre) {
 		super(numero, dateDebut, dureeEstimee, coutEstime, avancement, coutReel, dateFinReel);
 		this.volumeTerre = volumeTerre;
+	}
+
+	@Override
+	public int getId() {
+		return id;
+	}
+
+	@Override
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public int getVolumeTerre() {
@@ -30,13 +42,5 @@ public class Terrassement extends Lots implements Serializable {
 
 	public void setVolumeTerre(int volumeTerre) {
 		this.volumeTerre = volumeTerre;
-	}
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
 	}
 }

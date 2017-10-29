@@ -1,5 +1,7 @@
 package metier;
 
+import util.EAvancement;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -20,16 +22,8 @@ public class Reseaux extends Lots implements Serializable {
 	public Reseaux() {
 	}
 
-	public Reseaux(int numero, Date dateDebut, int dureeEstimee, int coutEstime, int avancement, int coutReel, Date dateFinReel, float longueur) {
+	public Reseaux(int numero, Date dateDebut, int dureeEstimee, int coutEstime, EAvancement avancement, int coutReel, Date dateFinReel, float longueur) {
 		super(numero, dateDebut, dureeEstimee, coutEstime, avancement, coutReel, dateFinReel);
-		this.longueur = longueur;
-	}
-
-	public float getLongueur() {
-		return longueur;
-	}
-
-	public void setLongueur(float longueur) {
 		this.longueur = longueur;
 	}
 
@@ -41,5 +35,13 @@ public class Reseaux extends Lots implements Serializable {
 	@Override
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	public float getLongueur() {
+		return longueur;
+	}
+
+	public void setLongueur(float longueur) {
+		this.longueur = longueur;
 	}
 }

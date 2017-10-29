@@ -1,5 +1,7 @@
 package metier;
 
+import util.EAvancement;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Set;
@@ -32,7 +34,10 @@ public abstract class Projet implements Serializable {
 	private String refProjet;
 	private String nom;
 	private int surfaceTotale;
-	private String avancement;
+
+	@Enumerated(EnumType.STRING)
+	private EAvancement avancement;
+
 	private Date dateFinEstimee;
 	private int coutTotalEstime;
 	private boolean termine;
@@ -50,7 +55,7 @@ public abstract class Projet implements Serializable {
 	public Projet() {
 	}
 
-	public Projet(String refProjet, String nom, int surfaceTotale, String avancement, Date dateFinEstimee, int coutTotalEstime, boolean termine, Date dateFinReelle) {
+	public Projet(String refProjet, String nom, int surfaceTotale, EAvancement avancement, Date dateFinEstimee, int coutTotalEstime, boolean termine, Date dateFinReelle) {
 		this.refProjet = refProjet;
 		this.nom = nom;
 		this.surfaceTotale = surfaceTotale;
@@ -85,11 +90,11 @@ public abstract class Projet implements Serializable {
 		this.surfaceTotale = surfaceTotale;
 	}
 
-	public String getAvancement() {
+	public EAvancement getAvancement() {
 		return avancement;
 	}
 
-	public void setAvancement(String avancement) {
+	public void setAvancement(EAvancement avancement) {
 		this.avancement = avancement;
 	}
 

@@ -1,5 +1,6 @@
 package metier;
 
+import util.EAvancement;
 import util.EEtaScolaire;
 
 import javax.persistence.*;
@@ -30,7 +31,7 @@ public class EtablissementScolaire extends BatimentPublic implements Serializabl
 	public EtablissementScolaire() {
 	}
 
-	public EtablissementScolaire(String refProjet, String nom, int surfaceTotale, String avancement, Date dateFinEstimee, int coutTotalEstime, boolean termine, Date dateFinReelle, String ministere, int nbEleves, EEtaScolaire categorie) {
+	public EtablissementScolaire(String refProjet, String nom, int surfaceTotale, EAvancement avancement, Date dateFinEstimee, int coutTotalEstime, boolean termine, Date dateFinReelle, String ministere, int nbEleves, EEtaScolaire categorie) {
 		super(refProjet, nom, surfaceTotale, avancement, dateFinEstimee, coutTotalEstime, termine, dateFinReelle, ministere);
 		this.nbEleves = nbEleves;
 		this.categorie = categorie;

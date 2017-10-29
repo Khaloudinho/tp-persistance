@@ -1,5 +1,7 @@
 package metier;
 
+import util.EAvancement;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -20,10 +22,20 @@ public class Platerie extends Lots implements Serializable {
 
 	public Platerie() {}
 
-	public Platerie(int numero, Date dateDebut, int dureeEstimee, int coutEstime, int avancement, int coutReel, Date dateFinReel, int surfacePlafond, int surfaceMur) {
+	public Platerie(int numero, Date dateDebut, int dureeEstimee, int coutEstime, EAvancement avancement, int coutReel, Date dateFinReel, int surfacePlafond, int surfaceMur) {
 		super(numero, dateDebut, dureeEstimee, coutEstime, avancement, coutReel, dateFinReel);
 		this.surfacePlafond = surfacePlafond;
 		this.surfaceMur = surfaceMur;
+	}
+
+	@Override
+	public int getId() {
+		return id;
+	}
+
+	@Override
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public int getSurfacePlafond() {
@@ -40,15 +52,5 @@ public class Platerie extends Lots implements Serializable {
 
 	public void setSurfaceMur(int surfaceMur) {
 		this.surfaceMur = surfaceMur;
-	}
-
-	@Override
-	public int getId() {
-		return id;
-	}
-
-	@Override
-	public void setId(int id) {
-		this.id = id;
 	}
 }
