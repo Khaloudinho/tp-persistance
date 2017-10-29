@@ -2,9 +2,7 @@ package metier;
 
 import util.EEtaScolaire;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 import java.io.Serializable;
 import java.sql.Date;
@@ -13,6 +11,11 @@ import static javax.persistence.GenerationType.AUTO;
 import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity
+@NamedQueries({
+		@NamedQuery(
+				name="EtablissementScolaire.nombreDeProjets",
+				query="SELECT count(e) FROM EtablissementScolaire e"),
+})
 public class EtablissementScolaire extends BatimentPublic implements Serializable{
 
 	@Id

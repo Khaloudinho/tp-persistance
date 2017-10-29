@@ -14,6 +14,9 @@ import static javax.persistence.GenerationType.IDENTITY;
 		@NamedQuery(
 				name="Projet.projetsEnCours",
 				query="SELECT p.nom FROM Projet p WHERE p.avancement=\'Terminé\'"),
+		@NamedQuery(
+				name="Projet.projetDeReference",
+				query="SELECT p.nom FROM Projet p WHERE p.refProjet = :reference")
 })
 public abstract class Projet implements Serializable {
 

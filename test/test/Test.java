@@ -29,6 +29,7 @@ public class Test {
 
         // Requetes
         // 1 - Quelles sont les entreprises avec lesquelles le cabinet travaille ?
+        System.out.println("Quelles sont les entreprises avec lesquelles le cabinet travaille ?\n");
         Query queryEntreprisesTravaillantAvecCabinet = em.createNamedQuery("Entreprise.entreprisesTravaillantAvecCabinet", String.class);
         List<String> entreprisesTravaillantAvecCabinet = queryEntreprisesTravaillantAvecCabinet.getResultList();
         displayOneAttributeResults(entreprisesTravaillantAvecCabinet, "Nom entreprise :");
@@ -36,12 +37,35 @@ public class Test {
         twoNewLineInConsole();
 
         // 2 - Quels sont les projets en cours ?
-        Query queryProjetEnCours = em.createNamedQuery("Projet.projetsEnCours", String.class);
-        List<String> projetsEnCours = queryProjetEnCours.getResultList();
+        System.out.println("Quels sont les projets en cours ?\n");
+        Query queryProjetsEnCours = em.createNamedQuery("Projet.projetsEnCours", String.class);
+        List<String> projetsEnCours = queryProjetsEnCours.getResultList();
         displayOneAttributeResults(projetsEnCours, "Nom projet :");
 
+        twoNewLineInConsole();
+
         // 3 - Quel est lʼavancement du projet de reference « PLot12 » ?
+        System.out.println("Quel est lʼavancement du projet de reference « PLot12 » ?\n");
+        Query queryProjetsDeReferencePLot12 = em.createNamedQuery("Projet.projetDeReference", String.class);
+        //Chez nous par exemple
+        //queryProjetsDeReferencePLot12.setParameter("reference", "Immeuble10A8L7E8A");
+        queryProjetsDeReferencePLot12.setParameter("reference", "PLot12");
+        List<String> projetsDeReferencePLot12 = queryProjetsDeReferencePLot12.getResultList();
+        displayOneAttributeResults(projetsDeReferencePLot12, "Nom projet :");
+
+        twoNewLineInConsole();
+
         // 4 - Combien de projets portant sur un etablissement scolaire ont ete realise ?
+        /* RAPPEL : EtablissementScolaire extends de BatimentPublic qui lui meme extends de Projet,
+         la denomination EtablisementScolaire correspond _meme si elle trompeuse_ a un Projet
+          */
+        System.out.println("Combien de projets portant sur un etablissement scolaire ont ete realise ?\n");
+        Query queryNombreProjetsEtablissementScolaire = em.createNamedQuery("EtablissementScolaire.nombreDeProjets", Object.class);
+        Object nombreProjetsEtablissementScolaire = queryNombreProjetsEtablissementScolaire.getResultList();
+        System.out.println("Nombre de projets :"+nombreProjetsEtablissementScolaire.toString());
+
+        twoNewLineInConsole();
+
         // 5 - Quelles sont les entreprises de plomberie ?
         // 6 - Quels sont les noms des contacts de lʼentreprise « General Batiment» ?
         // 7 - A quels projets termines lʼentreprise « General Batiment» a participe ?
