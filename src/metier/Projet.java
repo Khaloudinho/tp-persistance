@@ -11,7 +11,7 @@ import static javax.persistence.GenerationType.AUTO;
 import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity
-@Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
+@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
 @NamedQueries({
 		@NamedQuery(
 				name = "Projet.projetsEnCours",
@@ -35,12 +35,14 @@ import static javax.persistence.GenerationType.IDENTITY;
 					    "FROM Projet p " +
 					    "WHERE p.refProjet = :refProjet "
 		),
-		/*@NamedQuery(
-				name="Projet.entreprisesMenuiseriesProjetsMusees",
-				query="SELECT e.nom, e.adresse " +
+		/*
+		@NamedQuery(
+				name = "Projet.entreprisesMenuiseriesProjetsMusees",
+				query = "SELECT e.nom, e.adresse " +
 				      "FROM Entreprise e " +
 					  ""
-		),*/
+		),
+		*/
 		@NamedQuery(
 				name="Projet.dureesEstimeesProjetsEnCours",
 				query="SELECT p.nom, p.dateFinEstimee " +

@@ -33,6 +33,8 @@ public class Acteur implements java.io.Serializable {
 	private int id;
 
 	private String nom;
+
+	@Enumerated(EnumType.STRING)
 	private ETitre titre;
 
 	@Enumerated(EnumType.STRING)
