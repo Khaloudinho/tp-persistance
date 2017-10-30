@@ -14,15 +14,15 @@ import static javax.persistence.GenerationType.IDENTITY;
 @Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
 @NamedQueries({
 		@NamedQuery(
-				name="Projet.projetsEnCours",
-				query="SELECT p.nom FROM Projet p WHERE p.avancement = :avancement "
+				name = "Projet.projetsEnCours",
+				query = "SELECT p.nom FROM Projet p WHERE p.avancement = :avancement "
 		),
 		@NamedQuery(
-				name="Projet.avancementProjetPLot12",
-				query="SELECT p.avancement FROM Projet p WHERE p.refProjet = :reference "
+				name = "Projet.avancementProjetPLot12",
+				query = "SELECT p.avancement FROM Projet p WHERE p.refProjet = :reference "
 		),
 		@NamedQuery(
-				name="Projet.projetsTerminesAvecGeneralBatiment",
+				name = "Projet.projetsTerminesAvecGeneralBatiment",
 				query = "SELECT DISTINCT p.nom " +
 						"FROM Lots l, IN(l.entreprisesRealisatrices) e " +
 						"JOIN l.projet p " +
@@ -30,10 +30,10 @@ import static javax.persistence.GenerationType.IDENTITY;
 						"AND p.avancement = :avancement"
 		),
 		@NamedQuery(
-				name="Projet.coutProjetPLot12",
-				query="SELECT p.coutTotalEstime " +
-					  "FROM Projet p " +
-					  "WHERE p.refProjet = :refProjet "
+				name = "Projet.coutProjetPLot12",
+				query = "SELECT p.coutTotalEstime " +
+					    "FROM Projet p " +
+					    "WHERE p.refProjet = :refProjet "
 		),
 		/*@NamedQuery(
 				name="Projet.entreprisesMenuiseriesProjetsMusees",
@@ -44,8 +44,8 @@ import static javax.persistence.GenerationType.IDENTITY;
 		@NamedQuery(
 				name="Projet.dureesEstimeesProjetsEnCours",
 				query="SELECT p.nom, p.dateFinEstimee " +
-						"FROM Projet p " +
-						"WHERE p.avancement = :avancement "
+					  "FROM Projet p " +
+					  "WHERE p.avancement = :avancement "
 		)
 })
 public abstract class Projet implements Serializable {

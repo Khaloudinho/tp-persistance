@@ -9,31 +9,26 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 import java.sql.Date;
-import java.time.Instant;
-import java.time.LocalDate;
+import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
-import java.util.stream.Collectors;
 
 
 public class Test {
 
     private static void displayOneAttributeResults(List<String> results, String resultIdentifier){
-        for (String result : results) {
-            System.out.println(resultIdentifier + " " + result);
-        }
+        System.out.print(resultIdentifier);
+        for (String result : results) System.out.print(result + ", ");
     }
 
     private static void displayOneAttributeResultsForEnums(List<Enum> results, String resultIdentifier){
-        for (Enum result : results) {
-            System.out.println(resultIdentifier + " " + result);
-        }
+        System.out.print(resultIdentifier);
+        for (Enum result : results) System.out.print(result + ", ");
     }
 
     private static void displayOneAttributeResultsForInt(List<Integer> results, String resultIdentifier){
-        for (Integer result : results) {
-            System.out.println(resultIdentifier + " " + result);
-        }
+        System.out.print(resultIdentifier);
+        for (Integer result : results) System.out.print(result + ", ");
     }
 
     public static long getDateDiff(java.sql.Date date1, java.sql.Date date2, TimeUnit timeUnit) {
@@ -110,7 +105,7 @@ public class Test {
         Query queryEntreprisesPlomberie = em.createNamedQuery("Entreprise.entreprisesCorpsMetier", String.class);
         queryEntreprisesPlomberie.setParameter("corpsMetier", ECorpsMetier.Plombier);
         List<String> entreprisesPlomberie = queryEntreprisesPlomberie.getResultList();
-        displayOneAttributeResults(entreprisesPlomberie, "Nom entreprise :");
+        displayOneAttributeResults(entreprisesPlomberie, "Nom entreprise : ");
 
         twoNewLineInConsole();
 
@@ -122,7 +117,7 @@ public class Test {
         Query queryContactsEntrepriseGeneralBatiment = em.createNamedQuery("Acteur.contactsEntrepriseGeneralBatiment", String.class);
         queryContactsEntrepriseGeneralBatiment.setParameter("entreprise", "Berbe et fils SARL");
         List<String> nomsContactEntrepriseGeneralBatiment = queryContactsEntrepriseGeneralBatiment.getResultList();
-        displayOneAttributeResults(nomsContactEntrepriseGeneralBatiment, "Nom contact :");
+        displayOneAttributeResults(nomsContactEntrepriseGeneralBatiment, "Nom contact : ");
 
         twoNewLineInConsole();
 
@@ -146,7 +141,7 @@ public class Test {
         queryLotsDesProjetsEnCoursDeGeneralBatiment.setParameter("entreprise", "Sancho et fils SARL");
         queryLotsDesProjetsEnCoursDeGeneralBatiment.setParameter("avancement", EAvancement.terminé);
         List<Integer> lotsDesProjetsEnCoursDeGeneralBatiment = queryLotsDesProjetsEnCoursDeGeneralBatiment.getResultList();
-        displayOneAttributeResultsForInt(lotsDesProjetsEnCoursDeGeneralBatiment, "Lot d'un projet en cours auxquels participe General Batiment :");
+        displayOneAttributeResultsForInt(lotsDesProjetsEnCoursDeGeneralBatiment, "Lot d'un projet en cours auxquels participe General Batiment : ");
 
         twoNewLineInConsole();
 
@@ -183,18 +178,20 @@ public class Test {
         Query queryCoutProjetPLot12 = em.createNamedQuery("Projet.coutProjetPLot12", Integer.class);
         queryCoutProjetPLot12.setParameter("refProjet", "Musee10L8E15A");
         List<Integer> coutProjetPLot12 = queryCoutProjetPLot12.getResultList();
-        displayOneAttributeResultsForInt(coutProjetPLot12, "Coût du projet PLot12 :");
+        displayOneAttributeResultsForInt(coutProjetPLot12, "Coût du projet PLot12 : ");
 
         twoNewLineInConsole();
 
         // 12 - Quelles sont les entreprises (et leur adresse) qui ont realisé les menuiseries dans les projets de musées ?
-        /*System.out.println("======================== REQUÊTE 12 : Quelles sont les entreprises (et leur adresse) qui ont realisé les menuiseries dans les projets de musées ? ======================== \n");
+        /*
+        System.out.println("======================== REQUÊTE 12 : Quelles sont les entreprises (et leur adresse) qui ont realisé les menuiseries dans les projets de musées ? ======================== \n");
         Query queryEntreprisesMenuiseriesProjetsMusees = em.createNamedQuery("Projet.entreprisesMenuiseriesProjetsMusees", Object[].class);
         queryEntreprisesMenuiseriesProjetsMusees.setParameter("refProjet", "Musee10L8E15A");
         List<Object[]> entreprisesMenuiseriesProjetsMusees = queryCoutProjetPLot12.getResultList();
         for (Object[] o : entreprisesMenuiseriesProjetsMusees){
             System.out.println("Entreprise ayant réalisé des menuiseries sur un projet musée : " + o[0].toString() + " (" + o[1].toString() + ")");
-        }*/
+        }
+        */
 
         // 13 - Quelles sont les durées estimées des différents projets en cours ?
         System.out.println("======================== REQUÊTE 13 : Quelles sont les durées estimées des différents projets en cours ? ======================== \n");
@@ -202,10 +199,19 @@ public class Test {
         queryDureesEstimeesProjetsEnCours.setParameter("avancement", EAvancement.enCours);
         List<Object[]> dureesEstimeesProjetsEnCours = queryDureesEstimeesProjetsEnCours.getResultList();
         for(Object[] o : dureesEstimeesProjetsEnCours) {
-            System.out.println("Projet : " + o[0].toString() + ", durée estimée : " + getDateDiff(new Date(new java.util.Date().getTime()), (Date)o[1], TimeUnit.DAYS));
+            System.out.println("Projet : " + o[0].toString() + ", durée estimée : " + getDateDiff(new Date(new java.util.Date().getTime()), (Date)o[1], TimeUnit.DAYS) + " jours");
         }
 
+        twoNewLineInConsole();
+
         // 14 - Quels sont les avancements des lots (et leur type) du projet de reference « PLot12 » ?
+        System.out.println("======================== REQUÊTE 14 : Quels sont les avancements des lots (et leur type) du projet de reference « PLot12 » ? ======================== \n");
+        Query queryAvancementEtTypeLotsProjetPLot12 = em.createNamedQuery("Lots.avancementEtTypeLotsProjetPLot12", Object[].class);
+        queryAvancementEtTypeLotsProjetPLot12.setParameter("refProjet", "Musee10L8E15A");
+        List<Object[]> avancementEtTypeLotsProjetPLot12 = queryAvancementEtTypeLotsProjetPLot12.getResultList();
+        for(Object[] o : avancementEtTypeLotsProjetPLot12) {
+            System.out.println("ID Lot : " + o[0].toString() + ", avancement : " + o[1].toString() + ", type : " + o[0].getClass());
+        }
 
         em.getTransaction().commit();
         em.close();

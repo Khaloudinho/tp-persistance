@@ -28,6 +28,13 @@ import static javax.persistence.GenerationType.IDENTITY;
 						"JOIN l.projet p " +
 						"WHERE p.refProjet = :refProjet "
 		),
+		@NamedQuery(
+				name = "Lots.avancementEtTypeLotsProjetPLot12",
+				query = "SELECT l.id, l.avancement " +
+						"FROM Lots l " +
+						"JOIN l.projet p " +
+						"WHERE p.refProjet = :refProjet "
+		)
 })
 
 public abstract class Lots implements Serializable {

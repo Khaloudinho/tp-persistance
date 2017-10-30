@@ -13,12 +13,12 @@ import static javax.persistence.GenerationType.IDENTITY;
 @Entity
 @NamedQueries({
 		@NamedQuery(
-				name="Acteur.contactsEntrepriseGeneralBatiment",
-				query="SELECT a.nom FROM Acteur a WHERE a.entreprise.nom = :entreprise"
+				name = "Acteur.contactsEntrepriseGeneralBatiment",
+				query = "SELECT a.nom FROM Acteur a WHERE a.entreprise.nom = :entreprise"
 		),
 		@NamedQuery(
-				name="Acteur.acteursEtEntrepriseDuProjetPLot12",
-				query="SELECT a.nom, e.nom " +
+				name = "Acteur.acteursEtEntrepriseDuProjetPLot12",
+				query = "SELECT a.nom, e.nom " +
 						"FROM Acteur a " +
 						"JOIN a.entreprise e " +
 						"JOIN e.lotsSousResponsabilite l " +
