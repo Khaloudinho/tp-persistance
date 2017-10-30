@@ -439,17 +439,6 @@ public class Seeder {
         immeuble10A8L7E8A.setAdresse(adresseImmeuble10A8L7E8A);
         immeuble10A8L7E8A.setLots(lotsImmeuble10A8L7E8A);
 
-        appart1Immeuble10A8L7E8A.setImmeuble((Immeuble)immeuble10A8L7E8A);
-        appart2Immeuble10A8L7E8A.setImmeuble((Immeuble)immeuble10A8L7E8A);
-        appart3Immeuble10A8L7E8A.setImmeuble((Immeuble)immeuble10A8L7E8A);
-        appart4Immeuble10A8L7E8A.setImmeuble((Immeuble)immeuble10A8L7E8A);
-        appart5Immeuble10A8L7E8A.setImmeuble((Immeuble)immeuble10A8L7E8A);
-        appart6Immeuble10A8L7E8A.setImmeuble((Immeuble)immeuble10A8L7E8A);
-        appart7Immeuble10A8L7E8A.setImmeuble((Immeuble)immeuble10A8L7E8A);
-        appart8Immeuble10A8L7E8A.setImmeuble((Immeuble)immeuble10A8L7E8A);
-        appart9Immeuble10A8L7E8A.setImmeuble((Immeuble)immeuble10A8L7E8A);
-        appart10Immeuble10A8L7E8A.setImmeuble((Immeuble)immeuble10A8L7E8A);
-
         em.persist(immeuble10A8L7E8A);
 
         charpenteImmeuble10A8L7E8A.setProjet(immeuble10A8L7E8A);
@@ -700,15 +689,6 @@ public class Seeder {
 
         immeuble8A7L.setAdresse(adresseImmeuble8A7L);
         immeuble8A7L.setLots(lotsImmeuble8A7L);
-
-        appart1Immeuble8A7L.setImmeuble((Immeuble)immeuble8A7L);
-        appart2Immeuble8A7L.setImmeuble((Immeuble)immeuble8A7L);
-        appart3Immeuble8A7L.setImmeuble((Immeuble)immeuble8A7L);
-        appart4Immeuble8A7L.setImmeuble((Immeuble)immeuble8A7L);
-        appart5Immeuble8A7L.setImmeuble((Immeuble)immeuble8A7L);
-        appart6Immeuble8A7L.setImmeuble((Immeuble)immeuble8A7L);
-        appart7Immeuble8A7L.setImmeuble((Immeuble)immeuble8A7L);
-        appart8Immeuble8A7L.setImmeuble((Immeuble)immeuble8A7L);
 
         em.persist(immeuble8A7L);
 

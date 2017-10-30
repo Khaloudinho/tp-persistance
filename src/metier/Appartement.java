@@ -21,9 +21,6 @@ public class Appartement implements java.io.Serializable {
 
 	private int surface;
 
-	@ManyToOne
-	private Immeuble immeuble;
-
 	public Appartement() {
 	}
 
@@ -65,11 +62,4 @@ public class Appartement implements java.io.Serializable {
 		this.id = id;
 	}
 
-	public Immeuble getImmeuble() {
-		return immeuble;
-	}
-
-	public void setImmeuble(Immeuble immeuble) {
-		this.immeuble = immeuble;
-	}
 }
