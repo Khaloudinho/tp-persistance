@@ -11,7 +11,7 @@ import static javax.persistence.GenerationType.AUTO;
 import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity
-@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
+@Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
 public abstract class BatimentPublic extends Projet implements java.io.Serializable {
 
 	@Id

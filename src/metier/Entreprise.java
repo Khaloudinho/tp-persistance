@@ -39,11 +39,11 @@ public class Entreprise implements java.io.Serializable {
 	@OneToOne
 	private Adresse adresse;
 
-	@ManyToMany
+	/*@ManyToMany
 	private Set<Lots> lotsARealiser;
 
 	@OneToMany
-	private Set<Lots> lotsSousResponsabilite;
+	private Set<Lots> lotsSousResponsabilite;*/
 
 	public Entreprise() {
 	}
@@ -94,7 +94,7 @@ public class Entreprise implements java.io.Serializable {
 		this.adresse = adresse;
 	}
 
-	public Set<Lots> getLotsARealiser() {
+	/*public Set<Lots> getLotsARealiser() {
 		return lotsARealiser;
 	}
 
@@ -108,7 +108,7 @@ public class Entreprise implements java.io.Serializable {
 
 	public void setLotsSousResponsabilite(Set<Lots> lotsSousResponsabilite) {
 		this.lotsSousResponsabilite = lotsSousResponsabilite;
-	}
+	}*/
 
 	public Set<Acteur> getActeurs() {
 		return acteurs;

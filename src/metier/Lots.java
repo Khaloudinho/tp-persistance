@@ -11,7 +11,7 @@ import static javax.persistence.GenerationType.AUTO;
 import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity
-@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
+@Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
 @NamedQueries({
 		@NamedQuery(
 				name = "Lots.lotsDesProjetsEnCoursDeGeneralBatiment",
@@ -49,19 +49,19 @@ import static javax.persistence.GenerationType.IDENTITY;
 		),
 		@NamedQuery(
 				name = "Lots.avancementEtTypeLotsProjetPLot12",
-				query = "SELECT l.id, type(l.id), l.avancement  " +
+				query = "SELECT l.id, type(l.id), l.avancement " +
 						"FROM Lots l " +
 						"JOIN l.projet p " +
 						"WHERE p.refProjet = :refProjet "
 		),
 		@NamedQuery(
-		name = "Lots.acteursEtEntrepriseDuProjetPLot12",
-		query = "SELECT DISTINCT a.nom, e.nom " +
-				"FROM Lots l " +
-				"JOIN l.projet p " +
-				"JOIN l.entreprisesRealisatrices e " +
-				"JOIN e.acteurs a " +
-				"WHERE p.refProjet = :refProjet "
+				name = "Lots.acteursEtEntrepriseDuProjetPLot12",
+				query = "SELECT DISTINCT a.nom, e.nom " +
+						"FROM Lots l " +
+						"JOIN l.projet p " +
+						"JOIN l.entreprisesRealisatrices e " +
+						"JOIN e.acteurs a " +
+						"WHERE p.refProjet = :refProjet "
 		)
 })
 
