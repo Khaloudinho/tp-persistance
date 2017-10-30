@@ -308,8 +308,8 @@ public class Seeder {
         electriciteReseauLotissement10L8E10A.setEntreprisesRealisatrices(entreprisesReseauxLotissement10L8E10A);
 
         Lotissement lotissement10L8E10A = new Lotissement("Lotissement10L8E10A",
-                "Lotissement les Fleurs Bleues", 2000, EAvancement.terminé, new Date(2017-12-12),
-                1520000, true, new Date(2017-10-22), 14);
+                "Lotissement les Fleurs Bleues", 2000, EAvancement.terminé, dans140Jours,
+                1520000, true, dans100Jours, 14);
 
         em.persist(lotissement10L8E10A);
 
@@ -433,7 +433,7 @@ public class Seeder {
         reseauxImmeuble10A8L7E8A.setEntreprisesRealisatrices(entreprisesReseauxImmeuble10A8L7E8A);
 
         Projet immeuble10A8L7E8A = new Immeuble("Immeuble10A8L7E8A", "Immeuble de rapport 10 appartements",
-                2500, EAvancement.terminé, new Date(2017-5-11), 1620000, true, new Date(2017-5-24),
+                2500, EAvancement.terminé, dans120Jours, 1620000, true, dans100Jours,
                 4, appartsImmeuble10A8L7E8A);
 
         immeuble10A8L7E8A.setAdresse(adresseImmeuble10A8L7E8A);
@@ -548,7 +548,7 @@ public class Seeder {
         terrassementHopital10L9E11A.setEntreprisesRealisatrices(entreprisesTerrassementHopital10L9E11A);
 
         Projet hopital10L9E11A = new Hopital("hopital10L9E11A", "Hôpital Saint-Martin", 6000,
-                EAvancement.terminé, new Date(2016-5-5), 5420000, true, new Date(2017-5-19), EMinistere.santé,
+                EAvancement.terminé, dans140Jours, 5420000, true, dans110Jours, EMinistere.santé,
                 357, 24);
 
         hopital10L9E11A.setAdresse(adresseHopital10L9E11A);
@@ -619,7 +619,7 @@ public class Seeder {
         reseauxMaison5L4E4A.setEntreprisesRealisatrices(entreprisesPlomberieMaison5L4E4A);
 
         Projet maison5L4E4A = new Maison("Maison5L4E4A", "Maison pour 4 personnes", 150,
-                EAvancement.terminé, new Date(2017-12-1), 400000, true, new Date(2017-10-11),
+                EAvancement.terminé, dans120Jours, 400000, true, dans100Jours,
                 5, 2);
 
         maison5L4E4A.setAdresse(adresseMaison5L4E4A);
@@ -642,8 +642,8 @@ public class Seeder {
         // Un établissement scolaire : pas de lots ---------------------------------------------------------------------
 
         Projet etablissementScolaire0L = new EtablissementScolaire("EtablissementScolaire0L", "Lycée les Lavandes",
-                1500, EAvancement.enCours, new Date(2017-9-18), 2500000, false,
-                new Date(2017-12-9), EMinistere.education,1142, EEtaScolaire.lycee);
+                1500, EAvancement.enCours, dans100Jours, 2500000, false,
+                dans140Jours, EMinistere.education,1142, EEtaScolaire.lycee);
 
         etablissementScolaire0L.setAdresse(adresseEtablissementScolaire0L);
         em.persist(etablissementScolaire0L);
@@ -696,7 +696,7 @@ public class Seeder {
         lotsImmeuble8A7L.add(reseauxImmeuble8A7L);
 
         Projet immeuble8A7L = new Immeuble("Immeuble8A7L", "Immeuble HLM", 2500, EAvancement.enCours,
-                new Date(2017-5-26), 3000000, false, new Date(2018-5-26), 7, appartsImmeuble8A7L);
+                dans110Jours, 3000000, false, dans120Jours, 7, appartsImmeuble8A7L);
 
         immeuble8A7L.setAdresse(adresseImmeuble8A7L);
         immeuble8A7L.setLots(lotsImmeuble8A7L);
@@ -801,7 +801,7 @@ public class Seeder {
         platerieMusee10L8E15A.setEntreprisesRealisatrices(entreprisesPlaterieMusee10L8E15A);
 
         Projet musee10L8E15A = new Musee("Musee10L8E15A", "Musée des Arts Modernes", 6000,
-                EAvancement.enCours, new Date(2017-5-5), 6520000, false, new Date(2017-12-31),
+                EAvancement.enCours, dans100Jours, 6520000, false, dans120Jours,
                 EMinistere.culture, 8);
 
         musee10L8E15A.setAdresse(adresseMusee10L8E15A);

@@ -21,6 +21,13 @@ import static javax.persistence.GenerationType.IDENTITY;
 						"WHERE e = (SELECT id FROM Entreprise WHERE nom = :entreprise) " +
 						"AND p.avancement = :avancement "
 		),
+		@NamedQuery(
+				name = "Lots.nombreLotsProjetsPLot12",
+				query = "SELECT COUNT(l.id) " +
+						"FROM Lots l " +
+						"JOIN l.projet p " +
+						"WHERE p.refProjet = :refProjet "
+		),
 })
 
 public abstract class Lots implements Serializable {

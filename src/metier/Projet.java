@@ -29,6 +29,24 @@ import static javax.persistence.GenerationType.IDENTITY;
 						"WHERE e = (SELECT id FROM Entreprise WHERE nom = :entreprise) " +
 						"AND p.avancement = :avancement"
 		),
+		@NamedQuery(
+				name="Projet.coutProjetPLot12",
+				query="SELECT p.coutTotalEstime " +
+					  "FROM Projet p " +
+					  "WHERE p.refProjet = :refProjet "
+		),
+		/*@NamedQuery(
+				name="Projet.entreprisesMenuiseriesProjetsMusees",
+				query="SELECT e.nom, e.adresse " +
+				      "FROM Entreprise e " +
+					  ""
+		),*/
+		@NamedQuery(
+				name="Projet.dureesEstimeesProjetsEnCours",
+				query="SELECT p.nom, p.dateFinEstimee " +
+						"FROM Projet p " +
+						"WHERE p.avancement = :avancement "
+		)
 })
 public abstract class Projet implements Serializable {
 
