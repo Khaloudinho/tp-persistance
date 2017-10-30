@@ -22,27 +22,11 @@ import static javax.persistence.GenerationType.IDENTITY;
 				query = "SELECT p.avancement FROM Projet p WHERE p.refProjet = :reference "
 		),
 		@NamedQuery(
-				name = "Projet.projetsTerminesAvecGeneralBatiment",
-				query = "SELECT DISTINCT p.nom " +
-						"FROM Lots l, IN(l.entreprisesRealisatrices) e " +
-						"JOIN l.projet p " +
-						"WHERE e = (SELECT id FROM Entreprise WHERE nom = :entreprise) " +
-						"AND p.avancement = :avancement"
-		),
-		@NamedQuery(
 				name = "Projet.coutProjetPLot12",
 				query = "SELECT p.coutTotalEstime " +
 					    "FROM Projet p " +
 					    "WHERE p.refProjet = :refProjet "
 		),
-		/*
-		@NamedQuery(
-				name = "Projet.entreprisesMenuiseriesProjetsMusees",
-				query = "SELECT e.nom, e.adresse " +
-				      "FROM Entreprise e " +
-					  ""
-		),
-		*/
 		@NamedQuery(
 				name="Projet.dureesEstimeesProjetsEnCours",
 				query="SELECT p.nom, p.dateFinEstimee " +

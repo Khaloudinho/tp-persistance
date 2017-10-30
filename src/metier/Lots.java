@@ -29,11 +29,39 @@ import static javax.persistence.GenerationType.IDENTITY;
 						"WHERE p.refProjet = :refProjet "
 		),
 		@NamedQuery(
+				name = "Lots.projetsTerminesAvecGeneralBatiment",
+				query = "SELECT DISTINCT p.nom " +
+						"FROM Lots l " +
+						"JOIN l.entreprisesRealisatrices e " +
+						"JOIN l.projet p " +
+						"WHERE e.nom = :entreprise " +
+						"AND p.avancement = :avancement"
+		),
+		@NamedQuery(
+				name = "Lots.entreprisesMenuiseriesProjetsMusees",
+				query = "SELECT e.nom, a.numero, a.rue, a.CP, a.ville " +
+						"FROM Lots l " +
+						"JOIN l.projet p " +
+						"JOIN l.entreprisesRealisatrices e " +
+						"JOIN e.adresse a " +
+						"WHERE type(p) = Musee " +
+						"AND type(l) = Menuiseries "
+		),
+		@NamedQuery(
 				name = "Lots.avancementEtTypeLotsProjetPLot12",
-				query = "SELECT l.id, l.avancement " +
+				query = "SELECT l.id, type(l.id), l.avancement  " +
 						"FROM Lots l " +
 						"JOIN l.projet p " +
 						"WHERE p.refProjet = :refProjet "
+		),
+		@NamedQuery(
+		name = "Lots.acteursEtEntrepriseDuProjetPLot12",
+		query = "SELECT DISTINCT a.nom, e.nom " +
+				"FROM Lots l " +
+				"JOIN l.projet p " +
+				"JOIN l.entreprisesRealisatrices e " +
+				"JOIN e.acteurs a " +
+				"WHERE p.refProjet = :refProjet "
 		)
 })
 
