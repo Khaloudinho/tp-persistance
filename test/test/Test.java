@@ -96,7 +96,7 @@ public class Test {
         Query queryContactsEntrepriseGeneralBatiment = em.createNamedQuery("Acteur.contactsEntrepriseGeneralBatiment", String.class);
         queryContactsEntrepriseGeneralBatiment.setParameter("entreprise", "General Batiment");
         List<String> nomsContactEntrepriseGeneralBatiment = queryContactsEntrepriseGeneralBatiment.getResultList();
-        displayOneAttributeResults(nomsContactEntrepriseGeneralBatiment, "Nom des contacts de l'entreprise Berbe et fils SARL : ");
+        displayOneAttributeResults(nomsContactEntrepriseGeneralBatiment, "Nom des contacts de l'entreprise General Batiment : ");
 
         twoNewLinesInConsole();
 
