@@ -72,10 +72,6 @@ public class Test {
         twoNewLinesInConsole();
 
         // 4 - Combien de projets portant sur un etablissement scolaire ont été realisés ? OK
-        /*
-            RAPPEL : EtablissementScolaire extends de BatimentPublic qui lui meme extends de Projet,
-            la denomination EtablisementScolaire correspond meme si elle trompeuse a un Projet
-        */
 
         System.out.println("======================== REQUÊTE 4 : Combien de projets portant sur un établissement scolaire ont été realisés ? ======================== \n");
         Query queryNombreProjetsEtablissementScolaire = em.createNamedQuery("EtablissementScolaire.nombreDeProjets", Object.class);
@@ -142,7 +138,7 @@ public class Test {
 
         twoNewLinesInConsole();
 
-        // 10 - Combien de lots a le projet de reference " PLot12 " ? OK
+        // 10 - Combien de lots a le projet de reference « PLot12 » ? OK
 
         System.out.println("======================== REQUÊTE 10 : Combien de lots a le projet de reference « PLot12 » ? ======================== \n");
         Query queryNombreLotsProjetPLot12 = em.createNamedQuery("Lots.nombreLotsProjetsPLot12", Object.class);
