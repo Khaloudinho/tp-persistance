@@ -39,12 +39,6 @@ public class Entreprise implements java.io.Serializable {
 	@OneToOne
 	private Adresse adresse;
 
-	/*@ManyToMany
-	private Set<Lots> lotsARealiser;
-
-	@OneToMany
-	private Set<Lots> lotsSousResponsabilite;*/
-
 	public Entreprise() {
 	}
 

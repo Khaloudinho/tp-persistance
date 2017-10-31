@@ -21,9 +21,6 @@ public class Maison extends Projet implements Serializable {
 	private int nbPieces;
 	private int nbNiveaux;
 
-	@ManyToOne
-	private Lotissement lotissement;
-
 	public Maison() {}
 
 	public Maison(String refProjet, String nom, int surfaceTotale, EAvancement avancement, Date dateFinEstimee, int coutTotalEstime, boolean termine, Date dateFinReelle, int nbPieces, int nbNiveaux) {
@@ -46,14 +43,6 @@ public class Maison extends Projet implements Serializable {
 
 	public void setId(int id) {
 		this.id = id;
-	}
-
-	public Lotissement getLotissement() {
-		return lotissement;
-	}
-
-	public void setLotissement(Lotissement lotissement) {
-		this.lotissement = lotissement;
 	}
 
 	public int getNbPieces() {
