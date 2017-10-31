@@ -15,8 +15,8 @@ import static javax.persistence.GenerationType.IDENTITY;
 @Entity
 @NamedQueries({
 		@NamedQuery(
-				name="EtablissementScolaire.nombreDeProjets",
-				query="SELECT count(e) FROM EtablissementScolaire e"
+				name = "EtablissementScolaire.nombreDeProjets",
+				query = "SELECT count(e) FROM EtablissementScolaire e "
 		),
 })
 public class EtablissementScolaire extends BatimentPublic implements Serializable{

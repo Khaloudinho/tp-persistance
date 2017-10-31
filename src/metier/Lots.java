@@ -16,9 +16,10 @@ import static javax.persistence.GenerationType.IDENTITY;
 		@NamedQuery(
 				name = "Lots.lotsDesProjetsEnCoursDeGeneralBatiment",
 				query = "SELECT DISTINCT l.id " +
-						"FROM Lots l, IN(l.entreprisesRealisatrices) e " +
+						"FROM Lots l " +
+						"JOIN l.entreprisesRealisatrices e " +
 						"JOIN l.projet p " +
-						"WHERE e = (SELECT id FROM Entreprise WHERE nom = :entreprise) " +
+						"WHERE e.nom = :entreprise " +
 						"AND p.avancement = :avancement "
 		),
 		@NamedQuery(
@@ -35,7 +36,7 @@ import static javax.persistence.GenerationType.IDENTITY;
 						"JOIN l.entreprisesRealisatrices e " +
 						"JOIN l.projet p " +
 						"WHERE e.nom = :entreprise " +
-						"AND p.avancement = :avancement"
+						"AND p.avancement = :avancement "
 		),
 		@NamedQuery(
 				name = "Lots.entreprisesMenuiseriesProjetsMusees",
