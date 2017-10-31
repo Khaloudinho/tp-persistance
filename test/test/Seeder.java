@@ -38,7 +38,7 @@ public class Seeder {
         // Entreprises réalisant les projets ---------------------------------------------------------------------------
 
         Entreprise entrepriseBerbe = new Entreprise("Berbe et fils SARL", ECorpsMetier.Macon, "0325871035");
-        Entreprise entrepriseSancho = new Entreprise("Sancho et fils SARL", ECorpsMetier.Carreleur, "0325871036");
+        Entreprise entrepriseGeneralBatiment = new Entreprise("General Batiment", ECorpsMetier.Carreleur, "0325871036");
         Entreprise entrepriseArnoult = new Entreprise("Arnoult SA", ECorpsMetier.Menuisier, "0325871037");
         Entreprise entrepriseDehaye = new Entreprise("Dehaye et fils SARL", ECorpsMetier.Electricien, "0325871038");
         Entreprise entreprisePeintreExperts = new Entreprise("Peintre experts SARL", ECorpsMetier.Peintre, "0325871039");
@@ -51,7 +51,7 @@ public class Seeder {
         Entreprise entrepriseAkar = new Entreprise("Akar maçons SA", ECorpsMetier.Macon, "0325871046");
 
         em.persist(entrepriseBerbe);
-        em.persist(entrepriseSancho);
+        em.persist(entrepriseGeneralBatiment);
         em.persist(entrepriseArnoult);
         em.persist(entrepriseDehaye);
         em.persist(entreprisePeintreExperts);
@@ -100,7 +100,7 @@ public class Seeder {
         vignarde.setEntreprise(entrepriseBellorti);
         cornevin.setEntreprise(entrepriseDehaye);
         villemin.setEntreprise(entrepriseBombardi);
-        sanchez.setEntreprise(entrepriseSancho);
+        sanchez.setEntreprise(entrepriseGeneralBatiment);
         ivanov.setEntreprise(entrepriseArnoult);
         durand.setEntreprise(entrepriseProCharpente);
         guizane.setEntreprise(entrepriseCouvreTout);
@@ -130,7 +130,7 @@ public class Seeder {
         // Peupler les entreprises avec des acteurs --------------------------------------------------------------------
 
         Set<Acteur> acteursBerbe = new HashSet<>();
-        Set<Acteur> acteursSancho = new HashSet<>();
+        Set<Acteur> acteursGeneralBatiment = new HashSet<>();
         Set<Acteur> acteursArnoult = new HashSet<>();
         Set<Acteur> acteursDehaye = new HashSet<>();
         Set<Acteur> acteursPeintreExperts = new HashSet<>();
@@ -145,7 +145,7 @@ public class Seeder {
         acteursBerbe.add(berbe);
         acteursBerbe.add(martin);
         acteursBerbe.add(grossi);
-        acteursSancho.add(sanchez);
+        acteursGeneralBatiment.add(sanchez);
         acteursArnoult.add(ivanov);
         acteursArnoult.add(martel);
         acteursDehaye.add(cornevin);
@@ -163,7 +163,7 @@ public class Seeder {
         acteursAkar.add(hakki);
 
         entrepriseBerbe.setActeurs(acteursBerbe);
-        entrepriseSancho.setActeurs(acteursSancho);
+        entrepriseGeneralBatiment.setActeurs(acteursGeneralBatiment);
         entrepriseArnoult.setActeurs(acteursArnoult);
         entrepriseDehaye.setActeurs(acteursDehaye);
         entreprisePeintreExperts.setActeurs(acteursPeintreExperts);
@@ -178,7 +178,7 @@ public class Seeder {
         // On donne une adresse à chaque entreprise
         
         Adresse adresseEntrepriseBerbe = new Adresse(12, "rue des Peupliers", "67500", "Haguenau");
-        Adresse adresseEntrepriseSancho = new Adresse(154, "rue des Rosiers", "70200", "Héricourt");
+        Adresse adresseEntrepriseGeneralBatiment = new Adresse(154, "rue des Rosiers", "70200", "Héricourt");
         Adresse adresseEntrepriseArnoult = new Adresse(20, "rue d'Austrasie", "54000", "Nancy");
         Adresse adresseEntrepriseDehaye = new Adresse(26, "rue des Fusillés", "57000", "Metz");
         Adresse adresseEntreprisePeintreExperts = new Adresse(111, "rue de l'Europe", "54000", "Laxou");
@@ -194,10 +194,10 @@ public class Seeder {
         Adresse adresseMaison5L4E4A = new Adresse(22, "route de la Victoire", "83000", "Toulon");
         Adresse adresseEtablissementScolaire0L = new Adresse(44, "rue des Sources", "93400", "Clichy-sous-Bois");
         Adresse adresseImmeuble8A7L = new Adresse(9, "rue Marie Curie", "L-2850", "Luxembourg");
-        Adresse adresseMusee10L8E15A = new Adresse(188, "rue Napoléon Bonaparte", "67000", "Strasbourg");
+        Adresse adressePLot12 = new Adresse(188, "rue Napoléon Bonaparte", "67000", "Strasbourg");
 
         em.persist(adresseEntrepriseBerbe);
-        em.persist(adresseEntrepriseSancho);
+        em.persist(adresseEntrepriseGeneralBatiment);
         em.persist(adresseEntrepriseArnoult);
         em.persist(adresseEntrepriseDehaye);
         em.persist(adresseEntreprisePeintreExperts);
@@ -213,10 +213,10 @@ public class Seeder {
         em.persist(adresseMaison5L4E4A);
         em.persist(adresseEtablissementScolaire0L);
         em.persist(adresseImmeuble8A7L);
-        em.persist(adresseMusee10L8E15A);
+        em.persist(adressePLot12);
 
         entrepriseBerbe.setAdresse(adresseEntrepriseBerbe);
-        entrepriseSancho.setAdresse(adresseEntrepriseSancho);
+        entrepriseGeneralBatiment.setAdresse(adresseEntrepriseGeneralBatiment);
         entrepriseArnoult.setAdresse(adresseEntrepriseArnoult);
         entrepriseDehaye.setAdresse(adresseEntrepriseDehaye);
         entreprisePeintreExperts.setAdresse(adresseEntreprisePeintreExperts);
@@ -269,7 +269,7 @@ public class Seeder {
 
         entreprisesCharpenteLotissement10L8E10A.add(entrepriseProCharpente);
         entreprisesCharpenteLotissement10L8E10A.add(entrepriseCouvreTout);
-        entreprisesDallageLotissement10L8E10A.add(entrepriseSancho);
+        entreprisesDallageLotissement10L8E10A.add(entrepriseGeneralBatiment);
         entreprisesElectriciteLotissement10L8E10A.add(entrepriseDehaye);
         entreprisesMenuiseriesLotissement10L8E10A.add(entrepriseArnoult);
         entreprisesPeintureLotissement10L8E10A.add(entreprisePeintreExperts);
@@ -283,7 +283,7 @@ public class Seeder {
         couvertureLotissement10L8E10A.setEntrepriseResponsable(entrepriseCouvreTout);
         couvertureLotissement10L8E10A.setEntreprisesRealisatrices(entreprisesCharpenteLotissement10L8E10A);
 
-        dallageLotissement10L8E10A.setEntrepriseResponsable(entrepriseSancho);
+        dallageLotissement10L8E10A.setEntrepriseResponsable(entrepriseGeneralBatiment);
         dallageLotissement10L8E10A.setEntreprisesRealisatrices(entreprisesDallageLotissement10L8E10A);
 
         electriciteLotissement10L8E10A.setEntrepriseResponsable(entrepriseDehaye);
@@ -401,7 +401,7 @@ public class Seeder {
         Set<Entreprise> entreprisesReseauxImmeuble10A8L7E8A = new HashSet<>();
 
         entreprisesCharpenteImmeuble10A8L7E8A.add(entrepriseProCharpente);
-        entreprisesDallageImmeuble10A8L7E8A.add(entrepriseSancho);
+        entreprisesDallageImmeuble10A8L7E8A.add(entrepriseGeneralBatiment);
         entreprisesElectriciteImmeuble10A8L7E8A.add(entrepriseDehaye);
         entreprisesMaconnerieImmeuble10A8L7E8A.add(entrepriseAkar);
         entreprisesMenuiseriesImmeuble10A8L7E8A.add(entrepriseArnoult);
@@ -411,7 +411,7 @@ public class Seeder {
         charpenteImmeuble10A8L7E8A.setEntrepriseResponsable(entrepriseProCharpente);
         charpenteImmeuble10A8L7E8A.setEntreprisesRealisatrices(entreprisesCharpenteImmeuble10A8L7E8A);
 
-        dallageImmeuble10A8L7E8A.setEntrepriseResponsable(entrepriseSancho);
+        dallageImmeuble10A8L7E8A.setEntrepriseResponsable(entrepriseGeneralBatiment);
         dallageImmeuble10A8L7E8A.setEntreprisesRealisatrices(entreprisesDallageImmeuble10A8L7E8A);
 
         electriciteImmeuble10A8L7E8A.setEntrepriseResponsable(entrepriseDehaye);
@@ -507,7 +507,7 @@ public class Seeder {
         Set<Entreprise> entreprisesTerrassementHopital10L9E11A = new HashSet<>();
 
         entreprisesCharpenteHopital10L9E11A.add(entrepriseProCharpente);
-        entreprisesDallageHopital10L9E11A.add(entrepriseSancho);
+        entreprisesDallageHopital10L9E11A.add(entrepriseGeneralBatiment);
         entreprisesElectriciteHopital10L9E11A.add(entrepriseDehaye);
         entreprisesFondationHopital10L9E11A.add(entrepriseAkar);
         entreprisesMaconnerieHopital10L9E11A.add(entrepriseAkar);
@@ -520,7 +520,7 @@ public class Seeder {
         charpenteHopital10L9E11A.setEntrepriseResponsable(entrepriseProCharpente);
         charpenteHopital10L9E11A.setEntreprisesRealisatrices(entreprisesCharpenteHopital10L9E11A);
 
-        dallageHopital10L9E11A.setEntrepriseResponsable(entrepriseSancho);
+        dallageHopital10L9E11A.setEntrepriseResponsable(entrepriseGeneralBatiment);
         dallageHopital10L9E11A.setEntreprisesRealisatrices(entreprisesDallageHopital10L9E11A);
 
         electriciteHopital10L9E11A.setEntrepriseResponsable(entrepriseDehaye);
@@ -598,7 +598,7 @@ public class Seeder {
         Set<Entreprise> entreprisesPlomberieMaison5L4E4A = new HashSet<>();
         Set<Entreprise> entreprisesCharpenterieMaison5L4E4A = new HashSet<>();
 
-        entreprisesCarrelageMaison5L4E4A.add(entrepriseSancho);
+        entreprisesCarrelageMaison5L4E4A.add(entrepriseGeneralBatiment);
         entreprisesElectriciteMaison5L4E4A.add(entrepriseBombardi);
         entreprisesPlomberieMaison5L4E4A.add(entrepriseDehaye);
         entreprisesCharpenterieMaison5L4E4A.add(entrepriseProCharpente);
@@ -606,13 +606,13 @@ public class Seeder {
         charpenteMaison5L4E4A.setEntrepriseResponsable(entrepriseProCharpente);
         charpenteMaison5L4E4A.setEntreprisesRealisatrices(entreprisesCharpenterieMaison5L4E4A);
 
-        dallageMaison5L4E4A.setEntrepriseResponsable(entrepriseSancho);
+        dallageMaison5L4E4A.setEntrepriseResponsable(entrepriseGeneralBatiment);
         dallageMaison5L4E4A.setEntreprisesRealisatrices(entreprisesCarrelageMaison5L4E4A);
 
         electriciteMaison5L4E4A.setEntrepriseResponsable(entrepriseBombardi);
         electriciteMaison5L4E4A.setEntreprisesRealisatrices(entreprisesElectriciteMaison5L4E4A);
 
-        maconnerieMaison5L4E4A.setEntrepriseResponsable(entrepriseSancho);
+        maconnerieMaison5L4E4A.setEntrepriseResponsable(entrepriseGeneralBatiment);
         maconnerieMaison5L4E4A.setEntreprisesRealisatrices(entreprisesCarrelageMaison5L4E4A);
 
         reseauxMaison5L4E4A.setEntrepriseResponsable(entrepriseDehaye);
@@ -730,105 +730,105 @@ public class Seeder {
 
         // Un musée : 10 lots, 8 entreprises, 15 acteurs ---------------------------------------------------------------
 
-        Lots terrassementMusee10L8E15A = new Terrassement(1, maintenant, 3, 20, 10, dans100Jours, 100);
-        Lots dallageMusee10L8E15A = new Dallage(2, maintenant, 2, 10, 5, dans110Jours, 1000);
-        Lots menuiseriesMusee10L8E15A = new Menuiseries(3, maintenant, 1, 14, 7, dans120Jours, 16, 10, 4);
-        Lots fondationsMusee10L8E15A = new Fondation(4, maintenant, 2, 20, 10, dans110Jours, 20);
-        Lots maconnerieMusee10L8E15A = new Maconnerie(5, maintenant, 5, 30, 15, dans100Jours, 2000, 20);
-        Lots electriciteMusee10L8E15A = new Electricite(6, maintenant, 3, 18, 9, dans130Jours, 10, 100);
-        Lots reseauxMusee10L8E15A = new Reseaux(7, maintenant, 1, 6, 3, dans140Jours, 1000);
-        Lots peintureMusee10L8E15A = new Peinture(8, maintenant, 4, 4, 2, dans130Jours, 100);
+        Lots terrassementPLot12 = new Terrassement(1, maintenant, 3, 20, 10, dans100Jours, 100);
+        Lots dallagePLot12 = new Dallage(2, maintenant, 2, 10, 5, dans110Jours, 1000);
+        Lots menuiseriesPLot12 = new Menuiseries(3, maintenant, 1, 14, 7, dans120Jours, 16, 10, 4);
+        Lots fondationsPLot12 = new Fondation(4, maintenant, 2, 20, 10, dans110Jours, 20);
+        Lots maconneriePLot12 = new Maconnerie(5, maintenant, 5, 30, 15, dans100Jours, 2000, 20);
+        Lots electricitePLot12 = new Electricite(6, maintenant, 3, 18, 9, dans130Jours, 10, 100);
+        Lots reseauxPLot12 = new Reseaux(7, maintenant, 1, 6, 3, dans140Jours, 1000);
+        Lots peinturePLot12 = new Peinture(8, maintenant, 4, 4, 2, dans130Jours, 100);
         Lots peintureMuseeHall10L8E15A = new Peinture(9, maintenant, 1, 2, 1, dans130Jours, 30);
-        Lots platerieMusee10L8E15A = new Platerie(10, maintenant, 3, 6, 3, dans120Jours, 500,700);
+        Lots plateriePLot12 = new Platerie(10, maintenant, 3, 6, 3, dans120Jours, 500,700);
 
-        Set<Lots> lotsMusee10L8E15A = new HashSet<>();
-        lotsMusee10L8E15A.add(terrassementMusee10L8E15A);
-        lotsMusee10L8E15A.add(dallageMusee10L8E15A);
-        lotsMusee10L8E15A.add(menuiseriesMusee10L8E15A);
-        lotsMusee10L8E15A.add(fondationsMusee10L8E15A);
-        lotsMusee10L8E15A.add(maconnerieMusee10L8E15A);
-        lotsMusee10L8E15A.add(electriciteMusee10L8E15A);
-        lotsMusee10L8E15A.add(reseauxMusee10L8E15A);
-        lotsMusee10L8E15A.add(peintureMusee10L8E15A);
-        lotsMusee10L8E15A.add(peintureMuseeHall10L8E15A);
-        lotsMusee10L8E15A.add(platerieMusee10L8E15A);
+        Set<Lots> lotsPLot12 = new HashSet<>();
+        lotsPLot12.add(terrassementPLot12);
+        lotsPLot12.add(dallagePLot12);
+        lotsPLot12.add(menuiseriesPLot12);
+        lotsPLot12.add(fondationsPLot12);
+        lotsPLot12.add(maconneriePLot12);
+        lotsPLot12.add(electricitePLot12);
+        lotsPLot12.add(reseauxPLot12);
+        lotsPLot12.add(peinturePLot12);
+        lotsPLot12.add(peintureMuseeHall10L8E15A);
+        lotsPLot12.add(plateriePLot12);
 
-        Set<Entreprise> entreprisesTerrassementMusee10L8E15A = new HashSet<>();
-        Set<Entreprise> entreprisesDallageMusee10L8E15A = new HashSet<>();
-        Set<Entreprise> entreprisesMenuiseriesMusee10L8E15A = new HashSet<>();
-        Set<Entreprise> entreprisesFondationsMusee10L8E15A = new HashSet<>();
-        Set<Entreprise> entreprisesElectriciteReseauxMusee10L8E15A = new HashSet<>();
-        Set<Entreprise> entreprisesPeintureMusee10L8E15A = new HashSet<>();
-        Set<Entreprise> entreprisesPlaterieMusee10L8E15A = new HashSet<>();
+        Set<Entreprise> entreprisesTerrassementPLot12 = new HashSet<>();
+        Set<Entreprise> entreprisesDallagePLot12 = new HashSet<>();
+        Set<Entreprise> entreprisesMenuiseriesPLot12 = new HashSet<>();
+        Set<Entreprise> entreprisesFondationsPLot12 = new HashSet<>();
+        Set<Entreprise> entreprisesElectriciteReseauxPLot12 = new HashSet<>();
+        Set<Entreprise> entreprisesPeinturePLot12 = new HashSet<>();
+        Set<Entreprise> entreprisesPlateriePLot12 = new HashSet<>();
 
-        entreprisesTerrassementMusee10L8E15A.add(entrepriseBerbe);
-        entreprisesDallageMusee10L8E15A.add(entrepriseSancho);
-        entreprisesMenuiseriesMusee10L8E15A.add(entrepriseArnoult);
-        entreprisesFondationsMusee10L8E15A.add(entrepriseBerbe);
-        entreprisesFondationsMusee10L8E15A.add(entrepriseBellorti);
-        entreprisesElectriciteReseauxMusee10L8E15A.add(entrepriseDehaye);
-        entreprisesPeintureMusee10L8E15A.add(entreprisePeintreExperts);
-        entreprisesPlaterieMusee10L8E15A.add(entreprisePlacoExpert);
+        entreprisesTerrassementPLot12.add(entrepriseBerbe);
+        entreprisesDallagePLot12.add(entrepriseGeneralBatiment);
+        entreprisesMenuiseriesPLot12.add(entrepriseArnoult);
+        entreprisesFondationsPLot12.add(entrepriseBerbe);
+        entreprisesFondationsPLot12.add(entrepriseBellorti);
+        entreprisesElectriciteReseauxPLot12.add(entrepriseDehaye);
+        entreprisesPeinturePLot12.add(entreprisePeintreExperts);
+        entreprisesPlateriePLot12.add(entreprisePlacoExpert);
 
-        terrassementMusee10L8E15A.setEntrepriseResponsable(entrepriseBerbe);
-        terrassementMusee10L8E15A.setEntreprisesRealisatrices(entreprisesTerrassementMusee10L8E15A);
+        terrassementPLot12.setEntrepriseResponsable(entrepriseBerbe);
+        terrassementPLot12.setEntreprisesRealisatrices(entreprisesTerrassementPLot12);
 
-        dallageMusee10L8E15A.setEntrepriseResponsable(entrepriseSancho);
-        dallageMusee10L8E15A.setEntreprisesRealisatrices(entreprisesDallageMusee10L8E15A);
+        dallagePLot12.setEntrepriseResponsable(entrepriseGeneralBatiment);
+        dallagePLot12.setEntreprisesRealisatrices(entreprisesDallagePLot12);
 
-        menuiseriesMusee10L8E15A.setEntrepriseResponsable(entrepriseArnoult);
-        menuiseriesMusee10L8E15A.setEntreprisesRealisatrices(entreprisesMenuiseriesMusee10L8E15A);
+        menuiseriesPLot12.setEntrepriseResponsable(entrepriseArnoult);
+        menuiseriesPLot12.setEntreprisesRealisatrices(entreprisesMenuiseriesPLot12);
 
-        fondationsMusee10L8E15A.setEntrepriseResponsable(entrepriseBellorti);
-        fondationsMusee10L8E15A.setEntreprisesRealisatrices(entreprisesFondationsMusee10L8E15A);
+        fondationsPLot12.setEntrepriseResponsable(entrepriseBellorti);
+        fondationsPLot12.setEntreprisesRealisatrices(entreprisesFondationsPLot12);
 
-        maconnerieMusee10L8E15A.setEntrepriseResponsable(entrepriseBellorti);
-        maconnerieMusee10L8E15A.setEntreprisesRealisatrices(entreprisesFondationsMusee10L8E15A);
+        maconneriePLot12.setEntrepriseResponsable(entrepriseBellorti);
+        maconneriePLot12.setEntreprisesRealisatrices(entreprisesFondationsPLot12);
 
-        electriciteMusee10L8E15A.setEntrepriseResponsable(entrepriseDehaye);
-        electriciteMusee10L8E15A.setEntreprisesRealisatrices(entreprisesElectriciteReseauxMusee10L8E15A);
+        electricitePLot12.setEntrepriseResponsable(entrepriseDehaye);
+        electricitePLot12.setEntreprisesRealisatrices(entreprisesElectriciteReseauxPLot12);
 
-        reseauxMusee10L8E15A.setEntrepriseResponsable(entrepriseDehaye);
-        reseauxMusee10L8E15A.setEntreprisesRealisatrices(entreprisesElectriciteReseauxMusee10L8E15A);
+        reseauxPLot12.setEntrepriseResponsable(entrepriseDehaye);
+        reseauxPLot12.setEntreprisesRealisatrices(entreprisesElectriciteReseauxPLot12);
 
-        peintureMusee10L8E15A.setEntrepriseResponsable(entreprisePeintreExperts);
-        peintureMusee10L8E15A.setEntreprisesRealisatrices(entreprisesPeintureMusee10L8E15A);
+        peinturePLot12.setEntrepriseResponsable(entreprisePeintreExperts);
+        peinturePLot12.setEntreprisesRealisatrices(entreprisesPeinturePLot12);
 
         peintureMuseeHall10L8E15A.setEntrepriseResponsable(entreprisePeintreExperts);
-        peintureMuseeHall10L8E15A.setEntreprisesRealisatrices(entreprisesPeintureMusee10L8E15A);
+        peintureMuseeHall10L8E15A.setEntreprisesRealisatrices(entreprisesPeinturePLot12);
 
-        platerieMusee10L8E15A.setEntrepriseResponsable(entreprisePeintreExperts);
-        platerieMusee10L8E15A.setEntreprisesRealisatrices(entreprisesPlaterieMusee10L8E15A);
+        plateriePLot12.setEntrepriseResponsable(entreprisePeintreExperts);
+        plateriePLot12.setEntreprisesRealisatrices(entreprisesPlateriePLot12);
 
-        Projet musee10L8E15A = new Musee("Musee10L8E15A", "Musée des Arts Modernes", 6000,
+        Projet pLot12 = new Musee("PLot12", "Musée des Arts Modernes", 6000,
                 EAvancement.enCours, dans100Jours, 6520000, false, dans120Jours,
                 EMinistere.culture, 8);
 
-        musee10L8E15A.setAdresse(adresseMusee10L8E15A);
-        musee10L8E15A.setLots(lotsMusee10L8E15A);
+        pLot12.setAdresse(adressePLot12);
+        pLot12.setLots(lotsPLot12);
 
-        em.persist(musee10L8E15A);
+        em.persist(pLot12);
 
-        terrassementMusee10L8E15A.setProjet(musee10L8E15A);
-        dallageMusee10L8E15A.setProjet(musee10L8E15A);
-        menuiseriesMusee10L8E15A.setProjet(musee10L8E15A);
-        fondationsMusee10L8E15A.setProjet(musee10L8E15A);
-        maconnerieMusee10L8E15A.setProjet(musee10L8E15A);
-        electriciteMusee10L8E15A.setProjet(musee10L8E15A);
-        reseauxMusee10L8E15A.setProjet(musee10L8E15A);
-        peintureMusee10L8E15A.setProjet(musee10L8E15A);
-        peintureMuseeHall10L8E15A.setProjet(musee10L8E15A);
-        platerieMusee10L8E15A.setProjet(musee10L8E15A);
+        terrassementPLot12.setProjet(pLot12);
+        dallagePLot12.setProjet(pLot12);
+        menuiseriesPLot12.setProjet(pLot12);
+        fondationsPLot12.setProjet(pLot12);
+        maconneriePLot12.setProjet(pLot12);
+        electricitePLot12.setProjet(pLot12);
+        reseauxPLot12.setProjet(pLot12);
+        peinturePLot12.setProjet(pLot12);
+        peintureMuseeHall10L8E15A.setProjet(pLot12);
+        plateriePLot12.setProjet(pLot12);
 
-        em.persist(terrassementMusee10L8E15A);
-        em.persist(dallageMusee10L8E15A);
-        em.persist(menuiseriesMusee10L8E15A);
-        em.persist(fondationsMusee10L8E15A);
-        em.persist(maconnerieMusee10L8E15A);
-        em.persist(electriciteMusee10L8E15A);
-        em.persist(reseauxMusee10L8E15A);
-        em.persist(peintureMusee10L8E15A);
+        em.persist(terrassementPLot12);
+        em.persist(dallagePLot12);
+        em.persist(menuiseriesPLot12);
+        em.persist(fondationsPLot12);
+        em.persist(maconneriePLot12);
+        em.persist(electricitePLot12);
+        em.persist(reseauxPLot12);
+        em.persist(peinturePLot12);
         em.persist(peintureMuseeHall10L8E15A);
-        em.persist(platerieMusee10L8E15A);
+        em.persist(plateriePLot12);
     }
 }
