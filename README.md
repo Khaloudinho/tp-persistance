@@ -1,19 +1,12 @@
-# Authors
-BERTRAND Guillaume
-
-BOUGUETTOUCHA Khaled
-# tp-persistance
+# Project name : tp-persistance
 Little practical task using JPA en JPQL
 
+# Authors
+BERTRAND Guillaume
+BOUGUETTOUCHA Khaled
+
 # DB configuration
-You have to have these mysql credentials in order to use the our jar :
 
-engine : mysql or mariadb
+You have to have these MySQL credentials in order to use our .jar
 
-(create a database: tpersistance)
-
-port : 3306
-
-user : root
-
-password : root
+You just need to launch BERTRAND_BOUGUETTOUCHA_Dump.sql in the .zip and the database will be created itself
